@@ -10,7 +10,16 @@ A Secret Santa (Wichteln) gift finder for students in Germany. Enter how many gi
 - Optional 2-item bundles per gift (e.g. chocolate Santa + lip balm) and gift bags
 - **My list**: add any item, gift or whole combination, change quantities, remove items, delete the list (with undo), and copy it to share
 - **Stores near you**: tick the stores you can reach (remembered in your browser), enter your postcode for a "find nearest" map link per store
+- **English / Deutsch** language switch (remembers your choice)
+- **Impossible budgets handled**: e.g. 20 gifts for €1 explains why and offers one-tap fixes (raise budget, fewer gifts, allow identical gifts, more stores)
+- **Postcode → nearby stores**: enter a Hamburg postcode and stores within 1–5 km are ticked automatically (50 postcodes, OpenStreetMap data)
+- Offers expire automatically after their end date; price age is shown live
 - Browse and search all products
+
+## Regression testing
+Report: **https://s1nc0de.github.io/wichtel-shopper/report.html**
+
+Run it yourself: `cd tests && npm install && npm test` (runs the real `index.html` in jsdom for 50 Hamburg postcodes × 7 budget scenarios and rewrites `report.html`).
 
 ## About the prices
 Prices are a snapshot read from each store's own website (date shown in the app). A static page can't fetch live prices because the store sites block cross-site requests and there's no public price API.
@@ -24,6 +33,7 @@ Prices are a snapshot read from each store's own website (date shown in the app)
 |---|---|---|
 | v1.0 | 2026-11-18 | Real products and prices, Skyscanner-style layout, up to 10 combinations, My list with delete/undo, stores-near-you picker |
 | v1.1 | 2026-11-18 | Copyright and trademark notices, LICENSE |
+| v1.2 | 2026-11-18 | EN/DE switch, impossible-case handling, postcode store selection, offer expiry, regression suite (50 postcodes × 7 scenarios, 59,559 checks, all passing) |
 
 Single-file app: everything lives in `index.html` (no build step).
 

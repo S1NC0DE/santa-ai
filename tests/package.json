@@ -1,0 +1,1 @@
+{ "name": "wichtel-shopper-tests", "private": true, "scripts": { "test": "node regression.js && node gen_report.js" }, "devDependencies": { "jsdom": "^24.0.0" } }
