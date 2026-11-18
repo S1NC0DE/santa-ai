@@ -40,6 +40,7 @@ Prices are a snapshot read from each store's own website (date shown in the app)
 | v1.4 | 2026-11-18 | Product photos (from the stores' own image servers), ⓘ help on every field, clearer "Search radius", Woolworth removed (no online prices) |
 | v1.5 | 2026-11-18 | Wrapping section (gift bags or paper + ribbon, real prices from Action, dm, TEDi), shown separately and not counted in the gift budget |
 | v1.6 | 2026-11-18 | All 99 Hamburg postcodes built in (auto-select nearby stores), repo renamed to santa-ai, regression: 99 postcodes × 7 scenarios, 119,712 checks passing |
+| v1.7 | 2026-11-18 | "Use my location" button always available: finds the Hamburg postcode you're in and ticks nearby stores; clear messages if location is blocked or outside Hamburg |
 
 Single-file app: everything lives in `index.html` (no build step).
 
