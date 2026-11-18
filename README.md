@@ -1,4 +1,4 @@
-# 🎁 Wichtel Shopper
+# 🎁 Wichtel Shopper™
 
 A Secret Santa (Wichteln) gift finder for students in Germany. Enter how many gifts you need and your total budget, and it builds ready-to-shop lists from real products at **dm, Rossmann, Aldi Nord, Rewe, Action, TEDi, Kaufland and Lidl**, grouped by store so you can walk in and grab.
 
@@ -23,5 +23,11 @@ Prices are a snapshot read from each store's own website (date shown in the app)
 | Version | Date | Changes |
 |---|---|---|
 | v1.0 | 2026-11-18 | Real products and prices, Skyscanner-style layout, up to 10 combinations, My list with delete/undo, stores-near-you picker |
+| v1.1 | 2026-11-18 | Copyright and trademark notices, LICENSE |
 
 Single-file app: everything lives in `index.html` (no build step).
+
+## Copyright & trademark
+© 2026 Jayant Singh Amethia ([@S1NC0DE](https://github.com/S1NC0DE)). All rights reserved. See [LICENSE](LICENSE).
+
+Wichtel Shopper™ is a trademark of Jayant Singh Amethia. Store and product names are trademarks of their respective owners. This project is independent and not affiliated with any of the stores listed.

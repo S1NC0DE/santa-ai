@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jayant Singh Amethia">
+<meta name="copyright" content="© 2026 Jayant Singh Amethia. All rights reserved.">
 <title>Wichtel Shopper – Secret Santa gift finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -154,12 +156,15 @@ details.panel .body{margin-top:12px}
 .tile a{font-size:12px;font-weight:600}
 .tile.off{opacity:.5;cursor:not-allowed}
 .linkbtn{background:none;border:0;color:var(--blue);font:700 13px Inter;cursor:pointer;padding:4px}
+.foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.6;text-align:center}
+.foot b{color:var(--ink)}
+.foot .small{font-size:11.5px;margin-top:6px}
 @media(max-width:560px){.tab .p{font-size:17px}.tab{padding:10px}.price .big{font-size:21px}.top h1{font-size:22px}}
 </style>
 </head>
 <body>
 <div class="top"><div class="inner">
-  <div class="brand"><span class="logo">🎁</span>Wichtel Shopper</div>
+  <div class="brand"><span class="logo">🎁</span>Wichtel Shopper<sup style="font-size:11px;font-weight:700;margin-left:-4px">™</sup></div>
   <h1>Compare Secret Santa gifts across 9 stores</h1>
   <div class="search">
     <div class="field"><label for="n">Gifts</label><div class="ctl"><button class="s" data-step="n,-1" aria-label="fewer">−</button><input id="n" type="number" inputmode="numeric" min="1" max="100" value="20"><button class="s" data-step="n,1" aria-label="more">+</button></div></div>
@@ -192,6 +197,11 @@ details.panel .body{margin-top:12px}
   </details>
   <div id="out"><div class="panel empty">Set the number of gifts, your budget and how many combinations to compare, then hit <b>Search gifts</b>.<br>Use <b>+ Add</b> on any item, gift or combination to build <b>My list</b>, or <a href="#" data-browse>browse all products</a>.</div></div>
   <p class="note"><b>Where prices come from.</b> <span class="tag site">store site</span> = read from the store's own website on <span class="chk"></span> (Rewe prices for Hamburg 20457, Aldi = Aldi Nord). <span class="tag offer">offer</span> = this week's promo on the store site, shown with its dates. <span class="tag rep">report</span> = Lidl doesn't publish its shelf prices online, so its one item comes from the Verbraucherzentrale Hamburg price check (Oct 2026). Woolworth has no online prices at all, so it isn't included. This page can't fetch prices live. Store websites block that kind of access, so the prices are a snapshot from the date above. Shelf prices can differ by branch.</p>
+  <footer class="foot">
+    <div><b>Wichtel Shopper™</b> is a trademark of Jayant Singh Amethia.</div>
+    <div>© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). All rights reserved.</div>
+    <div class="small">dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl and Woolworth are trademarks of their respective owners. Wichtel Shopper is an independent project and isn't affiliated with or endorsed by any of these stores.</div>
+  </footer>
 </div>
 
 <div class="mybar" id="mybar"><div class="in" data-mylist>
