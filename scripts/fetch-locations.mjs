@@ -2,7 +2,7 @@
 // and writes data/locations.json. Run by .github/workflows/refresh-locations.yml.
 import fs from 'node:fs';
 const MIRRORS=['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass.private.coffee/api/interpreter','https://maps.mail.ru/osm/tools/overpass/api/interpreter'];
-const UA='WichtelShopper/1.3 (+https://github.com/S1NC0DE/wichtel-shopper)';
+const UA='WichtelShopper/1.3 (+https://github.com/S1NC0DE/santa-ai)';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function overpass(q){
   let last;

@@ -1,6 +1,6 @@
 {
- "ranAt": "2026-11-18T21:37:05.641Z",
- "postcodes": 50,
+ "ranAt": "2026-11-18T21:46:53.563Z",
+ "postcodes": 99,
  "scenarios": [
   {
    "id": "S1",
@@ -41,7 +41,7 @@
  ],
  "radiusKm": 2,
  "maxIdentical": 3,
- "checks": 59832,
+ "checks": 119712,
  "failed": 0,
  "fails": [],
  "results": [
@@ -140,6 +140,110 @@
       "rewe"
      ],
      "cheapest": 18.6,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "20097",
+   "sub": "Hammerbrook",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
      "fewest": 39.98,
      "fewestStores": [
       "rossmann"
@@ -356,6 +460,212 @@
   },
   {
    "plz": "20146",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "20148",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "20149",
    "sub": "Eimsbüttel",
    "stores": [
     "aldi",
@@ -1169,6 +1479,109 @@
      "need": 18.42,
      "status": "ok",
      "combos": 51,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "20355",
+   "sub": "Neustadt",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
      "best": 39.94,
      "bestStores": [
       "rossmann",
@@ -2149,6 +2562,284 @@
    }
   },
   {
+   "plz": "21033",
+   "sub": "Bergedorf",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.54,
+     "status": "ok",
+     "combos": 14,
+     "best": 29.19,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 13.54,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.54,
+     "status": "ok",
+     "combos": 13,
+     "best": 20,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 13.54,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 13,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.54,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.54,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 14,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.44,
+     "status": "ok",
+     "combos": 13,
+     "best": 39.54,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 22.44,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "21035",
+   "sub": "Bergedorf",
+   "stores": [
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 14.44,
+     "status": "ok",
+     "combos": 6,
+     "best": 29.38,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 14.44,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 14.44,
+     "status": "ok",
+     "combos": 7,
+     "best": 19.98,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 14.44,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.74,
+     "status": "ok",
+     "combos": 7,
+     "best": 15,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 5.74,
+     "fewest": 15,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 14.44,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 14.44,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 5,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 23.94,
+     "status": "ok",
+     "combos": 9,
+     "best": 39.68,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 23.94,
+     "fewest": 39.68,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "21037",
+   "sub": "Bergedorf",
+   "stores": [],
+   "scen": {
+    "S1": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S2": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S3": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S4": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S7": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    }
+   }
+  },
+  {
+   "plz": "21039",
+   "sub": "Bergedorf",
+   "stores": [],
+   "scen": {
+    "S1": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S2": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S3": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S4": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S7": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    }
+   }
+  },
+  {
    "plz": "21073",
    "sub": "Harburg",
    "stores": [
@@ -2392,6 +3083,125 @@
      "feasible": false,
      "need": null,
      "status": "impossible (correctly flagged)"
+    }
+   }
+  },
+  {
+   "plz": "21079",
+   "sub": "Heimfeld",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 118,
+     "best": 26.1,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 9.62,
+     "fewest": 28.12,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 114,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 9.62,
+     "fewest": 19.99,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.24,
+     "status": "ok",
+     "combos": 106,
+     "best": 14.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.24,
+     "fewest": 14.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 4,
+     "best": 10,
+     "bestStores": [
+      "tedi",
+      "dm",
+      "action",
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 9.62,
+     "fewest": 10,
+     "fewestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ]
+    },
+    "S5": {
+     "feasible": false,
+     "need": 9.62,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 84,
+     "best": 9.2,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 1.95,
+     "fewest": 9.2,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 15.72,
+     "status": "ok",
+     "combos": 120,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 15.72,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
+     ]
     }
    }
   },
@@ -2684,6 +3494,111 @@
   },
   {
    "plz": "21147",
+   "sub": "Neugraben-Fischbek",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 67,
+     "best": 29.58,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 59,
+     "best": 19.41,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 74,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 49,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.47,
+     "status": "ok",
+     "combos": 71,
+     "best": 36.45,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 19.47,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "21149",
    "sub": "Neugraben-Fischbek",
    "stores": [
     "aldi",
@@ -3101,6 +4016,226 @@
      ],
      "cheapest": 22.14,
      "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22047",
+   "sub": "Wandsbek",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 16.77,
+     "status": "ok",
+     "combos": 26,
+     "best": 26.7,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 16.77,
+     "fewest": 26.3,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 16.77,
+     "status": "ok",
+     "combos": 18,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 16.77,
+     "fewest": 19.9,
+     "fewestStores": [
+      "rewe",
+      "aldi"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 7.69,
+     "status": "ok",
+     "combos": 22,
+     "best": 13.2,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 7.69,
+     "fewest": 13.2,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 16.77,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 16.77,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 3.65,
+     "status": "ok",
+     "combos": 22,
+     "best": 8.65,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 3.65,
+     "fewest": 8.65,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 27.27,
+     "status": "ok",
+     "combos": 25,
+     "best": 36.4,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 27.27,
+     "fewest": 39.7,
+     "fewestStores": [
+      "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22049",
+   "sub": "Dulsberg",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 115,
+     "best": 29.68,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 9.8,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 100,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 9.8,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.3,
+     "status": "ok",
+     "combos": 96,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.3,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 4,
+     "best": 10,
+     "bestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ],
+     "cheapest": 9.8,
+     "fewest": 10,
+     "fewestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ]
+    },
+    "S5": {
+     "feasible": false,
+     "need": 9.8,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 81,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 1.95,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 16.62,
+     "status": "ok",
+     "combos": 113,
+     "best": 36.31,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 16.62,
+     "fewest": 39.98,
      "fewestStores": [
       "rossmann"
      ]
@@ -3769,6 +4904,212 @@
    }
   },
   {
+   "plz": "22113",
+   "sub": "Billstedt",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 26,
+     "best": 30,
+     "bestStores": [
+      "tedi",
+      "aldi"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 22,
+     "best": 19.61,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 27,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 24,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.8,
+     "status": "ok",
+     "combos": 24,
+     "best": 35.03,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "aldi"
+     ],
+     "cheapest": 19.8,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22115",
+   "sub": "Billstedt",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 26,
+     "best": 30,
+     "bestStores": [
+      "tedi",
+      "aldi"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 22,
+     "best": 19.61,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 27,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 24,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.8,
+     "status": "ok",
+     "combos": 24,
+     "best": 35.03,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "aldi"
+     ],
+     "cheapest": 19.8,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22117",
    "sub": "Billstedt",
    "stores": [
@@ -3864,6 +5205,106 @@
      "fewest": 39.7,
      "fewestStores": [
       "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22119",
+   "sub": "Billstedt",
+   "stores": [
+    "action",
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 12,
+     "status": "ok",
+     "combos": 44,
+     "best": 27.36,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 12,
+     "fewest": 27.36,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 12,
+     "status": "ok",
+     "combos": 47,
+     "best": 17.59,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 12,
+     "fewest": 19.64,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.32,
+     "status": "ok",
+     "combos": 38,
+     "best": 14.17,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 5.32,
+     "fewest": 14.17,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 12,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 12,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.57,
+     "status": "ok",
+     "combos": 29,
+     "best": 9.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 2.57,
+     "fewest": 9.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.89,
+     "status": "ok",
+     "combos": 51,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 19.89,
+     "fewest": 34.57,
+     "fewestStores": [
+      "action"
      ]
     }
    }
@@ -3971,6 +5412,313 @@
    }
   },
   {
+   "plz": "22147",
+   "sub": "Rahlstedt",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 113,
+     "best": 26.1,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 10.42,
+     "fewest": 28.12,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 110,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 10.42,
+     "fewest": 19.99,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.72,
+     "status": "ok",
+     "combos": 85,
+     "best": 14.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.72,
+     "fewest": 14.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 68,
+     "best": 9.2,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.2,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 17.34,
+     "status": "ok",
+     "combos": 122,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 17.34,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22149",
+   "sub": "Rahlstedt",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 73,
+     "best": 26.1,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 10.42,
+     "fewest": 28.12,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 74,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 10.42,
+     "fewest": 19.99,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.72,
+     "status": "ok",
+     "combos": 60,
+     "best": 14.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.72,
+     "fewest": 14.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 49,
+     "best": 9.2,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.2,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 17.34,
+     "status": "ok",
+     "combos": 81,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 17.34,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22159",
+   "sub": "Farmsen-Berne",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 43,
+     "best": 29.75,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 39,
+     "best": 19.96,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 39,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 29,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.11,
+     "status": "ok",
+     "combos": 46,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 22.11,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22175",
    "sub": "Bramfeld",
    "stores": [
@@ -4066,6 +5814,216 @@
      "fewest": 39.7,
      "fewestStores": [
       "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22177",
+   "sub": "Bramfeld",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 67,
+     "best": 29.58,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 59,
+     "best": 19.41,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 74,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 49,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.47,
+     "status": "ok",
+     "combos": 71,
+     "best": 36.45,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 19.47,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22179",
+   "sub": "Bramfeld",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 67,
+     "best": 29.58,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 59,
+     "best": 19.41,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 74,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 49,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.47,
+     "status": "ok",
+     "combos": 71,
+     "best": 36.45,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 19.47,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
      ]
     }
    }
@@ -4264,6 +6222,109 @@
      "need": 18.42,
      "status": "ok",
      "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22301",
+   "sub": "Winterhude",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
      "best": 39.94,
      "bestStores": [
       "rossmann",
@@ -4514,6 +6575,229 @@
    }
   },
   {
+   "plz": "22307",
+   "sub": "Barmbek-Nord",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 78,
+     "best": 29.68,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 9.8,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 70,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 9.8,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.3,
+     "status": "ok",
+     "combos": 69,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.3,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": true,
+     "need": 9.8,
+     "status": "ok",
+     "combos": 4,
+     "best": 10,
+     "bestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ],
+     "cheapest": 9.8,
+     "fewest": 10,
+     "fewestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ]
+    },
+    "S5": {
+     "feasible": false,
+     "need": 9.8,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 58,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 1.95,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 16.62,
+     "status": "ok",
+     "combos": 76,
+     "best": 36.31,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 16.62,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22309",
+   "sub": "Steilshoop",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 67,
+     "best": 29.58,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.3,
+     "status": "ok",
+     "combos": 59,
+     "best": 19.41,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.3,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 74,
+     "best": 13.67,
+     "bestStores": [
+      "tedi",
+      "lidl"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.35,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.3,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 49,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 19.47,
+     "status": "ok",
+     "combos": 71,
+     "best": 36.45,
+     "bestStores": [
+      "rossmann",
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 19.47,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22335",
    "sub": "Fuhlsbüttel",
    "stores": [
@@ -4612,6 +6896,226 @@
      "fewest": 39.98,
      "fewestStores": [
       "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22337",
+   "sub": "Ohlsdorf",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 25,
+     "best": 29.75,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 24,
+     "best": 19.96,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 23,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 19,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.14,
+     "status": "ok",
+     "combos": 27,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 22.14,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22339",
+   "sub": "Hummelsbüttel",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "kaufland",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 121,
+     "best": 26.1,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 9.62,
+     "fewest": 28.12,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 115,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 9.62,
+     "fewest": 19.99,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.24,
+     "status": "ok",
+     "combos": 116,
+     "best": 14.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.24,
+     "fewest": 14.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 4,
+     "best": 10,
+     "bestStores": [
+      "tedi",
+      "dm",
+      "action",
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 9.62,
+     "fewest": 10,
+     "fewestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ]
+    },
+    "S5": {
+     "feasible": false,
+     "need": 9.62,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 92,
+     "best": 9.2,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 1.95,
+     "fewest": 9.2,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 15.72,
+     "status": "ok",
+     "combos": 121,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 15.72,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
      ]
     }
    }
@@ -4806,6 +7310,857 @@
    }
   },
   {
+   "plz": "22393",
+   "sub": "Sasel",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22395",
+   "sub": "Bergstedt",
+   "stores": [
+    "aldi",
+    "rewe"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 17.1,
+     "status": "ok",
+     "combos": 4,
+     "best": 26.7,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 17.1,
+     "fewest": 26.3,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 17.1,
+     "status": "ok",
+     "combos": 4,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 17.1,
+     "fewest": 19.9,
+     "fewestStores": [
+      "rewe",
+      "aldi"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 7.7,
+     "status": "ok",
+     "combos": 9,
+     "best": 13.2,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 7.7,
+     "fewest": 13.2,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 17.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 17.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 3.65,
+     "status": "ok",
+     "combos": 10,
+     "best": 8.65,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 3.65,
+     "fewest": 8.65,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 29.1,
+     "status": "ok",
+     "combos": 8,
+     "best": 36.4,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 29.1,
+     "fewest": 39.7,
+     "fewestStores": [
+      "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22397",
+   "sub": "Wohldorf-Ohlstedt",
+   "stores": [
+    "lidl",
+    "rewe"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 20,
+     "status": "ok",
+     "combos": 7,
+     "best": 28.4,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 20,
+     "fewest": 28.4,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 20,
+     "status": "ok",
+     "combos": 1,
+     "best": 20,
+     "bestStores": [
+      "rewe",
+      "lidl"
+     ],
+     "cheapest": 20,
+     "fewest": 20,
+     "fewestStores": [
+      "rewe",
+      "lidl"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 8.7,
+     "status": "ok",
+     "combos": 7,
+     "best": 13.1,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 8.7,
+     "fewest": 13.1,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 20,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 20,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 4.15,
+     "status": "ok",
+     "combos": 5,
+     "best": 8.95,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 4.15,
+     "fewest": 8.95,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 36.6,
+     "status": "ok",
+     "combos": 7,
+     "best": 39.5,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 36.6,
+     "fewest": 39.5,
+     "fewestStores": [
+      "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22399",
+   "sub": "Poppenbüttel",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22415",
+   "sub": "Langenhorn",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.12,
+     "status": "ok",
+     "combos": 70,
+     "best": 29.89,
+     "bestStores": [
+      "action",
+      "tedi"
+     ],
+     "cheapest": 10.12,
+     "fewest": 28.47,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.12,
+     "status": "ok",
+     "combos": 65,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 10.12,
+     "fewest": 19.64,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.24,
+     "status": "ok",
+     "combos": 71,
+     "best": 14.17,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.24,
+     "fewest": 14.17,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.12,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.12,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 51,
+     "best": 9.16,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 1.95,
+     "fewest": 9.16,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 17.34,
+     "status": "ok",
+     "combos": 71,
+     "best": 39.56,
+     "bestStores": [
+      "action",
+      "tedi"
+     ],
+     "cheapest": 17.34,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22417",
+   "sub": "Hummelsbüttel",
+   "stores": [],
+   "scen": {
+    "S1": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S2": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S3": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S4": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    },
+    "S7": {
+     "feasible": false,
+     "need": null,
+     "status": "impossible (correctly flagged)"
+    }
+   }
+  },
+  {
+   "plz": "22419",
+   "sub": "Langenhorn",
+   "stores": [
+    "kaufland",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.6,
+     "status": "ok",
+     "combos": 29,
+     "best": 29.9,
+     "bestStores": [
+      "tedi",
+      "rewe"
+     ],
+     "cheapest": 11.6,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.6,
+     "status": "ok",
+     "combos": 24,
+     "best": 19.41,
+     "bestStores": [
+      "tedi",
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.6,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 29,
+     "best": 13.98,
+     "bestStores": [
+      "tedi",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.7,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.6,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.6,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.15,
+     "status": "ok",
+     "combos": 26,
+     "best": 8.9,
+     "bestStores": [
+      "tedi"
+     ],
+     "cheapest": 2.15,
+     "fewest": 8.9,
+     "fewestStores": [
+      "tedi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 20.37,
+     "status": "ok",
+     "combos": 25,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 20.37,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22453",
+   "sub": "Fuhlsbüttel",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 43,
+     "best": 29.75,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 39,
+     "best": 19.96,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 39,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 29,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.11,
+     "status": "ok",
+     "combos": 46,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 22.11,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22455",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 25,
+     "best": 29.75,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 24,
+     "best": 19.96,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 23,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 19,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.14,
+     "status": "ok",
+     "combos": 27,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 22.14,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22457",
    "sub": "Eimsbüttel",
    "stores": [
@@ -4906,6 +8261,208 @@
    }
   },
   {
+   "plz": "22459",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 25,
+     "best": 29.75,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 13.34,
+     "status": "ok",
+     "combos": 24,
+     "best": 19.96,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 13.34,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.64,
+     "status": "ok",
+     "combos": 23,
+     "best": 13.75,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 5.64,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 13.34,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 19,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 22.14,
+     "status": "ok",
+     "combos": 27,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 22.14,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22523",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "action",
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 70,
+     "best": 27.36,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 10.42,
+     "fewest": 27.36,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 71,
+     "best": 17.59,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 10.42,
+     "fewest": 19.64,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.72,
+     "status": "ok",
+     "combos": 64,
+     "best": 14.17,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.72,
+     "fewest": 14.17,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.03,
+     "status": "ok",
+     "combos": 49,
+     "best": 9.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 2.03,
+     "fewest": 9.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 17.85,
+     "status": "ok",
+     "combos": 79,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 17.85,
+     "fewest": 34.57,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22525",
    "sub": "Bahrenfeld",
    "stores": [
@@ -5000,6 +8557,208 @@
       "rewe"
      ],
      "cheapest": 23.76,
+     "fewest": 39.7,
+     "fewestStores": [
+      "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22527",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "action",
+    "aldi",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 70,
+     "best": 27.36,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 10.42,
+     "fewest": 27.36,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.42,
+     "status": "ok",
+     "combos": 71,
+     "best": 17.59,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 10.42,
+     "fewest": 19.64,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.72,
+     "status": "ok",
+     "combos": 64,
+     "best": 14.17,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.72,
+     "fewest": 14.17,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.42,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.03,
+     "status": "ok",
+     "combos": 49,
+     "best": 9.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 2.03,
+     "fewest": 9.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 17.85,
+     "status": "ok",
+     "combos": 79,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 17.85,
+     "fewest": 34.57,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22529",
+   "sub": "Eimsbüttel",
+   "stores": [
+    "aldi",
+    "kaufland",
+    "lidl",
+    "rewe"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 16.77,
+     "status": "ok",
+     "combos": 26,
+     "best": 26.7,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 16.77,
+     "fewest": 26.3,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 16.77,
+     "status": "ok",
+     "combos": 18,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 16.77,
+     "fewest": 19.9,
+     "fewestStores": [
+      "rewe",
+      "aldi"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 7.69,
+     "status": "ok",
+     "combos": 22,
+     "best": 13.2,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 7.69,
+     "fewest": 13.2,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 16.77,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 16.77,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 3.65,
+     "status": "ok",
+     "combos": 22,
+     "best": 8.65,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 3.65,
+     "fewest": 8.65,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 27.27,
+     "status": "ok",
+     "combos": 25,
+     "best": 36.4,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 27.27,
      "fewest": 39.7,
      "fewestStores": [
       "rewe"
@@ -5110,6 +8869,225 @@
    }
   },
   {
+   "plz": "22549",
+   "sub": "Osdorf",
+   "stores": [
+    "action",
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann",
+    "tedi"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 167,
+     "best": 26.1,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 9.62,
+     "fewest": 28.12,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 156,
+     "best": 18.95,
+     "bestStores": [
+      "action",
+      "dm"
+     ],
+     "cheapest": 9.62,
+     "fewest": 19.99,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.24,
+     "status": "ok",
+     "combos": 145,
+     "best": 14.11,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 4.24,
+     "fewest": 14.11,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S4": {
+     "feasible": true,
+     "need": 9.62,
+     "status": "ok",
+     "combos": 4,
+     "best": 10,
+     "bestStores": [
+      "tedi",
+      "dm",
+      "action",
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 9.62,
+     "fewest": 10,
+     "fewestStores": [
+      "dm",
+      "rossmann",
+      "tedi"
+     ]
+    },
+    "S5": {
+     "feasible": false,
+     "need": 9.62,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 1.95,
+     "status": "ok",
+     "combos": 119,
+     "best": 9.2,
+     "bestStores": [
+      "action"
+     ],
+     "cheapest": 1.95,
+     "fewest": 9.2,
+     "fewestStores": [
+      "action"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 15.72,
+     "status": "ok",
+     "combos": 170,
+     "best": 32.34,
+     "bestStores": [
+      "action",
+      "rossmann"
+     ],
+     "cheapest": 15.72,
+     "fewest": 34.78,
+     "fewestStores": [
+      "action"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22559",
+   "sub": "Rissen",
+   "stores": [
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 14.14,
+     "status": "ok",
+     "combos": 10,
+     "best": 29.6,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 14.14,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 14.14,
+     "status": "ok",
+     "combos": 10,
+     "best": 19.92,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 14.14,
+     "fewest": 19.94,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 5.74,
+     "status": "ok",
+     "combos": 10,
+     "best": 13.95,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 5.74,
+     "fewest": 14.9,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 14.14,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 14.14,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.75,
+     "status": "ok",
+     "combos": 11,
+     "best": 9.45,
+     "bestStores": [
+      "rossmann"
+     ],
+     "cheapest": 2.75,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 23.04,
+     "status": "ok",
+     "combos": 7,
+     "best": 39.8,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 23.04,
+     "fewest": 39.88,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
    "plz": "22587",
    "sub": "Blankenese",
    "stores": [
@@ -5205,6 +9183,917 @@
      "fewest": 26.2,
      "fewestStores": [
       "dm"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22589",
+   "sub": "Sülldorf",
+   "stores": [
+    "aldi",
+    "lidl"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 20.4,
+     "status": "ok",
+     "combos": 3,
+     "best": 25.8,
+     "bestStores": [
+      "aldi"
+     ],
+     "cheapest": 20.4,
+     "fewest": 25.8,
+     "fewestStores": [
+      "aldi"
+     ]
+    },
+    "S2": {
+     "feasible": false,
+     "need": 20.4,
+     "status": "impossible (correctly flagged)"
+    },
+    "S3": {
+     "feasible": true,
+     "need": 8.4,
+     "status": "ok",
+     "combos": 3,
+     "best": 12.9,
+     "bestStores": [
+      "aldi"
+     ],
+     "cheapest": 8.4,
+     "fewest": 12.9,
+     "fewestStores": [
+      "aldi"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 20.4,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 20.4,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 3.65,
+     "status": "ok",
+     "combos": 6,
+     "best": 7.95,
+     "bestStores": [
+      "aldi"
+     ],
+     "cheapest": 3.65,
+     "fewest": 7.95,
+     "fewestStores": [
+      "aldi"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 37.8,
+     "status": "ok",
+     "combos": 1,
+     "best": 37.8,
+     "bestStores": [
+      "aldi",
+      "lidl"
+     ],
+     "cheapest": 37.8,
+     "fewest": 37.8,
+     "fewestStores": [
+      "aldi",
+      "lidl"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22605",
+   "sub": "Othmarschen",
+   "stores": [
+    "aldi",
+    "lidl",
+    "rewe"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 17.1,
+     "status": "ok",
+     "combos": 12,
+     "best": 26.7,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 17.1,
+     "fewest": 26.3,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 17.1,
+     "status": "ok",
+     "combos": 9,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 17.1,
+     "fewest": 19.9,
+     "fewestStores": [
+      "rewe",
+      "aldi"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 7.7,
+     "status": "ok",
+     "combos": 13,
+     "best": 13.2,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 7.7,
+     "fewest": 13.2,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 17.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 17.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 3.65,
+     "status": "ok",
+     "combos": 12,
+     "best": 8.65,
+     "bestStores": [
+      "rewe"
+     ],
+     "cheapest": 3.65,
+     "fewest": 8.65,
+     "fewestStores": [
+      "rewe"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 28.2,
+     "status": "ok",
+     "combos": 13,
+     "best": 36.4,
+     "bestStores": [
+      "rewe",
+      "aldi"
+     ],
+     "cheapest": 28.2,
+     "fewest": 39.7,
+     "fewestStores": [
+      "rewe"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22607",
+   "sub": "Groß Flottbek",
+   "stores": [
+    "aldi",
+    "dm",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 50,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 42,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 40,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 41,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 50,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22609",
+   "sub": "Nienstedten",
+   "stores": [
+    "dm",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 11.1,
+     "status": "ok",
+     "combos": 17,
+     "best": 26.03,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 11.1,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 11.1,
+     "status": "ok",
+     "combos": 17,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 11.1,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 17,
+     "best": 14.05,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 11.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 11.1,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 18,
+     "best": 9.23,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.6,
+     "status": "ok",
+     "combos": 18,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.6,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22761",
+   "sub": "Bahrenfeld",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22763",
+   "sub": "Ottensen",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22765",
+   "sub": "Altona-Nord",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22767",
+   "sub": "Altona-Altstadt",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    }
+   }
+  },
+  {
+   "plz": "22769",
+   "sub": "Altona-Nord",
+   "stores": [
+    "aldi",
+    "dm",
+    "kaufland",
+    "lidl",
+    "rewe",
+    "rossmann"
+   ],
+   "scen": {
+    "S1": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 76,
+     "best": 29.85,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 10.98,
+     "fewest": 29.38,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S2": {
+     "feasible": true,
+     "need": 10.98,
+     "status": "ok",
+     "combos": 68,
+     "best": 19.9,
+     "bestStores": [
+      "rewe",
+      "dm"
+     ],
+     "cheapest": 10.98,
+     "fewest": 19.98,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S3": {
+     "feasible": true,
+     "need": 4.9,
+     "status": "ok",
+     "combos": 67,
+     "best": 13.97,
+     "bestStores": [
+      "rossmann",
+      "kaufland"
+     ],
+     "cheapest": 4.9,
+     "fewest": 14.66,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S4": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S5": {
+     "feasible": false,
+     "need": 10.98,
+     "status": "impossible (correctly flagged)"
+    },
+    "S6": {
+     "feasible": true,
+     "need": 2.25,
+     "status": "ok",
+     "combos": 65,
+     "best": 9.34,
+     "bestStores": [
+      "rossmann",
+      "aldi"
+     ],
+     "cheapest": 2.25,
+     "fewest": 9.45,
+     "fewestStores": [
+      "rossmann"
+     ]
+    },
+    "S7": {
+     "feasible": true,
+     "need": 18.42,
+     "status": "ok",
+     "combos": 79,
+     "best": 39.94,
+     "bestStores": [
+      "rossmann",
+      "rewe"
+     ],
+     "cheapest": 18.42,
+     "fewest": 39.98,
+     "fewestStores": [
+      "rossmann"
      ]
     }
    }

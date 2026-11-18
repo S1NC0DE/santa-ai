@@ -1,7 +1,7 @@
 // Wichtel Shopper regression suite: 50 Hamburg postcodes x 7 scenarios, run against the real index.html in jsdom.
 const {JSDOM}=require('jsdom');const fs=require('fs');const path=require('path');
 const HTML=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-function boot(){const dom=new JSDOM(HTML,{runScripts:'dangerously',url:'https://s1nc0de.github.io/wichtel-shopper/'});const w=dom.window;w.HTMLElement.prototype.scrollIntoView=()=>{};w.__errs=[];w.addEventListener('error',e=>w.__errs.push(e.message));return w;}
+function boot(){const dom=new JSDOM(HTML,{runScripts:'dangerously',url:'https://s1nc0de.github.io/santa-ai/'});const w=dom.window;w.HTMLElement.prototype.scrollIntoView=()=>{};w.__errs=[];w.addEventListener('error',e=>w.__errs.push(e.message));return w;}
 const SCEN=[{id:'S1',N:20,B:30},{id:'S2',N:20,B:20},{id:'S3',N:10,B:15},{id:'S4',N:20,B:10},{id:'S5',N:20,B:1},{id:'S6',N:5,B:10,wrap:true},{id:'S7',N:30,B:40}];
 const RAD=2,MAXSAME=3;
 const w0=boot();const {ITEMS,STORES,PLZ_DIST,DIST_KEYS,WRAPS,I18N}=w0.eval('({ITEMS,STORES,PLZ_DIST,DIST_KEYS,WRAPS,I18N})');

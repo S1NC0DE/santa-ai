@@ -2,7 +2,7 @@
 
 A Secret Santa (Wichteln) gift finder for students in Germany. Enter how many gifts you need and your total budget, and it builds ready-to-shop lists from real products at **dm, Rossmann, Aldi Nord, Rewe, Action, TEDi, Kaufland and Lidl**, grouped by store so you can walk in and grab.
 
-**Live:** https://s1nc0de.github.io/wichtel-shopper/
+**Live:** https://s1nc0de.github.io/santa-ai/
 
 _(formerly “Wichtel Shopper”)_
 
@@ -20,9 +20,9 @@ _(formerly “Wichtel Shopper”)_
 - Browse and search all products
 
 ## Regression testing
-Report: **https://s1nc0de.github.io/wichtel-shopper/report.html**
+Report: **https://s1nc0de.github.io/santa-ai/report.html**
 
-Run it yourself: `cd tests && npm install && npm test` (runs the real `index.html` in jsdom for 50 Hamburg postcodes × 7 budget scenarios and rewrites `report.html`).
+Run it yourself: `cd tests && npm install && npm test` (runs the real `index.html` in jsdom for all 99 Hamburg postcodes × 7 budget scenarios and rewrites `report.html`).
 
 ## About the prices
 Prices are a snapshot read from each store's own website (date shown in the app). A static page can't fetch live prices because the store sites block cross-site requests and there's no public price API.
@@ -39,6 +39,7 @@ Prices are a snapshot read from each store's own website (date shown in the app)
 | v1.3 | 2026-11-18 | Renamed to Santa.ai, Christmas theme with animated background, live postcode/location → nearby stores for any Hamburg postcode, weekly location refresh Action |
 | v1.4 | 2026-11-18 | Product photos (from the stores' own image servers), ⓘ help on every field, clearer "Search radius", Woolworth removed (no online prices) |
 | v1.5 | 2026-11-18 | Wrapping section (gift bags or paper + ribbon, real prices from Action, dm, TEDi), shown separately and not counted in the gift budget |
+| v1.6 | 2026-11-18 | All 99 Hamburg postcodes built in (auto-select nearby stores), repo renamed to santa-ai, regression: 99 postcodes × 7 scenarios, 119,712 checks passing |
 
 Single-file app: everything lives in `index.html` (no build step).
 
