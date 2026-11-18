@@ -223,6 +223,16 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
 @keyframes shine{0%{left:-60%}55%,100%{left:130%}}
 .add.pop{animation:pop .35s}@keyframes pop{50%{transform:scale(1.15)}}
 @media (prefers-reduced-motion:reduce){#bgsnow,.sleigh{display:none}.top,.lights i,.go:after,.res,.panel,.near,.imp,.tabs{animation:none!important}}
+.info{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:var(--muted);font:700 11px Georgia,serif;font-style:italic;cursor:pointer;padding:0;margin-left:5px;vertical-align:1px;line-height:1}
+.info:hover,.info:focus{color:var(--blue);outline:none}
+#infoPop{position:absolute;z-index:60;background:#fffdf9;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:12px;padding:10px 12px;box-shadow:0 10px 30px rgba(13,59,46,.22);font-size:13.5px;line-height:1.45;display:none}
+#infoPop.show{display:block;animation:rise .2s both}
+#infoPop b{display:block;margin-bottom:3px;color:var(--navy)}
+.pimg{width:52px;height:52px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:none;position:relative}
+.pimg img{width:100%;height:100%;object-fit:contain;padding:3px;background:#fff}
+.pimg i{font-style:normal;font-size:22px;display:none}.pimg.noimg i{display:block}.pimg.noimg{background:var(--blue-soft)}
+.item.withimg{grid-template-columns:auto 1fr auto}.item.ck.withimg{grid-template-columns:auto auto 1fr auto}
+.gift .gl{display:flex;align-items:center;gap:10px}.thumbs{display:flex;gap:4px}.thumbs .pimg{width:40px;height:40px}
 @media(max-width:560px){.tab .p{font-size:17px}.tab{padding:10px}.price .big{font-size:21px}.top h1{font-size:22px}}
 </style>
 </head>
@@ -232,10 +242,10 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
   <div class="brand"><span class="logo">🎅</span><span class="wordmark">Santa<span>.ai</span></span><sup style="font-size:11px;font-weight:700;margin-left:-4px">™</sup><div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="de">DE</button></div></div>
   <h1 data-t="h1"></h1>
   <div class="search">
-    <div class="field"><label for="n" data-t="gifts"></label><div class="ctl"><button class="s" data-step="n,-1" aria-label="fewer">−</button><input id="n" type="number" inputmode="numeric" min="1" max="100" value="20"><button class="s" data-step="n,1" aria-label="more">+</button></div></div>
-    <div class="field"><label for="b" data-t="budget"></label><div class="ctl"><span style="font-weight:700;font-size:18px">€</span><input id="b" type="number" inputmode="decimal" min="1" max="1000" value="30"><button class="s" data-step="b,-5" aria-label="less">−</button><button class="s" data-step="b,5" aria-label="more">+</button></div></div>
-    <div class="field"><label data-t="stores"></label><div class="sum" id="storeSum" data-open="filters"></div></div>
-    <div class="field"><label for="k" data-t="combos"></label><select id="k"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+    <div class="field"><label for="n"><span data-t="gifts"></span><button class="info" data-info="gifts" aria-label="Help">i</button></label><div class="ctl"><button class="s" data-step="n,-1" aria-label="fewer">−</button><input id="n" type="number" inputmode="numeric" min="1" max="100" value="20"><button class="s" data-step="n,1" aria-label="more">+</button></div></div>
+    <div class="field"><label for="b"><span data-t="budget"></span><button class="info" data-info="budget" aria-label="Help">i</button></label><div class="ctl"><span style="font-weight:700;font-size:18px">€</span><input id="b" type="number" inputmode="decimal" min="1" max="1000" value="30"><button class="s" data-step="b,-5" aria-label="less">−</button><button class="s" data-step="b,5" aria-label="more">+</button></div></div>
+    <div class="field"><label><span data-t="stores"></span><button class="info" data-info="stores" aria-label="Help">i</button></label><div class="sum" id="storeSum" data-open="filters"></div></div>
+    <div class="field"><label for="k"><span data-t="combos"></span><button class="info" data-info="combos" aria-label="Help">i</button></label><select id="k"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
     <div class="inerr" id="inerr"></div>
     <button class="go" id="go" data-t="search"></button>
   </div>
@@ -245,9 +255,9 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
 
 <div class="wrap">
   <section class="near" id="near">
-    <div class="hd2"><h2 data-t="nearH"></h2><div><button class="linkbtn" data-allstores data-t="selectAll"></button><button class="linkbtn" data-nostores data-t="clearAll"></button></div></div>
+    <div class="hd2"><h2><span data-t="nearH"></span><button class="info" data-info="tiles" aria-label="Help">i</button></h2><div><button class="linkbtn" data-allstores data-t="selectAll"></button><button class="linkbtn" data-nostores data-t="clearAll"></button></div></div>
     <div class="sub2" data-t="nearSub"></div>
-    <div class="plz"><label for="plz" style="font-weight:600;font-size:14px" data-t="plzLabel"></label><input id="plz" inputmode="numeric" maxlength="5" placeholder="20457"><label for="rad" style="font-size:14px" data-t="radius"></label><select id="rad"><option value="1">1 km</option><option value="2" selected>2 km</option><option value="3">3 km</option><option value="5">5 km</option></select><button class="locbtn" id="locBtn" style="display:none" data-t="useLoc"></button></div>
+    <div class="plz"><label for="plz" style="font-weight:600;font-size:14px"><span data-t="plzLabel"></span><button class="info" data-info="plz" aria-label="Help">i</button></label><input id="plz" inputmode="numeric" maxlength="5" placeholder="20457"><label for="rad" style="font-size:14px;font-weight:600"><span data-t="radius"></span><button class="info" data-info="radius" aria-label="Help">i</button></label><select id="rad"><option value="1">1 km</option><option value="2" selected>2 km</option><option value="3">3 km</option><option value="5">5 km</option></select><span id="locWrap" style="display:none"><button class="locbtn" id="locBtn" data-t="useLoc"></button><button class="info" data-info="loc" aria-label="Help">i</button></span></div>
     <div class="plzmsg" id="plzmsg"></div>
     <div class="tiles" id="tiles"></div>
     <div class="sub2" style="margin:10px 0 0;font-size:12px" data-t="distNote"></div>
@@ -256,12 +266,12 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
   <details class="panel" id="filters">
     <summary data-t="filters"></summary>
     <div class="body">
-      <h4 data-t="giftTypes"></h4>
+      <h4><span data-t="giftTypes"></span><button class="info" data-info="types" aria-label="Help">i</button></h4>
       <div class="chips" id="cats"></div>
       <div class="opts">
-        <label><input type="checkbox" id="bundles" checked> <span data-t="bundles"></span></label>
-        <label><input type="checkbox" id="wrap"> <span data-t="wrapOpt"></span></label>
-        <label><span data-t="maxSame"></span> <select id="same"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option value="99" data-t="noLimit"></option></select></label>
+        <label><input type="checkbox" id="bundles" checked> <span data-t="bundles"></span></label><button class="info" data-info="bundles" aria-label="Help">i</button>
+        <label><input type="checkbox" id="wrap"> <span data-t="wrapOpt"></span></label><button class="info" data-info="wrap" aria-label="Help">i</button>
+        <label><span data-t="maxSame"></span><button class="info" data-info="same" aria-label="Help">i</button> <select id="same"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option value="99" data-t="noLimit"></option></select></label>
       </div>
     </div>
   </details>
@@ -277,6 +287,7 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
 
 <div class="sheet" id="sheet"><div class="box"><div class="inner2" id="sheetBody"></div></div></div>
 <div class="toast" id="toast"></div>
+<div id="infoPop" role="tooltip"></div>
 
 <script>
 
@@ -289,8 +300,7 @@ const STORES={
   action:{n:'Action',c:'#1f6fb5',u:q=>'https://www.action.com/de-de/search/?q='+encodeURIComponent(q)},
   tedi:{n:'TEDi',c:'#b38900',u:()=>'https://www.tedi.com/'},
   kaufland:{n:'Kaufland',c:'#e10915',u:()=>'https://filiale.kaufland.de/angebote/uebersicht.html'},
-  lidl:{n:'Lidl',c:'#0050aa',u:()=>'https://www.vzhh.de/themen/lebensmittel-ernaehrung/einkaufsfalle-supermarkt/schoko-weihnachtsmaenner-meist-guenstiger-aber-immer-noch-teuer'},
-  woolworth:{n:'Woolworth',c:'#c8102e',none:true}
+  lidl:{n:'Lidl',c:'#0050aa',u:()=>'https://www.vzhh.de/themen/lebensmittel-ernaehrung/einkaufsfalle-supermarkt/schoko-weihnachtsmaenner-meist-guenstiger-aber-immer-noch-teuer'}
 };
 const CATS={sweet:'🍫',care:'🧴',cozy:'☕',deco:'🎄',fun:'✏️'};
 // q = search term used on the store site; src: site | offer | rep
@@ -399,18 +409,36 @@ const WRAPS=[
 const DIST_KEYS=["dm", "rossmann", "aldi", "lidl", "rewe", "action", "tedi", "kaufland", "woolworth"];
 const PLZ_DIST={'20095':['Altstadt',[0.3,0.0,2.3,2.9,0.2,6.0,4.1,1.3,2.9]],'20099':['St. Georg',[0.9,0.6,1.6,2.0,1.2,6.4,3.7,0.8,1.9]],'20144':['Eimsbüttel',[0.6,1.7,0.1,0.1,0.6,6.0,4.9,2.9,2.9]],'20146':['Eimsbüttel',[1.4,1.6,0.8,1.0,0.2,6.7,5.1,3.1,3.1]],'20249':['Eppendorf',[0.5,1.0,1.1,0.3,0.3,6.0,3.7,1.7,1.7]],'20251':['Eppendorf',[0.6,1.4,0.8,0.4,0.4,5.3,4.3,1.1,1.1]],'20253':['Eimsbüttel',[0.5,1.1,0.8,0.7,0.3,5.2,4.0,2.5,2.4]],'20255':['Eimsbüttel',[0.4,0.3,0.4,1.4,1.1,4.5,3.3,2.2,2.8]],'20257':['Eimsbüttel',[0.5,0.5,0.5,1.3,0.5,4.5,3.3,1.6,3.4]],'20259':['Eimsbüttel',[0.6,0.7,0.6,1.3,0.8,5.3,4.1,2.0,3.4]],'20354':['Eimsbüttel',[0.9,0.6,1.8,2.2,0.9,6.8,4.8,1.9,2.7]],'20357':['Sternschanze',[1.5,1.8,0.8,1.5,0.3,6.4,5.3,2.3,4.1]],'20359':['St. Pauli',[0.3,1.8,0.7,1.9,1.0,6.5,4.2,2.5,4.9]],'20457':['Steinwerder',[1.9,1.6,2.7,2.4,1.5,4.4,2.0,3.6,4.3]],'20459':['Neustadt',[0.8,1.2,1.3,2.9,0.1,5.8,3.5,2.9,4.3]],'20535':['Hamm',[1.5,1.2,0.9,0.3,0.5,4.2,1.6,2.1,1.6]],'20537':['Hamm',[2.6,1.8,0.5,0.9,0.7,3.8,2.6,1.9,2.6]],'20539':['Rothenburgsort',[3.8,3.6,1.2,0.8,2.9,4.0,4.0,3.3,4.1]],'21029':['Bergedorf',[1.7,1.4,4.0,3.0,2.0,10.3,1.0,1.4,1.4]],'21031':['Bergedorf',[1.8,1.9,0.8,0.6,1.2,7.0,1.2,2.4,2.2]],'21073':['Harburg',[0.8,0.8,0.7,0.9,0.8,0.7,0.7,8.1,0.7]],'21075':['Heimfeld',[3.3,3.3,3.2,2.5,1.9,3.2,3.2,5.5,3.2]],'21077':['Marmstorf',[2.9,3.3,2.9,1.6,2.4,3.4,3.3,7.6,3.4]],'21107':['Wilhelmsburg',[4.6,2.3,1.7,1.2,2.3,2.4,1.8,6.5,2.3]],'21109':['Wilhelmsburg',[4.6,1.5,2.2,1.5,1.5,1.4,1.5,6.8,1.5]],'21129':['Finkenwerder',[5.3,5.7,2.5,3.7,1.7,7.9,5.0,5.7,7.3]],'21147':['Neugraben-Fischbek',[3.5,1.3,1.3,1.6,1.8,8.8,1.3,1.4,8.8]],'22041':['Wandsbek',[1.3,0.6,0.7,1.3,0.6,4.3,1.1,1.7,1.1]],'22043':['Marienthal',[2.9,2.1,0.7,0.5,1.1,3.2,2.8,2.1,2.1]],'22045':['Jenfeld',[3.1,1.0,0.4,0.8,0.5,3.1,4.5,2.3,0.9]],'22081':['Barmbek-Süd',[1.1,1.4,0.1,0.6,0.1,5.6,1.4,3.0,1.1]],'22083':['Barmbek-Süd',[0.8,1.4,0.5,0.8,0.5,6.5,1.9,3.1,0.8]],'22085':['Uhlenhorst',[1.0,1.7,1.3,0.5,0.6,7.0,3.1,2.3,0.9]],'22087':['Hohenfelde',[1.0,0.6,0.6,1.2,0.5,5.9,2.7,1.2,1.0]],'22089':['Eilbek',[0.9,1.1,0.7,0.9,0.6,4.9,1.1,2.5,1.1]],'22111':['Horn',[3.0,1.6,0.6,0.4,0.7,1.7,2.9,4.2,2.9]],'22117':['Billstedt',[5.6,2.3,1.3,1.9,1.9,2.2,2.7,5.2,2.7]],'22143':['Rahlstedt',[0.9,1.0,0.2,0.6,0.8,0.7,6.3,3.5,3.0]],'22175':['Bramfeld',[3.2,2.1,1.1,2.9,1.2,4.6,2.2,2.0,2.2]],'22297':['Alsterdorf',[1.3,1.0,1.0,1.1,0.4,4.5,2.6,2.6,1.9]],'22299':['Winterhude',[0.1,0.1,0.1,1.0,0.9,6.0,3.0,1.8,1.8]],'22303':['Winterhude',[1.5,1.4,0.8,0.5,0.8,6.3,1.5,3.3,1.5]],'22305':['Barmbek-Nord',[0.5,0.3,0.4,0.4,0.4,6.5,0.7,3.0,0.7]],'22335':['Fuhlsbüttel',[0.8,1.6,1.3,1.4,1.6,2.4,2.5,2.7,3.2]],'22359':['Volksdorf',[2.8,3.5,1.6,0.2,2.3,5.4,7.4,6.2,7.4]],'22391':['Wellingsbüttel',[1.6,1.5,2.0,4.0,0.0,4.4,3.3,3.2,3.2]],'22457':['Eimsbüttel',[6.4,2.1,0.8,1.2,0.7,3.9,4.7,5.9,3.2]],'22525':['Bahrenfeld',[2.9,2.1,0.8,1.5,1.3,2.6,1.6,2.6,2.7]],'22547':['Lurup',[3.3,0.8,1.3,1.6,2.1,0.8,0.7,0.8,2.0]],'22587':['Blankenese',[1.0,3.3,1.9,1.9,1.0,5.8,4.3,5.9,4.4]]};
 
+// Product photos, hot-linked from each store's own image server (not copied). Collected 18 Nov 2026.
+const IMG_BASE={dm:p=>'https://products.dm-static.com/images/f_auto,q_auto,c_fit,h_160,w_160/'+p,rossmann:p=>'https://www.rossmann.de/media-neu/'+p+'?quality=85&auto=webp&width=142&height=142&fit=bounds&format=webp',aldi:p=>'https://s7g10.scene7.com/is/image/aldinord/'+p+'?bfc=on&wid=200&fmt=webp-alpha',rewe:p=>'https://img.rewe-static.de/'+p+'_digital-image.png',action:p=>'https://asset.action.com/image/upload/t_digital_product_image/w_200/'+p,tedi:p=>'https://www.tedi.com/fileadmin/_processed_/'+p};
+const IMG={"dm": {"Balea Lippenpflege Rosé": "v1785629361/assets/pas/images/e8594d3b-00f3-4740-871e-d87727c73898/balea-lippenpflege-rose", "Balea Lippenpflege Over the Clouds": "v1774049955/assets/pas/images/832f4100-9ab0-4cea-9044-060b60ec639f/balea-lippenpflege-over-the-clouds", "Balea Lippenpflege Sensitive": "v1776464258/assets/pas/images/8ff6212d-0a32-4a62-ae2d-711f6d53e8fa/balea-lippenpflege-sensitive", "Balea Lippenpflege Lip Butter Peptide": "v1792101496/assets/pas/images/a422fc59-bc37-4b75-8e9e-9d0a1e704863/balea-lippenpflege-lip-butter-peptide", "Balea Lippenmaske Hydrogel Frozen Berries": "v1790804652/assets/pas/images/dfe2bef8-3fb6-48dc-abd5-c1dc89f2a056/balea-lippenmaske-hydrogel-frozen-berries", "Balea Pflegecreme Take a Moment for yourself": "v1791323692/assets/pas/images/7b483be6-9010-42b6-b03b-24b13408b211/balea-pflegecreme-take-a-moment-for-yourself", "Balea Handcreme sweet embrace": "v1787435227/assets/pas/images/8dd21b69-975d-45f1-8cde-d1d94bd843fa/balea-handcreme-sweet-embrace", "Balea Handcreme Buttermilk & Lemon": "v1770853222/assets/pas/images/5c6432ce-dfe0-4be7-9525-9572c8994017/balea-handcreme-buttermilk-und-lemon", "Balea Handcreme Olive": "v1784151083/assets/pas/images/7ebedd8e-f661-4ee5-b074-8afc4eab4c71/balea-handcreme-olive-sehr-trockene-haende", "Balea Handcreme Blush Harmony Reisegröße": "v1787435846/assets/pas/images/93f81d2f-a63b-4b6e-875a-013cd2f5d090/balea-handcreme-blush-harmony-reisegroesse", "Balea Tuchmaske Vanilla Pumpkin": "v1787435614/assets/pas/images/3e74636a-86a8-461a-a863-5cf695806b41/balea-tuchmaske-vanilla-pumpkin", "Balea Tuchmaske Milky Kokos": "v1773357609/assets/pas/images/093c42e7-c700-48e2-ac50-4f0e0b50479e/balea-tuchmaske-milky-kokos", "Balea Augenpads Hydrogel Glitzer": "v1785368698/assets/pas/images/7a1d49ef-ce46-490c-8035-e4bf68d0dd3a/balea-augenpads-hydrogel-glitzer-1-paar", "Balea Augenpads Hydrogel Holo": "v1785369435/assets/pas/images/b8cc2b09-4c81-48c1-bb51-4569de54c58a/balea-augenpads-hydrogel-holo-1-paar", "Balea Glass Skin Collagen Maske": "v1764980549/assets/pas/images/87932bc7-2735-4879-85c5-d546ab2e2f69/balea-glass-skin-collagen-maske"}, "rossmann": {"ISANA Lippenpflege Sweet like Orange & Cookie": "580/MAM_58018743/MAM_58018743_SHOP_IMAGE_1.4.png", "ISANA Lippenpflege Toasted Berry": "579/MAM_57993701/MAM_57993701_SHOP_IMAGE_1.4.png", "ISANA Lippenmaske Crème Brûlée": "580/MAM_58037339/MAM_58037339_SHOP_IMAGE_1.4.png", "ISANA Lippenpflege Pearl & Gloss": "561/MAM_56137440/MAM_56137440_SHOP_IMAGE_2.2.png", "ISANA Handcreme Cherry Amour": "579/MAM_57935620/MAM_57935620_SHOP_IMAGE_1.4.png", "ISANA getönte Lippenpflege Color 2 Care berry": "561/MAM_56146702/MAM_56146702_SHOP_IMAGE_2.1.png", "ISANA Tuchmaske Berry Brownie": "579/MAM_57960043/MAM_57960043_SHOP_IMAGE_1.4.png", "ISANA Hydrogel Augenpads Pinguin": "579/MAM_57993476/MAM_57993476_SHOP_IMAGE_1.4.png", "ISANA Duschgel Merry Kiss-Mas": "578/MAM_57892151/MAM_57892151_SHOP_IMAGE_1.4.png", "ISANA Tuchmaske Hydro Booster": "536/MAM_53613798/MAM_53613798_SHOP_IMAGE_1.4.png", "ISANA Tuchmaske Collagen Booster": "536/MAM_53601696/MAM_53601696_SHOP_IMAGE_1.4.png", "ISANA Cremedusche Have a Wonderwool Day": "578/MAM_57892473/MAM_57892473_SHOP_IMAGE_1.4.png", "ISANA Cremedusche Coconut Latte": "578/MAM_57892350/MAM_57892350_SHOP_IMAGE_1.4.png", "IDEENWELT kleines Geschenk – Holzkreisel Santa": "579/MAM_57995051/MAM_57995051_SHOP_IMAGE_1.4.png", "IDEENWELT kleines Geschenk – Holzkreisel Weihnachtsbaum": "579/MAM_57995102/MAM_57995102_SHOP_IMAGE_1.4.png", "IDEENWELT kleines Geschenk – Knickfigur Rentier": "579/MAM_57995159/MAM_57995159_SHOP_IMAGE_1.4.png"}, "aldi": {"WINTERTRAUM Weihnachtsmann|110 g": "1033020_33_2026_weihnachtsmann_110_g_1_on_210726_123141", "WINTERTRAUM Weihnachtsmann|70 g": "1041035_48_2026_weihnachtsmann_70g_1_on", "CHOCEUR Alpenmilchschokolade": "3947_02_2023_alpenmilch_choceur_on", "CHOCEUR Mandelbeisser": "1010553_36_2021_mandelbeisser_weiss_comp", "WINTERTRAUM Runde braune Lebkuchen": "1018974_33_2026_runde_braune_lebkuchen_200_g_1_on_210726_121057"}, "rewe": {"ja! Zartbitter-Schokolade": "6261175/2930200", "ja! Alpenvollmilch-Schokolade": "6790143/2480960", "ja! Weiße Schokolade": "0547663/2512920", "ja! Schokolade Ganze Nuss": "2724101/25486874", "ja! Vollmilch Schoko Waffelröllchen": "7698252/39837657", "ja! Nougat Hörnchen": "7959110/31916960", "Milka Weihnachtsmann Alpenmilch": "8416671/30940997", "Kinder Schokolade": "0772984/8322420", "REWE Beste Wahl Vollmilch Weihnachtsmann": "0964569/27861450", "REWE Beste Wahl Lebkuchen Herzen mit Aprikosenfruchtfüllung": "1168702/22656701", "Oreo Gingerbread": "9863846/50311484"}, "action": {"Tasse": "3226194_8721461233241-111_01_fnzp7k.webp", "Weihnachtsbecher": "3006255_8721037394833-111_01_u8zw5r.webp", "Kaffeebecher": "3213875_8712442892205-111_01_rmomzd.webp", "Glühweintasse": "3218893_8721037737203-111_01_kqvyst.webp", "Air Wick Duftkerze Apfel und Zimt": "39767310.webp", "Duftkerze in Dose": "3009796_8712628505769-110_01_bsartl.webp", "Duftkerze": "3226082_8712628501846-111_01_okwzv3.webp", "Candra Duftkerze im Glas": "2563666_8718964032655-110_01_doav0q.webp", "Haussocken": "2554927_8718964297870-110_01_uy26w6.webp", "Kuschelsocken": "3225665_5404047706935-110_01_gvypo1.webp", "Becky's Weihnachtliche Zuckerstangen": "2536661_8713305819490-111_01_oz3ebi.webp", "Weihnachtsanhänger": "3207262_8720194125441-111_01_dhudp1.webp", "Magic Village Weihnachtsbäumchen": "3006064_8718964252930-110_01_jlc1bf.webp", "Weihnachtsanhänger Stern": "3202034_8721461183911-111_01_t49sno.webp", "Stempel-Set": "3216996_8719668032743-110_01_rgghoo.webp", "DIY-Bastelset Weihnachten": "3217495_8720687718730-111_01_r8k65x.webp", "Notizblock A5": "3222564_8717399420952-110_01_lgoubk.webp", "Ringbuch A6": "2521085_8720687719690-111_01_a0oaxd.webp", "Mini-Notizbuch": "3222840_8712417520935-111_01_chzzyc.webp", "Notizbuch mit Spiel": "3220564_8718964264292-111_01_c5kgds.webp"}, "tedi": {"Glas Hänger": "2/9/csm_Weihnachtsbaumanhaenger-Schleife_01_f664f4dc13.png", "Papierornament": "2/d/csm_670-Papier-Elch_01_499e64386c.png", "Nagelpflege-Set": "7/1/csm_152-282_01_0cbe31f8a5.png", "Körperpflege-Set Handcreme + Lipgloss": "1/b/csm_152-285_01_3db933fdfc.png", "Überraschungsei gefüllt mit Malzubehör": "8/d/csm_Ueberraschungsei_Paw-Patrol_a22c900e54.jpg", "Lippenbalsam (Lizenz-Designs)": "3/5/csm_Spiderman_Lippenbalsam_301f5dc154.png", "Seifenblasen": "2/b/csm_Seifenblasen_02_468c941cd1.jpg"}};
+ITEMS.forEach(i=>{const m=IMG[i.s];if(!m)return;const p=m[i.n+'|'+i.sz]||m[i.n];if(p)i.img=IMG_BASE[i.s](p);});
+WRAPS.forEach(w=>{});
+
 const I18N={
 en:{
+  ih_gifts:'Gifts',i_gifts:'How many presents you need to buy in total, e.g. one per person in your Secret Santa group. Whole number from 1 to 100.',
+  ih_budget:'Total budget',i_budget:'All the money you want to spend on <b>all</b> gifts together (not per gift). Example: 20 gifts with €30 = about €1.50 each.',
+  ih_stores:'Stores',i_stores:'The stores the search may use. Tap to jump to "Stores near you" and tick the shops you can actually get to.',
+  ih_combos:'Combinations',i_combos:'How many different shopping lists to show you (1–10). Each one is a different mix of products and stores, so you can compare.',
+  ih_plz:'Your postcode',i_plz:'Type your 5-digit postcode. We find the nearest branch of each store and tick the ones inside your search radius automatically.',
+  ih_radius:'Search radius',i_radius:'How far you are willing to go. Stores whose nearest branch is within this distance (straight line from your postcode) get ticked.',
+  ih_loc:'Use my location',i_loc:'Uses your phone/computer location instead of a postcode (your browser will ask first). Nothing is stored or sent anywhere except to find nearby stores on this page.',
+  ih_tiles:'Store boxes',i_tiles:'Tap a box to tick or untick a store. The distance shows how far its nearest branch is; "Find nearest" opens it on Google Maps.',
+  ih_types:'Gift types',i_types:'Which kinds of products are allowed. Untick a type to leave it out, e.g. untick Sweets for chocolate-free gifts.',
+  ih_bundles:'Bundles',i_bundles:'When your budget per gift is about €1.40 or more, two small items can be combined into one gift, e.g. chocolate Santa + lip balm.',
+  ih_wrap:'Gift bags',i_wrap:'Adds the cheapest gift bag from your ticked stores for every gift. Its cost comes out of your total budget.',
+  ih_same:'Max identical',i_same:'The most times the exact same product may appear. 3 means at most 3 people get the same thing.',
   plzLooking:'Finding stores near {z}…',plzNotFound:"Couldn't find postcode {z}. Check it, or tick your stores by hand.",plzOutside:'No branches near {z} in our data. It covers Hamburg. Tick your stores by hand.',
   useLoc:'📍 Use my location',locHere:'your location',locating:'Getting your location…',geoFail:"Couldn't get your location. Enter your postcode instead.",locUpdated:'{n} Hamburg branches from OpenStreetMap, updated {d}',
   h1:'Your Secret Santa shopping, sorted 🎄',gifts:'Gifts',budget:'Total budget',stores:'Stores',combos:'Combinations',search:'Search gifts',browse:'Browse all products',
   fresh:'{n} real products · prices checked {ago}',stale:'Prices are {d} days old. Ask for a refresh before you shop.',
   today:'today at {t}',yesterday:'yesterday at {t}',daysAgo:'{d} days ago',
-  allStores:'All 8 stores',noneStores:'None, tap to choose',
+  allStores:'All {n} stores',noneStores:'None, tap to choose',
   nearH:'📍 Stores near you',nearSub:'Tick the stores you can actually get to. Results and My list only use the stores you tick, and your choice is remembered in this browser.',
-  selectAll:'Select all',clearAll:'Clear all',plzLabel:'Your postcode',radius:'within',
+  selectAll:'Select all',clearAll:'Clear all',plzLabel:'Your postcode',radius:'Search radius',
   plzHint:'Enter a Hamburg postcode to tick the stores within reach automatically',
-  plzFound:'{sub} ({z}): {k} of 8 stores within {r} km ticked automatically. You can still change them.',
+  plzFound:'{sub} ({z}): {k} of {total} stores within {r} km ticked automatically. You can still change them.',
   plzNone:'{sub} ({z}): no store within {r} km. Try a bigger radius.',
   plzUnknown:"{z} isn't in our distance table yet (50 Hamburg postcodes so far). Tick your stores by hand. The map links show the nearest branch.",
   plzBad:'A German postcode has 5 digits.',
@@ -441,22 +469,34 @@ en:{
   impWrap:'The gift bags alone cost {w}, which uses up your whole budget of {b}.',
   fixBudget:'Raise budget to {x}',fixGifts:'Make it {k} gifts',fixSame:'Allow unlimited identical gifts',fixStores:'Tick all stores',fixWrap:'Turn off gift bags',
   noteH:'Where prices come from.',
-  note:'<span class="tag site">store site</span> = read from the store\'s own website (Rewe for Hamburg postcodes; prices were identical at 20457, 21073 and 22767; Aldi = Aldi Nord). <span class="tag offer">offer</span> = a promo with an end date. After that date it is marked as ended automatically. <span class="tag rep">report</span> = Lidl doesn\'t publish shelf prices online, so its one item comes from the Verbraucherzentrale Hamburg price check. Woolworth has no online prices. This page can\'t fetch prices live because store websites block that, so prices are a snapshot with the check time shown at the top. Shelf prices can differ by branch.',
+  note:'<span class="tag site">store site</span> = read from the store\'s own website (Rewe for Hamburg postcodes; prices were identical at 20457, 21073 and 22767; Aldi = Aldi Nord). <span class="tag offer">offer</span> = a promo with an end date. After that date it is marked as ended automatically. <span class="tag rep">report</span> = Lidl doesn\'t publish shelf prices online, so its one item comes from the Verbraucherzentrale Hamburg price check. This page can\'t fetch prices live because store websites block that, so prices are a snapshot with the check time shown at the top. Shelf prices can differ by branch.',
   footTm:'<b>Santa.ai™</b> is a trademark of Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). All rights reserved.',
-  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl and Woolworth are trademarks of their respective owners. Santa.ai is an independent project and isn\'t affiliated with or endorsed by any of these stores.',
+  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland and Lidl are trademarks of their respective owners. Santa.ai is an independent project and isn\'t affiliated with or endorsed by any of these stores.',
   copyHead:'🎅 Santa.ai – {n} gifts, {t}',copyMineHead:'My Secret Santa list: {n} items, {t}',copyChecked:'Prices checked {d}',copyGifts:'Gifts:'
 },
 de:{
+  ih_gifts:'Geschenke',i_gifts:'Wie viele Geschenke du insgesamt kaufen musst, z. B. eins pro Person in deiner Wichtelgruppe. Ganze Zahl von 1 bis 100.',
+  ih_budget:'Gesamtbudget',i_budget:'Das ganze Geld für <b>alle</b> Geschenke zusammen (nicht pro Geschenk). Beispiel: 20 Geschenke mit 30 € = etwa 1,50 € pro Stück.',
+  ih_stores:'Läden',i_stores:'Die Läden, die die Suche nutzen darf. Tippe, um zu „Läden in deiner Nähe" zu springen und die erreichbaren Läden anzuhaken.',
+  ih_combos:'Kombinationen',i_combos:'Wie viele verschiedene Einkaufslisten angezeigt werden (1–10). Jede mischt Produkte und Läden anders, damit du vergleichen kannst.',
+  ih_plz:'Deine PLZ',i_plz:'Gib deine 5-stellige PLZ ein. Wir finden die nächste Filiale jedes Ladens und haken die im Suchradius automatisch an.',
+  ih_radius:'Suchradius',i_radius:'Wie weit du gehen möchtest. Läden, deren nächste Filiale in dieser Entfernung liegt (Luftlinie ab deiner PLZ), werden angehakt.',
+  ih_loc:'Meinen Standort nutzen',i_loc:'Nutzt den Standort deines Geräts statt einer PLZ (dein Browser fragt vorher). Er wird nicht gespeichert und nur hier zum Finden naher Läden verwendet.',
+  ih_tiles:'Laden-Kästchen',i_tiles:'Tippe auf ein Kästchen, um einen Laden an- oder abzuhaken. Die Entfernung zeigt die nächste Filiale; „Nächste Filiale" öffnet sie in Google Maps.',
+  ih_types:'Geschenkarten',i_types:'Welche Produktarten erlaubt sind. Hake eine Art ab, um sie wegzulassen, z. B. Süßes für schokofreie Geschenke.',
+  ih_bundles:'Bündeln',i_bundles:'Ab etwa 1,40 € pro Geschenk können zwei kleine Artikel zu einem Geschenk kombiniert werden, z. B. Schoko-Weihnachtsmann + Lippenpflege.',
+  ih_wrap:'Geschenktüten',i_wrap:'Fügt für jedes Geschenk die günstigste Geschenktüte aus deinen Läden hinzu. Die Kosten gehen vom Gesamtbudget ab.',
+  ih_same:'Max. identische',i_same:'Wie oft genau dasselbe Produkt höchstens vorkommen darf. 3 heißt: höchstens 3 Personen bekommen dasselbe.',
   plzLooking:'Suche Läden in der Nähe von {z}…',plzNotFound:'PLZ {z} nicht gefunden. Prüfe sie oder hake deine Läden selbst an.',plzOutside:'Keine Filialen nahe {z} in unseren Daten. Sie decken Hamburg ab. Hake deine Läden selbst an.',
   useLoc:'📍 Meinen Standort nutzen',locHere:'dein Standort',locating:'Standort wird ermittelt…',geoFail:'Standort nicht verfügbar. Gib stattdessen deine PLZ ein.',locUpdated:'{n} Hamburger Filialen aus OpenStreetMap, aktualisiert am {d}',
   h1:'Dein Wichtel-Einkauf, ganz entspannt 🎄',gifts:'Geschenke',budget:'Gesamtbudget',stores:'Läden',combos:'Kombinationen',search:'Geschenke suchen',browse:'Alle Produkte ansehen',
   fresh:'{n} echte Produkte · Preise geprüft {ago}',stale:'Die Preise sind {d} Tage alt. Lass sie vor dem Einkauf aktualisieren.',
   today:'heute um {t}',yesterday:'gestern um {t}',daysAgo:'vor {d} Tagen',
-  allStores:'Alle 8 Läden',noneStores:'Keine, tippen zum Auswählen',
+  allStores:'Alle {n} Läden',noneStores:'Keine, tippen zum Auswählen',
   nearH:'📍 Läden in deiner Nähe',nearSub:'Hake die Läden an, die du erreichen kannst. Ergebnisse und Meine Liste nutzen nur diese Läden. Deine Auswahl wird in diesem Browser gespeichert.',
-  selectAll:'Alle auswählen',clearAll:'Alle abwählen',plzLabel:'Deine PLZ',radius:'Umkreis',
+  selectAll:'Alle auswählen',clearAll:'Alle abwählen',plzLabel:'Deine PLZ',radius:'Suchradius',
   plzHint:'Gib eine Hamburger PLZ ein, um Läden in der Nähe automatisch anzuhaken',
-  plzFound:'{sub} ({z}): {k} von 8 Läden im Umkreis von {r} km automatisch angehakt. Du kannst die Auswahl ändern.',
+  plzFound:'{sub} ({z}): {k} von {total} Läden im Umkreis von {r} km automatisch angehakt. Du kannst die Auswahl ändern.',
   plzNone:'{sub} ({z}): kein Laden im Umkreis von {r} km. Wähle einen größeren Umkreis.',
   plzUnknown:'{z} ist noch nicht in unserer Entfernungstabelle (bisher 50 Hamburger PLZ). Hake deine Läden selbst an. Die Kartenlinks zeigen die nächste Filiale.',
   plzBad:'Eine deutsche PLZ hat 5 Ziffern.',
@@ -487,9 +527,9 @@ de:{
   impWrap:'Allein die Geschenktüten kosten {w} und damit dein ganzes Budget von {b}.',
   fixBudget:'Budget auf {x} erhöhen',fixGifts:'Auf {k} Geschenke ändern',fixSame:'Beliebig viele identische erlauben',fixStores:'Alle Läden anhaken',fixWrap:'Geschenktüten abwählen',
   noteH:'Woher die Preise kommen.',
-  note:'<span class="tag site">Shop-Website</span> = von der Website des Ladens abgelesen (Rewe für Hamburger PLZ; die Preise waren in 20457, 21073 und 22767 gleich; Aldi = Aldi Nord). <span class="tag offer">Angebot</span> = Aktion mit Enddatum. Danach wird sie automatisch als beendet markiert. <span class="tag rep">Bericht</span> = Lidl veröffentlicht keine Regalpreise online, daher stammt der eine Artikel aus dem Preischeck der Verbraucherzentrale Hamburg. Woolworth hat keine Online-Preise. Diese Seite kann Preise nicht live abrufen, weil die Websites der Läden das blockieren. Die Preise sind ein Stand mit Prüfzeit oben. Regalpreise können je Filiale abweichen.',
+  note:'<span class="tag site">Shop-Website</span> = von der Website des Ladens abgelesen (Rewe für Hamburger PLZ; die Preise waren in 20457, 21073 und 22767 gleich; Aldi = Aldi Nord). <span class="tag offer">Angebot</span> = Aktion mit Enddatum. Danach wird sie automatisch als beendet markiert. <span class="tag rep">Bericht</span> = Lidl veröffentlicht keine Regalpreise online, daher stammt der eine Artikel aus dem Preischeck der Verbraucherzentrale Hamburg. Diese Seite kann Preise nicht live abrufen, weil die Websites der Läden das blockieren. Die Preise sind ein Stand mit Prüfzeit oben. Regalpreise können je Filiale abweichen.',
   footTm:'<b>Santa.ai™</b> ist eine Marke von Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). Alle Rechte vorbehalten.',
-  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl und Woolworth sind Marken ihrer jeweiligen Inhaber. Santa.ai ist ein unabhängiges Projekt und steht in keiner Verbindung zu diesen Läden.',
+  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland und Lidl sind Marken ihrer jeweiligen Inhaber. Santa.ai ist ein unabhängiges Projekt und steht in keiner Verbindung zu diesen Läden.',
   copyHead:'🎅 Santa.ai – {n} Geschenke, {t}',copyMineHead:'Meine Wichtelliste: {n} Artikel, {t}',copyChecked:'Preise geprüft {d}',copyGifts:'Geschenke:'
 }};
 
@@ -540,7 +580,7 @@ store.get('wichtel-mylist',[]).forEach(([id,q])=>{if(BYID[id])state.mine.set(id,
 const saveMine=()=>store.set('wichtel-mylist',[...state.mine]);
 
 // ---------- stores near you ----------
-const MAPQ={dm:'dm-drogerie markt',rossmann:'Rossmann',aldi:'Aldi Nord',rewe:'REWE',action:'Action',tedi:'TEDi',kaufland:'Kaufland',lidl:'Lidl',woolworth:'Woolworth'};
+const MAPQ={dm:'dm-drogerie markt',rossmann:'Rossmann',aldi:'Aldi Nord',rewe:'REWE',action:'Action',tedi:'TEDi',kaufland:'Kaufland',lidl:'Lidl'};
 {const st=store.get('wichtel-stores',null);if(Array.isArray(st))state.stores=new Set(st.filter(k=>STORES[k]&&!STORES[k].none));$('plz').value=store.get('wichtel-plz','');$('rad').value=String(store.get('wichtel-rad',2));}
 const saveStores=()=>{store.set('wichtel-stores',[...state.stores]);store.set('wichtel-plz',$('plz').value);store.set('wichtel-rad',+$('rad').value);};
 const plzVal=()=>($('plz').value||'').replace(/\D/g,'').slice(0,5);
@@ -601,7 +641,7 @@ function afterNear(){renderFilters();renderPlzMsg();if(state.view==='browse')ren
 const curKey=()=>state.near&&state.near.key==='geo'?'geo':plzVal();
 (typeof fetch==='function'?fetch('data/locations.json',{cache:'no-cache'}):Promise.reject()).then(r=>r.ok?r.json():null).then(j=>{
   if(!j||!Array.isArray(j.stores))return;LOC=j;
-  $('locBtn').style.display='';
+  $('locWrap').style.display='';
   const u=new Date(j.updated);$('locInfo').textContent=t('locUpdated',{n:j.stores.length,d:fmtDate(u)});
   if(plzVal().length===5)onPlz();
 }).catch(()=>{});
@@ -619,7 +659,7 @@ function renderPlzMsg(){
   const sub=state.near&&state.near.key===key?state.near.label:(PLZ_DIST[z]||[''])[0];
   const k=Object.keys(STORES).filter(s=>!STORES[s].none&&(distFor(key,s)??99)<=r).length;
   const zz=key==='geo'?t('locHere'):z;
-  m.textContent=k?t('plzFound',{sub:sub||zz,z:zz,k,r}):t('plzNone',{sub:sub||zz,z:zz,r});if(!k)m.className='plzmsg warn';
+  m.textContent=k?t('plzFound',{sub:sub||zz,z:zz,k,r,total:Object.keys(STORES).length}):t('plzNone',{sub:sub||zz,z:zz,r});if(!k)m.className='plzmsg warn';
 }
 function renderFilters(){
   const key=curKey(),z=key,r=+$('rad').value;
@@ -635,7 +675,7 @@ function renderFilters(){
   }).join('');
   $('cats').innerHTML=Object.keys(CATS).map(k=>`<button class="chip ${state.cats.has(k)?'on':''}" data-cat="${k}">${catLabel(k)}</button>`).join('');
   const sel=[...state.stores].map(k=>STORES[k].n);
-  $('storeSum').textContent=sel.length===8?t('allStores'):sel.length?sel.join(', '):t('noneStores');
+  $('storeSum').textContent=sel.length===Object.keys(STORES).length?t('allStores',{n:sel.length}):sel.length?sel.join(', '):t('noneStores');
 }
 
 // ---------- engine ----------
@@ -715,7 +755,7 @@ function showImpossible(e){
     if(e.sameLimited)fx.push(`<button class="btn" data-fix="same">${t('fixSame')}</button>`);
     if(isFinite(e.need))fx.push(`<button class="btn ${e.sameLimited?'ghost':''}" data-fix="budget" data-v="${Math.ceil(e.need)}">${t('fixBudget',{x:eur(Math.ceil(e.need))})}</button>`);
     if(e.k>=1)fx.push(`<button class="btn ghost" data-fix="gifts" data-v="${e.k}">${t('fixGifts',{k:e.k})}</button>`);
-    if(state.stores.size<8)fx.push(`<button class="btn ghost" data-fix="allstores">${t('fixStores')}</button>`);
+    if(state.stores.size<Object.keys(STORES).length)fx.push(`<button class="btn ghost" data-fix="allstores">${t('fixStores')}</button>`);
   }
   $('out').innerHTML=`<div class="imp" role="alert"><h3>⚠️ ${t('impTitle')}</h3>${p.map(x=>`<p>${x}</p>`).join('')}<div class="acts">${fx.join('')}</div></div>`;
 }
@@ -789,6 +829,7 @@ const tag=it=>{
   if(it.src==='rep')return `<span class="tag rep">${t('tagRep',{w:it.when})}</span>`;
   return `<span class="tag site">${t('tagSite',{d:fmtDate(CHECKED)})}</span>`;
 };
+const thumb=it=>it.img?`<span class="pimg"><img src="${esc(it.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><i>${CATS[it.c]||'🎁'}</i></span>`:`<span class="pimg noimg"><i>${CATS[it.c]||'🎁'}</i></span>`;
 const logo=k=>`<span class="logo-s" style="background:${STORES[k].c}">${STORES[k].n}</span>`;
 const storesTxt=n=>n+' '+(n===1?t('store1'):t('storeN'));
 const addBtn=ids=>{const inList=ids.every(id=>state.mine.has(id));return `<button class="add ${inList?'in':''}" data-add="${ids.join(',')}">${inList?t('inList'):t('add')}</button>`;};
@@ -823,12 +864,12 @@ function card(r,i){
     ${open?`<div class="det">
       <div class="sec">
         <h3><span>${t('giftsIn')}</span><button class="add" data-addcombo="${esc(r.sig)}">${t('addCombo')}</button></h3>
-        ${r.lines.map(({u,q})=>`<div class="gift"><div><span class="q">${q}×</span>${u.items.map(x=>esc(x.n)).join(' + ')}</div><div class="r"><b>${eur(u.p)}</b>${addBtn(u.items.map(x=>x.id))}</div></div>`).join('')}
+        ${r.lines.map(({u,q})=>`<div class="gift"><div class="gl"><span class="thumbs">${u.items.map(thumb).join('')}</span><span><span class="q">${q}×</span>${u.items.map(x=>esc(x.n)).join(' + ')}</span></div><div class="r"><b>${eur(u.p)}</b>${addBtn(u.items.map(x=>x.id))}</div></div>`).join('')}
       </div>
       <div class="sec" style="padding-top:0">
         <h3><span>${t('shopByStore')}</span></h3>
         ${r.lists.map(l=>`<div class="store"><div class="hd"><div class="l">${logo(l.k)}<small>${t('itemsN',{n:l.rows.reduce((a,x)=>a+x.q,0)})}</small>${distBadge(l.k)}</div><div>${eur(l.sub)}</div></div>
-          ${l.rows.map(x=>`<div class="item"><div><div class="nm">${x.q} × ${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div>${addBtn([x.it.id])}</div></div>`).join('')}</div>`).join('')}
+          ${l.rows.map(x=>`<div class="item withimg">${thumb(x.it)}<div><div class="nm">${x.q} × ${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div>${addBtn([x.it.id])}</div></div>`).join('')}</div>`).join('')}
       </div>
       <div class="acts"><button class="btn" data-copy="${esc(r.sig)}">${t('copyThis')}</button></div>
     </div>`:''}
@@ -843,7 +884,7 @@ function renderBrowse(){
     <input class="search2" id="q" placeholder="${esc(t('searchPh'))}" value="${esc(state.q)}">
     <div class="chips" style="margin-bottom:12px">${Object.keys(CATS).map(k=>`<button class="chip ${state.cats.has(k)?'on':''}" data-cat="${k}">${catLabel(k)}</button>`).join('')}</div>
     ${Object.entries(by).map(([k,its])=>`<div class="store"><div class="hd"><div class="l">${logo(k)}<small>${t('itemsN',{n:its.length})}</small>${distBadge(k)}</div></div>
-      ${its.map(it=>`<div class="item"><div><div class="nm">${esc(it.n)}${it.sz?` <span>${esc(it.sz)}</span>`:''}</div><div class="sub">${catLabel(it.c)} · ${itemSub(it)}</div></div><div class="rt"><div class="pr">${eur(it.p)}</div>${addBtn([it.id])}</div></div>`).join('')}</div>`).join('')||`<div class="empty">${t('nothing')}</div>`}
+      ${its.map(it=>`<div class="item withimg">${thumb(it)}<div><div class="nm">${esc(it.n)}${it.sz?` <span>${esc(it.sz)}</span>`:''}</div><div class="sub">${catLabel(it.c)} · ${itemSub(it)}</div></div><div class="rt"><div class="pr">${eur(it.p)}</div>${addBtn([it.id])}</div></div>`).join('')}</div>`).join('')||`<div class="empty">${t('nothing')}</div>`}
   </div>`;
   const qi=$('q');if(qi&&state.focusQ){qi.focus();qi.setSelectionRange(qi.value.length,qi.value.length);}
 }
@@ -874,7 +915,7 @@ function renderSheet(){
       <div class="stat"><div class="k">${t('itemsFor',{n:N})}</div><div class="v ${count>=N?'ok':''}">${count}</div></div>
     </div>
     ${rows.length?Object.entries(by).map(([k,rs])=>`<div class="store" style="background:#fff"><div class="hd"><div class="l">${logo(k)}<small>${t('itemsN',{n:rs.reduce((a,x)=>a+x.q,0)})}</small>${distBadge(k)}</div><div>${eur(rs.reduce((a,x)=>a+x.it.p*x.q,0))}</div></div>
-      ${rs.map(x=>`<div class="item ck"><input type="checkbox" aria-label="got it"><div><div class="nm">${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div><div class="qty"><button data-dec="${x.it.id}" aria-label="less">−</button><b>${x.q}</b><button data-inc="${x.it.id}" aria-label="more">+</button><button data-del="${x.it.id}" aria-label="remove" title="Remove" style="color:var(--red)">✕</button></div></div></div>`).join('')}</div>`).join('')
+      ${rs.map(x=>`<div class="item ck withimg"><input type="checkbox" aria-label="got it">${thumb(x.it)}<div><div class="nm">${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div><div class="qty"><button data-dec="${x.it.id}" aria-label="less">−</button><b>${x.q}</b><button data-inc="${x.it.id}" aria-label="more">+</button><button data-del="${x.it.id}" aria-label="remove" title="Remove" style="color:var(--red)">✕</button></div></div></div>`).join('')}</div>`).join('')
     :`<div class="panel empty">${t('listEmpty')}</div>`}
     <div class="acts" style="padding:6px 0 0">${rows.length?`<button class="btn" data-copymine>${t('copyMine')}</button>`:''}<button class="btn ghost" data-browse>${t('browse')}</button></div>
     <div class="acts" style="padding:8px 0 0"><button class="btn ghost" data-close>${t('done')}</button></div>`;
@@ -905,6 +946,16 @@ const findCand=sig=>state.cands&&state.cands.find(c=>c.sig===sig);
 const idOf=raw=>isNaN(+raw)?raw:+raw;
 const afterStores=()=>{saveStores();renderFilters();renderPlzMsg();if(state.view==='browse')renderBrowse();else if(state.cands||state.err)toast(t('tStores'));};
 
+// ---------- ⓘ help popovers ----------
+function showInfo(btn){
+  const pop=$('infoPop'),k=btn.dataset.info;
+  if(pop.dataset.for===k&&pop.classList.contains('show')){hideInfo();return;}
+  pop.innerHTML=`<b>${t('ih_'+k)}</b><div>${t('i_'+k)}</div>`;pop.dataset.for=k;pop.classList.add('show');
+  const r=btn.getBoundingClientRect(),w=Math.min(300,innerWidth-24);pop.style.width=w+'px';
+  pop.style.left=Math.max(12,Math.min(innerWidth-w-12,r.left+r.width/2-w/2))+scrollX+'px';pop.style.top=(r.bottom+8+scrollY)+'px';
+}
+function hideInfo(){const p=$('infoPop');if(p){p.classList.remove('show');p.dataset.for='';}}
+addEventListener('resize',hideInfo);
 // ---------- events ----------
 document.addEventListener('click',e=>{
   const tg=e.target,cl=s=>tg.closest(s);
@@ -913,6 +964,8 @@ document.addEventListener('click',e=>{
     if(k==='budget')$('b').value=f.dataset.v;if(k==='gifts')$('n').value=f.dataset.v;if(k==='same')$('same').value='99';if(k==='nowrap')$('wrap').checked=false;
     if(k==='allstores'){Object.keys(STORES).forEach(s=>{if(!STORES[s].none)state.stores.add(s)});state.cats=new Set(Object.keys(CATS));saveStores();renderFilters();renderPlzMsg();}
     updateBar();generate();return;}
+  if(cl('[data-info]')){e.preventDefault();e.stopPropagation();showInfo(cl('[data-info]'));return;}
+  if(!cl('#infoPop'))hideInfo();
   if(tg.id==='locBtn'||cl('#locBtn')){useMyLocation();return;}
   if(cl('[data-open]')){$('near').scrollIntoView({behavior:'smooth'});return;}
   if(cl('[data-nolink]'))return;
@@ -950,7 +1003,7 @@ document.addEventListener('change',e=>{
   if(e.target.id==='rad'){const k=curKey();if(k==='geo'||k.length===5)selectWithin(k);saveStores();renderFilters();renderPlzMsg();}
   if(e.target.matches('.item.ck input'))e.target.closest('.item').classList.toggle('done',e.target.checked);
 });
-document.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target.matches('.tile[data-store]')){e.preventDefault();e.target.click();}if(e.key==='Enter'&&(e.target.id==='n'||e.target.id==='b'))generate();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')hideInfo();if((e.key===' '||e.key==='Enter')&&e.target.matches('.tile[data-store]')){e.preventDefault();e.target.click();}if(e.key==='Enter'&&(e.target.id==='n'||e.target.id==='b'))generate();});
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){state.q=e.target.value;state.focusQ=true;renderBrowse();state.focusQ=false;}
   if(e.target.id==='n'||e.target.id==='b'){updateBar();if($('inerr').classList.contains('show'))validate();}
