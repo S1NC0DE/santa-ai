@@ -1,4 +1,4 @@
-// Downloads branch locations of the 9 chains and all postcode areas in Hamburg from OpenStreetMap (Overpass API)
+// Downloads branch locations of the 8 chains and all postcode areas in Hamburg from OpenStreetMap (Overpass API)
 // and writes data/locations.json. Run by .github/workflows/refresh-locations.yml.
 import fs from 'node:fs';
 const MIRRORS=['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass.private.coffee/api/interpreter','https://maps.mail.ru/osm/tools/overpass/api/interpreter'];
@@ -12,10 +12,10 @@ async function overpass(q){
     console.log('retry after',last);await sleep(5000*(round+1));}
   throw new Error('Overpass failed: '+last);
 }
-const BR=[['dm',/^dm(\b|-)/i],['rossmann',/rossmann/i],['aldi',/aldi/i],['lidl',/lidl/i],['rewe',/rewe/i],['action',/^action$/i],['tedi',/tedi/i],['kaufland',/kaufland/i],['woolworth',/woolworth/i]];
+const BR=[['dm',/^dm(\b|-)/i],['rossmann',/rossmann/i],['aldi',/aldi/i],['lidl',/lidl/i],['rewe',/rewe/i],['action',/^action$/i],['tedi',/tedi/i],['kaufland',/kaufland/i]];
 const key=t=>{const s=(t.brand||t.name||'');for(const [k,re] of BR)if(re.test(s))return k;return null;};
 const area='area["ISO3166-2"="DE-HH"]->.hh;';
-const shops=await overpass(`[out:json][timeout:180];${area}nwr["shop"]["brand"~"^(dm|dm-drogerie markt|Rossmann|Aldi|Aldi Nord|ALDI Nord|Lidl|REWE|Rewe|REWE City|Action|TEDi|Kaufland|Woolworth)$",i](area.hh);out center tags;`);
+const shops=await overpass(`[out:json][timeout:180];${area}nwr["shop"]["brand"~"^(dm|dm-drogerie markt|Rossmann|Aldi|Aldi Nord|ALDI Nord|Lidl|REWE|Rewe|REWE City|Action|TEDi|Kaufland)$",i](area.hh);out center tags;`);
 const seen=new Set(),stores=[];
 for(const e of shops.elements){const k=key(e.tags||{});if(!k)continue;const la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon;if(la==null)continue;
   const id=k+la.toFixed(4)+lo.toFixed(4);if(seen.has(id))continue;seen.add(id);
