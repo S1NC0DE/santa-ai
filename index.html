@@ -233,6 +233,7 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
 .pimg i{font-style:normal;font-size:22px;display:none}.pimg.noimg i{display:block}.pimg.noimg{background:var(--blue-soft)}
 .item.withimg{grid-template-columns:auto 1fr auto}.item.ck.withimg{grid-template-columns:auto auto 1fr auto}
 .gift .gl{display:flex;align-items:center;gap:10px}.thumbs{display:flex;gap:4px}.thumbs .pimg{width:40px;height:40px}
+.wrapsec{background:#fff8ef;border-top:1px dashed var(--line)}
 @media(max-width:560px){.tab .p{font-size:17px}.tab{padding:10px}.price .big{font-size:21px}.top h1{font-size:22px}}
 </style>
 </head>
@@ -270,7 +271,7 @@ body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixe
       <div class="chips" id="cats"></div>
       <div class="opts">
         <label><input type="checkbox" id="bundles" checked> <span data-t="bundles"></span></label><button class="info" data-info="bundles" aria-label="Help">i</button>
-        <label><input type="checkbox" id="wrap"> <span data-t="wrapOpt"></span></label><button class="info" data-info="wrap" aria-label="Help">i</button>
+        <input type="checkbox" id="wrap" hidden>
         <label><span data-t="maxSame"></span><button class="info" data-info="same" aria-label="Help">i</button> <select id="same"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option value="99" data-t="noLimit"></option></select></label>
       </div>
     </div>
@@ -396,11 +397,17 @@ const ITEMS=[
  // lidl (Verbraucherzentrale Hamburg price check)
  ['lidl','Favorina Schoko-Weihnachtsmann','110 g',0.99,'sweet','rep','VZ Hamburg, Okt 2026']
 ].map((a,i)=>({id:i,s:a[0],n:a[1],sz:a[2],p:a[3],c:a[4],src:a[5]||'site',when:a[6]||'',until:a[7]||''}));
+// Wrapping supplies (real products/prices from the store sites, 18 Nov 2026). Shown separately, NOT counted in the gift budget.
+// per = how many gifts one unit wraps (estimate: a 200x70 cm sheet wraps ~4 small gifts, 1 m ribbon per gift)
 const WRAPS=[
- {s:'action',n:'XL-Geschenktüte für Weihnachten',sz:'35 × 44 cm',p:0.89,src:'site'},
- {s:'dm',n:'Profissimo Geschenktasche Hund, Pinguin & Eisbär, mini',sz:'',p:0.95,src:'site'},
- {s:'tedi',n:'Geschenktüte',sz:'ca. 18 × 10 × 23 cm',p:1.00,src:'site'},
- {s:'action',n:'Geschenkbox für Weihnachten',sz:'11 × 14 × 12 cm',p:0.95,src:'site'}
+ {s:'action',n:'XL-Geschenktüte für Weihnachten',sz:'35 × 44 cm',p:0.89,t:'bag',per:1},
+ {s:'action',n:'Geschenkbox für Weihnachten',sz:'11 × 14 × 12 cm',p:0.95,t:'bag',per:1},
+ {s:'dm',n:'Profissimo Geschenktasche Hund, Pinguin & Eisbär, mini',sz:'',p:0.95,t:'bag',per:1},
+ {s:'tedi',n:'Geschenktüte',sz:'ca. 18 × 10 × 23 cm',p:1.00,t:'bag',per:1},
+ {s:'tedi',n:'Geschenkpapier Lilo & Stitch',sz:'200 × 70 cm',p:1.00,t:'paper',per:4},
+ {s:'tedi',n:'Flügelschleife Samt',sz:'2er-Set',p:1.00,t:'ribbon',per:2},
+ {s:'tedi',n:'Eiknäuel (Geschenkband)',sz:'ca. 12 m',p:1.55,t:'ribbon',per:12},
+ {s:'dm',n:'Profissimo Geschenkband, rot',sz:'3 m',p:1.45,t:'ribbon',per:3}
 ];
 
 
@@ -417,6 +424,7 @@ WRAPS.forEach(w=>{});
 
 const I18N={
 en:{
+  wrapH:'Wrapping (extra, not in your budget)',wrapSub:'Cheapest ways to wrap {n} gifts with the stores you ticked.',wrapBags:'Option: gift bags',wrapPaper:'Option: wrapping paper + ribbon',wrapCovers:'wraps ~{n} gift(s)',wrapNone:'None of your ticked stores has wrapping in our list (Action, dm and TEDi do).',wrapExtra:'Wrapping: {x} extra, not counted in the budget',
   ih_gifts:'Gifts',i_gifts:'How many presents you need to buy in total, e.g. one per person in your Secret Santa group. Whole number from 1 to 100.',
   ih_budget:'Total budget',i_budget:'All the money you want to spend on <b>all</b> gifts together (not per gift). Example: 20 gifts with €30 = about €1.50 each.',
   ih_stores:'Stores',i_stores:'The stores the search may use. Tap to jump to "Stores near you" and tick the shops you can actually get to.',
@@ -427,7 +435,7 @@ en:{
   ih_tiles:'Store boxes',i_tiles:'Tap a box to tick or untick a store. The distance shows how far its nearest branch is; "Find nearest" opens it on Google Maps.',
   ih_types:'Gift types',i_types:'Which kinds of products are allowed. Untick a type to leave it out, e.g. untick Sweets for chocolate-free gifts.',
   ih_bundles:'Bundles',i_bundles:'When your budget per gift is about €1.40 or more, two small items can be combined into one gift, e.g. chocolate Santa + lip balm.',
-  ih_wrap:'Gift bags',i_wrap:'Adds the cheapest gift bag from your ticked stores for every gift. Its cost comes out of your total budget.',
+  ih_wrap:'Wrapping',i_wrap:'Wrapping is shown separately under each shopping list and is not counted in your gift budget.',
   ih_same:'Max identical',i_same:'The most times the exact same product may appear. 3 means at most 3 people get the same thing.',
   plzLooking:'Finding stores near {z}…',plzNotFound:"Couldn't find postcode {z}. Check it, or tick your stores by hand.",plzOutside:'No branches near {z} in our data. It covers Hamburg. Tick your stores by hand.',
   useLoc:'📍 Use my location',locHere:'your location',locating:'Getting your location…',geoFail:"Couldn't get your location. Enter your postcode instead.",locUpdated:'{n} Hamburg branches from OpenStreetMap, updated {d}',
@@ -475,6 +483,7 @@ en:{
   copyHead:'🎅 Santa.ai – {n} gifts, {t}',copyMineHead:'My Secret Santa list: {n} items, {t}',copyChecked:'Prices checked {d}',copyGifts:'Gifts:'
 },
 de:{
+  wrapH:'Verpackung (extra, nicht im Budget)',wrapSub:'Die günstigsten Möglichkeiten, {n} Geschenke mit deinen Läden zu verpacken.',wrapBags:'Option: Geschenktüten',wrapPaper:'Option: Geschenkpapier + Band',wrapCovers:'reicht für ~{n} Geschenk(e)',wrapNone:'Keiner deiner Läden hat Verpackung in unserer Liste (Action, dm und TEDi schon).',wrapExtra:'Verpackung: {x} extra, nicht im Budget',
   ih_gifts:'Geschenke',i_gifts:'Wie viele Geschenke du insgesamt kaufen musst, z. B. eins pro Person in deiner Wichtelgruppe. Ganze Zahl von 1 bis 100.',
   ih_budget:'Gesamtbudget',i_budget:'Das ganze Geld für <b>alle</b> Geschenke zusammen (nicht pro Geschenk). Beispiel: 20 Geschenke mit 30 € = etwa 1,50 € pro Stück.',
   ih_stores:'Läden',i_stores:'Die Läden, die die Suche nutzen darf. Tippe, um zu „Läden in deiner Nähe" zu springen und die erreichbaren Läden anzuhaken.',
@@ -485,7 +494,7 @@ de:{
   ih_tiles:'Laden-Kästchen',i_tiles:'Tippe auf ein Kästchen, um einen Laden an- oder abzuhaken. Die Entfernung zeigt die nächste Filiale; „Nächste Filiale" öffnet sie in Google Maps.',
   ih_types:'Geschenkarten',i_types:'Welche Produktarten erlaubt sind. Hake eine Art ab, um sie wegzulassen, z. B. Süßes für schokofreie Geschenke.',
   ih_bundles:'Bündeln',i_bundles:'Ab etwa 1,40 € pro Geschenk können zwei kleine Artikel zu einem Geschenk kombiniert werden, z. B. Schoko-Weihnachtsmann + Lippenpflege.',
-  ih_wrap:'Geschenktüten',i_wrap:'Fügt für jedes Geschenk die günstigste Geschenktüte aus deinen Läden hinzu. Die Kosten gehen vom Gesamtbudget ab.',
+  ih_wrap:'Verpackung',i_wrap:'Verpackung wird unter jeder Einkaufsliste extra angezeigt und zählt nicht zum Geschenkbudget.',
   ih_same:'Max. identische',i_same:'Wie oft genau dasselbe Produkt höchstens vorkommen darf. 3 heißt: höchstens 3 Personen bekommen dasselbe.',
   plzLooking:'Suche Läden in der Nähe von {z}…',plzNotFound:'PLZ {z} nicht gefunden. Prüfe sie oder hake deine Läden selbst an.',plzOutside:'Keine Filialen nahe {z} in unseren Daten. Sie decken Hamburg ab. Hake deine Läden selbst an.',
   useLoc:'📍 Meinen Standort nutzen',locHere:'dein Standort',locating:'Standort wird ermittelt…',geoFail:'Standort nicht verfügbar. Gib stattdessen deine PLZ ein.',locUpdated:'{n} Hamburger Filialen aus OpenStreetMap, aktualisiert am {d}',
@@ -765,7 +774,7 @@ function generate(){
   const maxSame=+$('same').value,bundles=$('bundles').checked;
   const items=liveItems().filter(i=>state.stores.has(i.s)&&state.cats.has(i.c));
   const wraps=WRAPS.filter(w=>state.stores.has(w.s)).sort((a,b)=>a.p-b.p);
-  const wrap=$('wrap').checked&&wraps.length?wraps[0]:null;
+  const wrap=null; // wrapping is shown separately and never counted in the gift budget
   if(!items.length)return showImpossible({kind:'nostores'});
   const wcost=wrap?N*wrap.p:0,giftB=B-wcost;
   if(giftB<=0)return showImpossible({kind:'wrap',w:wcost,B});
@@ -829,7 +838,7 @@ const tag=it=>{
   if(it.src==='rep')return `<span class="tag rep">${t('tagRep',{w:it.when})}</span>`;
   return `<span class="tag site">${t('tagSite',{d:fmtDate(CHECKED)})}</span>`;
 };
-const thumb=it=>it.img?`<span class="pimg"><img src="${esc(it.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><i>${CATS[it.c]||'🎁'}</i></span>`:`<span class="pimg noimg"><i>${CATS[it.c]||'🎁'}</i></span>`;
+const thumb=it=>{const ic=it.c==='wrap'?'🎀':(CATS[it.c]||'🎁');return it.img?`<span class="pimg"><img src="${esc(it.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><i>${ic}</i></span>`:`<span class="pimg noimg"><i>${ic}</i></span>`;};
 const logo=k=>`<span class="logo-s" style="background:${STORES[k].c}">${STORES[k].n}</span>`;
 const storesTxt=n=>n+' '+(n===1?t('store1'):t('storeN'));
 const addBtn=ids=>{const inList=ids.every(id=>state.mine.has(id));return `<button class="add ${inList?'in':''}" data-add="${ids.join(',')}">${inList?t('inList'):t('add')}</button>`;};
@@ -849,6 +858,19 @@ function render(){
     <span>${t('show')} <select id="k2">${[1,2,3,4,5,6,7,8,9,10].map(v=>`<option ${v===K?'selected':''}>${v}</option>`).join('')}</select></span></div>
   ${list.map((r,i)=>card(r,i)).join('')}
   <div class="acts" style="padding:4px 0 0"><button class="btn ghost" id="shuffle">${t('findDiff')}</button><button class="btn ghost" data-browse>${t('browse')}</button></div>`;
+}
+function wrapPlans(N){
+  const avail=WRAPS.filter(w=>state.stores.has(w.s));if(!avail.length)return [];
+  const cheapest=t=>avail.filter(w=>w.t===t).map(w=>({w,q:Math.ceil(N/w.per),cost:Math.ceil(N/w.per)*w.p})).sort((a,b)=>a.cost-b.cost)[0];
+  const plans=[];const b=cheapest('bag');if(b)plans.push({k:'wrapBags',lines:[b]});
+  const p=cheapest('paper'),rb=cheapest('ribbon');if(p)plans.push({k:'wrapPaper',lines:[p,rb].filter(Boolean)});
+  plans.forEach(pl=>pl.total=pl.lines.reduce((a,l)=>a+l.cost,0));return plans.sort((a,b)=>a.total-b.total);
+}
+function wrapSection(N){
+  const plans=wrapPlans(N);if(!plans.length)return `<div class="sec wrapsec"><h3><span>🎀 ${t('wrapH')}</span></h3><p class="sub2">${t('wrapNone')}</p></div>`;
+  return `<div class="sec wrapsec"><h3><span>🎀 ${t('wrapH')}</span></h3><p class="sub2" style="margin:-4px 0 8px">${t('wrapSub',{n:N})}</p>
+   ${plans.map(pl=>`<div class="store"><div class="hd"><div class="l">${t(pl.k)}</div><div>${eur(pl.total)}</div></div>
+    ${pl.lines.map(l=>`<div class="item withimg">${thumb({...l.w,c:'wrap'})}<div><div class="nm">${l.q} × ${esc(l.w.n)}${l.w.sz?` <span>${esc(l.w.sz)}</span>`:''}</div><div class="sub">${logo(l.w.s)} ${eur(l.w.p)} ${t('each')} · ${t('wrapCovers',{n:l.w.per})}</div></div><div class="rt"><div class="pr">${eur(l.cost)}</div><button class="add" data-addwrap="${l.w.id}" data-q="${l.q}">${t('add')}</button></div></div>`).join('')}</div>`).join('')}</div>`;
 }
 function card(r,i){
   const open=state.open===r.sig,left=r.B-r.grand;
@@ -871,6 +893,7 @@ function card(r,i){
         ${r.lists.map(l=>`<div class="store"><div class="hd"><div class="l">${logo(l.k)}<small>${t('itemsN',{n:l.rows.reduce((a,x)=>a+x.q,0)})}</small>${distBadge(l.k)}</div><div>${eur(l.sub)}</div></div>
           ${l.rows.map(x=>`<div class="item withimg">${thumb(x.it)}<div><div class="nm">${x.q} × ${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div>${addBtn([x.it.id])}</div></div>`).join('')}</div>`).join('')}
       </div>
+      ${wrapSection(r.N)}
       <div class="acts"><button class="btn" data-copy="${esc(r.sig)}">${t('copyThis')}</button></div>
     </div>`:''}
   </div>`;
@@ -891,7 +914,7 @@ function renderBrowse(){
 
 // ---------- My list ----------
 function mineRows(){return [...state.mine].map(([id,q])=>({it:BYID[id],q})).filter(x=>x.it);}
-function mineTotals(){const rows=mineRows();return {rows,total:rows.reduce((a,x)=>a+x.it.p*x.q,0),count:rows.filter(x=>x.it.c!=='wrap').reduce((a,x)=>a+x.q,0)};}
+function mineTotals(){const rows=mineRows();const g=rows.filter(x=>x.it.c!=='wrap'),w=rows.filter(x=>x.it.c==='wrap');return {rows,total:g.reduce((a,x)=>a+x.it.p*x.q,0),wrapTotal:w.reduce((a,x)=>a+x.it.p*x.q,0),count:g.reduce((a,x)=>a+x.q,0)};}
 function addIds(ids,n=1){ids.forEach(id=>state.mine.set(id,(state.mine.get(id)||0)+n));saveMine();updateBar();}
 const curN=()=>{const n=parseInt($('n').value,10);return n>0?n:20;},curB=()=>{const b=parseFloat(String($('b').value).replace(',','.'));return b>0?b:30;};
 function updateBar(){
@@ -903,7 +926,7 @@ function updateBar(){
   if($('sheet').classList.contains('show'))renderSheet();
 }
 function renderSheet(){
-  const {rows,total,count}=mineTotals(),N=curN(),B=curB();
+  const {rows,total,count,wrapTotal}=mineTotals(),N=curN(),B=curB();
   const by={};rows.forEach(r=>(by[r.it.s]=by[r.it.s]||[]).push(r));
   const left=B-total;
   $('sheetBody').innerHTML=`
@@ -913,7 +936,7 @@ function renderSheet(){
       <div class="stat"><div class="k">${t('total')}</div><div class="v">${eur(total)}</div></div>
       <div class="stat"><div class="k">${left>=0?t('left'):t('overB')}</div><div class="v ${left>=0?'ok':'bad'}">${eur(Math.abs(left))}</div></div>
       <div class="stat"><div class="k">${t('itemsFor',{n:N})}</div><div class="v ${count>=N?'ok':''}">${count}</div></div>
-    </div>
+    </div>${wrapTotal?`<div class="sub2" style="margin:-4px 0 10px">🎀 ${t('wrapExtra',{x:eur(wrapTotal)})}</div>`:''}
     ${rows.length?Object.entries(by).map(([k,rs])=>`<div class="store" style="background:#fff"><div class="hd"><div class="l">${logo(k)}<small>${t('itemsN',{n:rs.reduce((a,x)=>a+x.q,0)})}</small>${distBadge(k)}</div><div>${eur(rs.reduce((a,x)=>a+x.it.p*x.q,0))}</div></div>
       ${rs.map(x=>`<div class="item ck withimg"><input type="checkbox" aria-label="got it">${thumb(x.it)}<div><div class="nm">${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div><div class="qty"><button data-dec="${x.it.id}" aria-label="less">−</button><b>${x.q}</b><button data-inc="${x.it.id}" aria-label="more">+</button><button data-del="${x.it.id}" aria-label="remove" title="Remove" style="color:var(--red)">✕</button></div></div></div>`).join('')}</div>`).join('')
     :`<div class="panel empty">${t('listEmpty')}</div>`}
@@ -978,6 +1001,7 @@ document.addEventListener('click',e=>{
   if(cl('[data-add]')){e.preventDefault();const ids=cl('[data-add]').dataset.add.split(',').map(idOf);
     if(ids.every(id=>state.mine.has(id))){toast(t('tAlready'));return;}
     addIds(ids);toast(t('tAdded'));render();return;}
+  if(cl('[data-addwrap]')){const b=cl('[data-addwrap]');addIds([b.dataset.addwrap],+b.dataset.q||1);toast(t('tAdded'));render();return;}
   if(cl('[data-addcombo]')){const r=findCand(cl('[data-addcombo]').dataset.addcombo);if(r){r.lists.forEach(l=>l.rows.forEach(x=>addIds([x.it.id],x.q)));toast(t('tAddedN',{n:r.N}));render();}return;}
   if(cl('[data-copy]')){const r=findCand(cl('[data-copy]').dataset.copy);if(r)copyText(comboText(r));return;}
   if(cl('[data-open-card]')){const s=cl('[data-open-card]').dataset.openCard;state.open=state.open===s?null:s;render();return;}

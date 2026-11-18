@@ -25,7 +25,7 @@ for(const z of Object.keys(PLZ_DIST)){
     const ctx={plz:z,scen:s.id};
     const items=ITEMS.filter(i=>expected.includes(i.s)&&!(i.src==='offer'&&i.until&&new Date(i.until+'T23:59:59+01:00')<now));
     const wraps=WRAPS.filter(x=>expected.includes(x.s)).sort((a,b)=>a.p-b.p);
-    const wcost=s.wrap&&wraps.length?s.N*wraps[0].p:0;
+    const wcost=0; // wrapping is never counted in the budget
     const need=items.length?minCost(items,s.N,MAXSAME)+wcost:Infinity;
     const feasible=items.length>0&&need<=s.B+1e-9;
     const cands=w.eval('state.cands');const imp=d.querySelector('.imp');
@@ -62,6 +62,10 @@ for(const z of Object.keys(PLZ_DIST)){
         d.querySelector('[data-sort=cheap]').click();const first=w.eval('sorted("cheap")[0].grand');ok(Math.abs(first-cheapest)<1e-9,'cheapest tab not sorted',ctx);
         d.querySelector('[data-sort=best]').click();
         const best=w.eval('sorted("best")[0]'),few=w.eval('sorted("fewest")[0]');
+        // wrapping shown separately and not in totals
+        w.eval('state.open=sorted("best")[0].sig;render()');const ws=d.querySelector('.wrapsec');ok(!!ws,'wrapping section missing',ctx);
+        ok(Math.abs(best.grand-best.total)<1e-9,'wrapping leaked into the gift budget',ctx);
+        const plans=w.eval('wrapPlans('+s.N+')');plans.forEach(p=>{ok(p.lines.every(l=>l.q*l.w.per>=s.N||l.w.t==='ribbon'&&l.q*l.w.per>=s.N),'wrapping plan does not cover all gifts',ctx);ok(p.lines.every(l=>expected.includes(l.w.s)),'wrapping from a store outside radius',ctx);});
         Object.assign(r,{status:'ok',combos:cands.length,best:+best.grand.toFixed(2),bestStores:best.lists.map(l=>l.k),cheapest:+cheapest.toFixed(2),fewest:+few.grand.toFixed(2),fewestStores:few.lists.map(l=>l.k)});
       }
     }

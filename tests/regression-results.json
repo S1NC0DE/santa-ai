@@ -1,5 +1,5 @@
 {
- "ranAt": "2026-11-18T21:34:22.356Z",
+ "ranAt": "2026-11-18T21:37:05.641Z",
  "postcodes": 50,
  "scenarios": [
   {
@@ -41,7 +41,7 @@
  ],
  "radiusKm": 2,
  "maxIdentical": 3,
- "checks": 59559,
+ "checks": 59832,
  "failed": 0,
  "fails": [],
  "results": [
@@ -115,19 +115,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 25,
-     "best": 9.96,
+     "combos": 27,
+     "best": 9.23,
      "bestStores": [
       "rossmann",
-      "dm"
+      "rewe"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -220,19 +219,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -324,19 +322,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -428,19 +425,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -533,19 +529,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -638,19 +633,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -742,19 +736,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -846,19 +839,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -951,19 +943,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1056,19 +1047,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1160,19 +1150,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 49,
-     "best": 9.96,
+     "combos": 46,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1264,19 +1253,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1368,19 +1356,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1485,19 +1472,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 29,
-     "best": 9.54,
+     "combos": 28,
+     "best": 9.7,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 9.7,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -1590,19 +1574,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 31,
-     "best": 9.96,
+     "combos": 29,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -1709,19 +1692,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -2018,19 +1998,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
      "combos": 41,
-     "best": 9.54,
+     "best": 9.7,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 9.7,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -2139,19 +2116,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -2262,15 +2236,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.4,
+     "need": 1.95,
      "status": "ok",
-     "combos": 90,
-     "best": 9.15,
+     "combos": 84,
+     "best": 9.2,
      "bestStores": [
       "action"
      ],
-     "cheapest": 6.4,
-     "fewest": 9.15,
+     "cheapest": 1.95,
+     "fewest": 9.2,
      "fewestStores": [
       "action"
      ]
@@ -2491,16 +2465,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7.15,
+     "need": 2.15,
      "status": "ok",
-     "combos": 7,
-     "best": 9.59,
+     "combos": 12,
+     "best": 8.9,
      "bestStores": [
-      "tedi",
-      "aldi"
+      "tedi"
      ],
-     "cheapest": 7.15,
-     "fewest": 9.45,
+     "cheapest": 2.15,
+     "fewest": 8.9,
      "fewestStores": [
       "tedi"
      ]
@@ -2594,15 +2567,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.48,
+     "need": 2.03,
      "status": "ok",
-     "combos": 41,
-     "best": 9.15,
+     "combos": 34,
+     "best": 9.07,
      "bestStores": [
       "action"
      ],
-     "cheapest": 6.48,
-     "fewest": 9.15,
+     "cheapest": 2.03,
+     "fewest": 9.07,
      "fewestStores": [
       "action"
      ]
@@ -2782,16 +2755,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7.15,
+     "need": 2.15,
      "status": "ok",
-     "combos": 44,
-     "best": 9.59,
+     "combos": 49,
+     "best": 8.9,
      "bestStores": [
-      "tedi",
-      "aldi"
+      "tedi"
      ],
-     "cheapest": 7.15,
-     "fewest": 9.45,
+     "cheapest": 2.15,
+     "fewest": 8.9,
      "fewestStores": [
       "tedi"
      ]
@@ -2902,19 +2874,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 83,
-     "best": 9.54,
+     "combos": 81,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -3224,19 +3193,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -3345,19 +3311,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -3451,19 +3414,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -3556,19 +3518,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -3675,19 +3636,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -3779,14 +3737,14 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7.02,
+     "need": 2.57,
      "status": "ok",
-     "combos": 38,
+     "combos": 29,
      "best": 9.11,
      "bestStores": [
       "action"
      ],
-     "cheapest": 7.02,
+     "cheapest": 2.57,
      "fewest": 9.11,
      "fewestStores": [
       "action"
@@ -3981,15 +3939,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 53,
-     "best": 9.15,
+     "combos": 49,
+     "best": 9.2,
      "bestStores": [
       "action"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.15,
+     "cheapest": 2.25,
+     "fewest": 9.2,
      "fewestStores": [
       "action"
      ]
@@ -4183,19 +4141,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -4288,19 +4245,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 72,
-     "best": 9.96,
+     "combos": 65,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -4407,19 +4363,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -4528,19 +4481,16 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.7,
+     "need": 1.95,
      "status": "ok",
-     "combos": 64,
-     "best": 9.54,
+     "combos": 58,
+     "best": 8.9,
      "bestStores": [
-      "dm",
-      "tedi",
-      "rewe"
+      "tedi"
      ],
-     "cheapest": 6.7,
-     "fewest": 9.2,
+     "cheapest": 1.95,
+     "fewest": 8.9,
      "fewestStores": [
-      "dm",
       "tedi"
      ]
     },
@@ -4634,19 +4584,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 46,
-     "best": 9.96,
+     "combos": 41,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -4824,19 +4773,18 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
-     "combos": 31,
-     "best": 9.96,
+     "combos": 29,
+     "best": 9.34,
      "bestStores": [
       "rossmann",
-      "dm"
+      "aldi"
      ],
-     "cheapest": 7,
-     "fewest": 9.96,
+     "cheapest": 2.25,
+     "fewest": 9.45,
      "fewestStores": [
-      "rossmann",
-      "dm"
+      "rossmann"
      ]
     },
     "S7": {
@@ -5028,16 +4976,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7.15,
+     "need": 2.15,
      "status": "ok",
-     "combos": 16,
-     "best": 9.59,
+     "combos": 19,
+     "best": 8.9,
      "bestStores": [
-      "tedi",
-      "aldi"
+      "tedi"
      ],
-     "cheapest": 7.15,
-     "fewest": 9.45,
+     "cheapest": 2.15,
+     "fewest": 8.9,
      "fewestStores": [
       "tedi"
      ]
@@ -5131,15 +5078,15 @@
     },
     "S6": {
      "feasible": true,
-     "need": 6.48,
+     "need": 2.03,
      "status": "ok",
-     "combos": 59,
-     "best": 9.15,
+     "combos": 51,
+     "best": 9.16,
      "bestStores": [
       "action"
      ],
-     "cheapest": 6.48,
-     "fewest": 9.15,
+     "cheapest": 2.03,
+     "fewest": 9.16,
      "fewestStores": [
       "action"
      ]
@@ -5231,19 +5178,17 @@
     },
     "S6": {
      "feasible": true,
-     "need": 7,
+     "need": 2.25,
      "status": "ok",
      "combos": 20,
-     "best": 9.5,
+     "best": 8.15,
      "bestStores": [
-      "rewe",
-      "dm"
+      "rewe"
      ],
-     "cheapest": 7,
-     "fewest": 9.5,
+     "cheapest": 2.25,
+     "fewest": 8.15,
      "fewestStores": [
-      "rewe",
-      "dm"
+      "rewe"
      ]
     },
     "S7": {
