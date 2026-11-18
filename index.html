@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Jayant Singh Amethia">
 <meta name="copyright" content="© 2026 Jayant Singh Amethia. All rights reserved.">
-<title>Wichtel Shopper – Secret Santa gift finder</title>
+<meta name="theme-color" content="#0d3b2e">
+<title>Santa.ai – Secret Santa gift finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#05203c; --navy2:#0b2b4f; --blue:#0062e3; --blue-d:#024daf; --blue-soft:#e3efff; --bg:#eff3f8; --card:#fff;
-  --ink:#161616; --muted:#626971; --line:#dfe3e8; --green:#0c838a; --green-soft:#e2f4f2; --amber:#c97a00; --amber-soft:#fff3db; --red:#b0034a;
+  --navy:#0d3b2e; --navy2:#165440; --blue:#c8102e; --blue-d:#9b0b22; --blue-soft:#fde8eb; --bg:#f8f3ea; --card:#fffdf9; --gold:#d9a521;
+  --ink:#1d1a17; --muted:#6c665d; --line:#ece3d4; --green:#1f7a4d; --green-soft:#e3f3ea; --amber:#c97a00; --amber-soft:#fff3db; --red:#b0034a;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:84px}
@@ -175,12 +176,60 @@ details.panel .body{margin-top:12px}
 .imp .acts{padding:6px 0 0}
 .stalebar{background:var(--amber-soft);color:var(--amber);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;margin-top:10px;display:none}
 .tag.ended{background:#fff0f4;color:var(--red)}
+.top{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% -10%,#1f6b52 0%,var(--navy) 55%,#082a20 100%)}
+.top:after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:repeating-linear-gradient(-45deg,#c8102e 0 14px,#fff 14px 28px)}
+.top .inner{position:relative;z-index:2}
+.wordmark{font-family:'Mountains of Christmas',cursive;font-size:30px;letter-spacing:.5px;line-height:1}
+.wordmark span{color:var(--gold)}
+.brand .logo{background:var(--blue);box-shadow:0 0 0 3px rgba(217,165,33,.6)}
+.top h1{text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.search{background:rgba(255,255,255,.08);border:1px solid rgba(217,165,33,.35);backdrop-filter:blur(2px)}
+.go{background:linear-gradient(180deg,#d8143a,#a80d26);box-shadow:0 4px 14px rgba(200,16,46,.35)}
+.snow{position:absolute;inset:0;pointer-events:none;z-index:1}
+.snow i{position:absolute;top:-12px;color:#fff;opacity:.8;font-style:normal;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(560px) rotate(240deg)}}
+@media (prefers-reduced-motion:reduce){.snow{display:none}}
+.panel,.near,.res,.tabs,.imp{border:1px solid var(--line)}
+.near h2:after{content:" ✨"}
+.tab.on{border-bottom-color:var(--blue);background:#fff6f0}
+.logo-s{box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+.mybar .in{background:linear-gradient(90deg,var(--navy),#1b5e47);border:1px solid rgba(217,165,33,.5)}
+.mybar .prog i{background:var(--gold)}
+.lang{background:rgba(255,255,255,.12)}
+.foot{border-top:2px dashed var(--line)}
+.locbtn{border:1px solid var(--green);background:#fff;color:var(--green);border-radius:10px;padding:8px 12px;font:700 13px Inter;cursor:pointer}
+.locinfo{font-size:12px;color:var(--muted);margin-top:6px}
+/* ---- living background ---- */
+#bgsnow{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.top,.wrap{position:relative;z-index:1}
+body{background:linear-gradient(180deg,#f8f3ea 0%,#f3ece0 60%,#efe6d6 100%) fixed}
+.top{background-size:220% 220%!important;animation:aurora 18s ease-in-out infinite}
+@keyframes aurora{0%{background-position:0% 0%}50%{background-position:100% 60%}100%{background-position:0% 0%}}
+.top{background-image:radial-gradient(60% 80% at 20% 0%,rgba(46,160,110,.45) 0%,transparent 60%),radial-gradient(50% 70% at 90% 10%,rgba(200,16,46,.35) 0%,transparent 60%),linear-gradient(160deg,#0d3b2e 0%,#0b2f25 50%,#123f31 100%)!important}
+.lights{position:absolute;left:0;right:0;bottom:8px;height:22px;display:flex;justify-content:space-around;z-index:2;pointer-events:none}
+.lights:before{content:"";position:absolute;left:0;right:0;top:2px;height:2px;background:#2b2b2b;border-radius:2px}
+.lights i{width:9px;height:13px;border-radius:50% 50% 45% 45%;margin-top:4px;animation:twinkle 1.6s ease-in-out infinite;box-shadow:0 0 10px 2px currentColor}
+.lights i:nth-child(4n+1){color:#ff3b4e;background:#ff3b4e}.lights i:nth-child(4n+2){color:#ffd23f;background:#ffd23f;animation-delay:.4s}
+.lights i:nth-child(4n+3){color:#2ee38a;background:#2ee38a;animation-delay:.8s}.lights i:nth-child(4n){color:#4db8ff;background:#4db8ff;animation-delay:1.2s}
+@keyframes twinkle{0%,100%{opacity:1;filter:brightness(1.2)}50%{opacity:.35;filter:brightness(.6)}}
+.sleigh{position:absolute;top:22px;left:-140px;font-size:26px;z-index:2;pointer-events:none;animation:sleigh 26s linear infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+@keyframes sleigh{0%{transform:translate(0,0)}8%{transform:translate(calc(50vw),-10px)}16%{transform:translate(calc(100vw + 280px),6px)}100%{transform:translate(calc(100vw + 280px),6px)}}
+.res,.panel,.near,.imp,.tabs{animation:rise .45s cubic-bezier(.2,.8,.2,1) both}
+.res:nth-of-type(2){animation-delay:.05s}.res:nth-of-type(3){animation-delay:.1s}.res:nth-of-type(4){animation-delay:.15s}.res:nth-of-type(5){animation-delay:.2s}.res:nth-of-type(n+6){animation-delay:.25s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.res{transition:transform .2s,box-shadow .2s}.res:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(13,59,46,.14)}
+.tile{transition:transform .15s,border-color .15s}.tile:hover{transform:translateY(-2px)}
+.go{position:relative;overflow:hidden}.go:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.5s ease-in-out infinite}
+@keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+.add.pop{animation:pop .35s}@keyframes pop{50%{transform:scale(1.15)}}
+@media (prefers-reduced-motion:reduce){#bgsnow,.sleigh{display:none}.top,.lights i,.go:after,.res,.panel,.near,.imp,.tabs{animation:none!important}}
 @media(max-width:560px){.tab .p{font-size:17px}.tab{padding:10px}.price .big{font-size:21px}.top h1{font-size:22px}}
 </style>
 </head>
 <body>
-<div class="top"><div class="inner">
-  <div class="brand"><span class="logo">🎁</span>Wichtel Shopper<sup style="font-size:11px;font-weight:700;margin-left:-4px">™</sup><div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="de">DE</button></div></div>
+<canvas id="bgsnow" aria-hidden="true"></canvas>
+<div class="top"><div class="snow" id="snow" aria-hidden="true"></div><div class="sleigh" aria-hidden="true">🦌🦌🛷🎅</div><div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="inner">
+  <div class="brand"><span class="logo">🎅</span><span class="wordmark">Santa<span>.ai</span></span><sup style="font-size:11px;font-weight:700;margin-left:-4px">™</sup><div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="de">DE</button></div></div>
   <h1 data-t="h1"></h1>
   <div class="search">
     <div class="field"><label for="n" data-t="gifts"></label><div class="ctl"><button class="s" data-step="n,-1" aria-label="fewer">−</button><input id="n" type="number" inputmode="numeric" min="1" max="100" value="20"><button class="s" data-step="n,1" aria-label="more">+</button></div></div>
@@ -198,10 +247,11 @@ details.panel .body{margin-top:12px}
   <section class="near" id="near">
     <div class="hd2"><h2 data-t="nearH"></h2><div><button class="linkbtn" data-allstores data-t="selectAll"></button><button class="linkbtn" data-nostores data-t="clearAll"></button></div></div>
     <div class="sub2" data-t="nearSub"></div>
-    <div class="plz"><label for="plz" style="font-weight:600;font-size:14px" data-t="plzLabel"></label><input id="plz" inputmode="numeric" maxlength="5" placeholder="20457"><label for="rad" style="font-size:14px" data-t="radius"></label><select id="rad"><option value="1">1 km</option><option value="2" selected>2 km</option><option value="3">3 km</option><option value="5">5 km</option></select></div>
+    <div class="plz"><label for="plz" style="font-weight:600;font-size:14px" data-t="plzLabel"></label><input id="plz" inputmode="numeric" maxlength="5" placeholder="20457"><label for="rad" style="font-size:14px" data-t="radius"></label><select id="rad"><option value="1">1 km</option><option value="2" selected>2 km</option><option value="3">3 km</option><option value="5">5 km</option></select><button class="locbtn" id="locBtn" style="display:none" data-t="useLoc"></button></div>
     <div class="plzmsg" id="plzmsg"></div>
     <div class="tiles" id="tiles"></div>
     <div class="sub2" style="margin:10px 0 0;font-size:12px" data-t="distNote"></div>
+    <div class="locinfo" id="locInfo"></div>
   </section>
   <details class="panel" id="filters">
     <summary data-t="filters"></summary>
@@ -351,7 +401,9 @@ const PLZ_DIST={'20095':['Altstadt',[0.3,0.0,2.3,2.9,0.2,6.0,4.1,1.3,2.9]],'2009
 
 const I18N={
 en:{
-  h1:'Compare Secret Santa gifts across 9 stores',gifts:'Gifts',budget:'Total budget',stores:'Stores',combos:'Combinations',search:'Search gifts',browse:'Browse all products',
+  plzLooking:'Finding stores near {z}…',plzNotFound:"Couldn't find postcode {z}. Check it, or tick your stores by hand.",plzOutside:'No branches near {z} in our data. It covers Hamburg. Tick your stores by hand.',
+  useLoc:'📍 Use my location',locHere:'your location',locating:'Getting your location…',geoFail:"Couldn't get your location. Enter your postcode instead.",locUpdated:'{n} Hamburg branches from OpenStreetMap, updated {d}',
+  h1:'Your Secret Santa shopping, sorted 🎄',gifts:'Gifts',budget:'Total budget',stores:'Stores',combos:'Combinations',search:'Search gifts',browse:'Browse all products',
   fresh:'{n} real products · prices checked {ago}',stale:'Prices are {d} days old. Ask for a refresh before you shop.',
   today:'today at {t}',yesterday:'yesterday at {t}',daysAgo:'{d} days ago',
   allStores:'All 8 stores',noneStores:'None, tap to choose',
@@ -390,12 +442,14 @@ en:{
   fixBudget:'Raise budget to {x}',fixGifts:'Make it {k} gifts',fixSame:'Allow unlimited identical gifts',fixStores:'Tick all stores',fixWrap:'Turn off gift bags',
   noteH:'Where prices come from.',
   note:'<span class="tag site">store site</span> = read from the store\'s own website (Rewe for Hamburg postcodes; prices were identical at 20457, 21073 and 22767; Aldi = Aldi Nord). <span class="tag offer">offer</span> = a promo with an end date. After that date it is marked as ended automatically. <span class="tag rep">report</span> = Lidl doesn\'t publish shelf prices online, so its one item comes from the Verbraucherzentrale Hamburg price check. Woolworth has no online prices. This page can\'t fetch prices live because store websites block that, so prices are a snapshot with the check time shown at the top. Shelf prices can differ by branch.',
-  footTm:'<b>Wichtel Shopper™</b> is a trademark of Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). All rights reserved.',
-  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl and Woolworth are trademarks of their respective owners. Wichtel Shopper is an independent project and isn\'t affiliated with or endorsed by any of these stores.',
-  copyHead:'Secret Santa: {n} gifts, {t}',copyMineHead:'My Secret Santa list: {n} items, {t}',copyChecked:'Prices checked {d}',copyGifts:'Gifts:'
+  footTm:'<b>Santa.ai™</b> is a trademark of Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). All rights reserved.',
+  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl and Woolworth are trademarks of their respective owners. Santa.ai is an independent project and isn\'t affiliated with or endorsed by any of these stores.',
+  copyHead:'🎅 Santa.ai – {n} gifts, {t}',copyMineHead:'My Secret Santa list: {n} items, {t}',copyChecked:'Prices checked {d}',copyGifts:'Gifts:'
 },
 de:{
-  h1:'Wichtelgeschenke in 9 Läden vergleichen',gifts:'Geschenke',budget:'Gesamtbudget',stores:'Läden',combos:'Kombinationen',search:'Geschenke suchen',browse:'Alle Produkte ansehen',
+  plzLooking:'Suche Läden in der Nähe von {z}…',plzNotFound:'PLZ {z} nicht gefunden. Prüfe sie oder hake deine Läden selbst an.',plzOutside:'Keine Filialen nahe {z} in unseren Daten. Sie decken Hamburg ab. Hake deine Läden selbst an.',
+  useLoc:'📍 Meinen Standort nutzen',locHere:'dein Standort',locating:'Standort wird ermittelt…',geoFail:'Standort nicht verfügbar. Gib stattdessen deine PLZ ein.',locUpdated:'{n} Hamburger Filialen aus OpenStreetMap, aktualisiert am {d}',
+  h1:'Dein Wichtel-Einkauf, ganz entspannt 🎄',gifts:'Geschenke',budget:'Gesamtbudget',stores:'Läden',combos:'Kombinationen',search:'Geschenke suchen',browse:'Alle Produkte ansehen',
   fresh:'{n} echte Produkte · Preise geprüft {ago}',stale:'Die Preise sind {d} Tage alt. Lass sie vor dem Einkauf aktualisieren.',
   today:'heute um {t}',yesterday:'gestern um {t}',daysAgo:'vor {d} Tagen',
   allStores:'Alle 8 Läden',noneStores:'Keine, tippen zum Auswählen',
@@ -434,9 +488,9 @@ de:{
   fixBudget:'Budget auf {x} erhöhen',fixGifts:'Auf {k} Geschenke ändern',fixSame:'Beliebig viele identische erlauben',fixStores:'Alle Läden anhaken',fixWrap:'Geschenktüten abwählen',
   noteH:'Woher die Preise kommen.',
   note:'<span class="tag site">Shop-Website</span> = von der Website des Ladens abgelesen (Rewe für Hamburger PLZ; die Preise waren in 20457, 21073 und 22767 gleich; Aldi = Aldi Nord). <span class="tag offer">Angebot</span> = Aktion mit Enddatum. Danach wird sie automatisch als beendet markiert. <span class="tag rep">Bericht</span> = Lidl veröffentlicht keine Regalpreise online, daher stammt der eine Artikel aus dem Preischeck der Verbraucherzentrale Hamburg. Woolworth hat keine Online-Preise. Diese Seite kann Preise nicht live abrufen, weil die Websites der Läden das blockieren. Die Preise sind ein Stand mit Prüfzeit oben. Regalpreise können je Filiale abweichen.',
-  footTm:'<b>Wichtel Shopper™</b> ist eine Marke von Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). Alle Rechte vorbehalten.',
-  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl und Woolworth sind Marken ihrer jeweiligen Inhaber. Wichtel Shopper ist ein unabhängiges Projekt und steht in keiner Verbindung zu diesen Läden.',
-  copyHead:'Wichteln: {n} Geschenke, {t}',copyMineHead:'Meine Wichtelliste: {n} Artikel, {t}',copyChecked:'Preise geprüft {d}',copyGifts:'Geschenke:'
+  footTm:'<b>Santa.ai™</b> ist eine Marke von Jayant Singh Amethia.',footCopy:'© 2026 Jayant Singh Amethia (<a href="https://github.com/S1NC0DE" target="_blank" rel="noopener">@S1NC0DE</a>). Alle Rechte vorbehalten.',
+  footStores:'dm, Rossmann, Aldi, Rewe, Action, TEDi, Kaufland, Lidl und Woolworth sind Marken ihrer jeweiligen Inhaber. Santa.ai ist ein unabhängiges Projekt und steht in keiner Verbindung zu diesen Läden.',
+  copyHead:'🎅 Santa.ai – {n} Geschenke, {t}',copyMineHead:'Meine Wichtelliste: {n} Artikel, {t}',copyChecked:'Preise geprüft {d}',copyGifts:'Geschenke:'
 }};
 
 const $=id=>document.getElementById(id);
@@ -490,26 +544,90 @@ const MAPQ={dm:'dm-drogerie markt',rossmann:'Rossmann',aldi:'Aldi Nord',rewe:'RE
 {const st=store.get('wichtel-stores',null);if(Array.isArray(st))state.stores=new Set(st.filter(k=>STORES[k]&&!STORES[k].none));$('plz').value=store.get('wichtel-plz','');$('rad').value=String(store.get('wichtel-rad',2));}
 const saveStores=()=>{store.set('wichtel-stores',[...state.stores]);store.set('wichtel-plz',$('plz').value);store.set('wichtel-rad',+$('rad').value);};
 const plzVal=()=>($('plz').value||'').replace(/\D/g,'').slice(0,5);
-const distFor=(z,k)=>{const r=PLZ_DIST[z];if(!r)return null;return r[1][DIST_KEYS.indexOf(k)];};
-function autoSelectByPlz(){
-  const z=plzVal(),r=+$('rad').value;if(z.length!==5||!PLZ_DIST[z])return;
-  state.stores=new Set(Object.keys(STORES).filter(k=>!STORES[k].none&&distFor(z,k)<=r));
-  saveStores();
+// Live location data: data/locations.json is refreshed weekly by a GitHub Action from OpenStreetMap.
+// If it can't be loaded (e.g. inside the claude.ai preview), the built-in table of 50 postcodes is used.
+let LOC=null;state.near=null;state.nearStatus='';
+const hv=(a,b,c,d)=>{const R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(h));};
+function nearbyFrom(lat,lon,key,label){
+  const d={};
+  for(const k of Object.keys(STORES)){
+    let best=null;for(const s of LOC.stores){if(s[0]!==k)continue;const x=hv(lat,lon,s[1],s[2]);if(!best||x<best.km)best={km:x,addr:[s[3],s[4]].filter(Boolean).join(', '),lat:s[1],lon:s[2]};}
+    if(best)best.km=Math.round(best.km*10)/10;d[k]=best;
+  }
+  return {key,label,lat,lon,d};
 }
+const distFor=(z,k)=>{
+  if(state.near&&state.near.key===z){const x=state.near.d[k];return x?x.km:99;}
+  const r=PLZ_DIST[z];if(!r)return null;return r[1][DIST_KEYS.indexOf(k)];
+};
+function selectWithin(z){const r=+$('rad').value;state.stores=new Set(Object.keys(STORES).filter(k=>!STORES[k].none&&(distFor(z,k)??99)<=r));saveStores();}
+const geoCache=store.get('wichtel-geo',{});
+async function lookupPlz(z){
+  if(LOC&&LOC.plz[z])return LOC.plz[z];
+  if(geoCache[z])return geoCache[z];
+  const r=await fetch('https://nominatim.openstreetmap.org/search?postalcode='+z+'&countrycodes=de&format=json&limit=1&addressdetails=1');
+  const j=await r.json();if(!j[0])return null;
+  const a=j[0].address||{};const v=[+j[0].lat,+j[0].lon,a.suburb||a.city_district||a.city||a.town||a.village||''];
+  geoCache[z]=v;store.set('wichtel-geo',geoCache);return v;
+}
+async function onPlz(){
+  const z=plzVal();
+  if(z.length!==5){state.near=null;state.nearStatus='';renderFilters();renderPlzMsg();return;}
+  if(!LOC){if(PLZ_DIST[z])selectWithin(z);state.nearStatus=PLZ_DIST[z]?'':'unknown';afterNear();return;}
+  state.nearStatus='looking';renderPlzMsg();
+  try{
+    const p=await lookupPlz(z);if(plzVal()!==z)return;
+    if(!p){state.near=null;state.nearStatus='unknown';afterNear();return;}
+    state.near=nearbyFrom(p[0],p[1],z,p[2]);
+    const nearest=Math.min(...Object.values(state.near.d).filter(Boolean).map(x=>x.km));
+    state.nearStatus=nearest>15?'outside':'ok';
+    if(state.nearStatus==='ok')selectWithin(z);
+  }catch(e){state.near=null;state.nearStatus=PLZ_DIST[z]?'':'unknown';if(PLZ_DIST[z])selectWithin(z);}
+  afterNear();
+}
+function useMyLocation(){
+  if(!navigator.geolocation||!LOC){state.nearStatus='geoFail';renderPlzMsg();return;}
+  state.nearStatus='locating';renderPlzMsg();
+  navigator.geolocation.getCurrentPosition(pos=>{
+    $('plz').value='';
+    state.near=nearbyFrom(pos.coords.latitude,pos.coords.longitude,'geo',t('locHere'));
+    const nearest=Math.min(...Object.values(state.near.d).filter(Boolean).map(x=>x.km));
+    state.nearStatus=nearest>15?'outside':'ok';
+    if(state.nearStatus==='ok')selectWithin('geo');
+    afterNear();
+  },()=>{state.nearStatus='geoFail';renderPlzMsg();},{timeout:10000,maximumAge:600000});
+}
+function afterNear(){renderFilters();renderPlzMsg();if(state.view==='browse')renderBrowse();else if(state.cands||state.err)toast(t('tStores'));}
+const curKey=()=>state.near&&state.near.key==='geo'?'geo':plzVal();
+(typeof fetch==='function'?fetch('data/locations.json',{cache:'no-cache'}):Promise.reject()).then(r=>r.ok?r.json():null).then(j=>{
+  if(!j||!Array.isArray(j.stores))return;LOC=j;
+  $('locBtn').style.display='';
+  const u=new Date(j.updated);$('locInfo').textContent=t('locUpdated',{n:j.stores.length,d:fmtDate(u)});
+  if(plzVal().length===5)onPlz();
+}).catch(()=>{});
 function renderPlzMsg(){
   const z=plzVal(),r=+$('rad').value,m=$('plzmsg');m.className='plzmsg';m.style.color='';
-  if(!z){m.textContent=t('plzHint');m.style.color='var(--muted)';return;}
-  if(z.length!==5){m.textContent=t('plzBad');m.className='plzmsg warn';return;}
-  if(!PLZ_DIST[z]){m.textContent=t('plzUnknown',{z});m.className='plzmsg warn';return;}
-  const k=Object.keys(STORES).filter(s=>!STORES[s].none&&distFor(z,s)<=r).length;
-  m.textContent=k?t('plzFound',{sub:PLZ_DIST[z][0],z,k,r}):t('plzNone',{sub:PLZ_DIST[z][0],z,r});if(!k)m.className='plzmsg warn';
+  const st=state.nearStatus;
+  if(st==='locating'){m.textContent=t('locating');m.style.color='var(--muted)';return;}
+  if(st==='geoFail'){m.textContent=t('geoFail');m.className='plzmsg warn';return;}
+  if(st==='looking'){m.textContent=t('plzLooking',{z});m.style.color='var(--muted)';return;}
+  const key=curKey();
+  if(!z&&key!=='geo'){m.textContent=t('plzHint');m.style.color='var(--muted)';return;}
+  if(key!=='geo'&&z.length!==5){m.textContent=t('plzBad');m.className='plzmsg warn';return;}
+  if(st==='outside'){m.textContent=t('plzOutside',{z:key==='geo'?t('locHere'):z});m.className='plzmsg warn';return;}
+  if(st==='unknown'||(key!=='geo'&&!PLZ_DIST[z]&&!(state.near&&state.near.key===z))){m.textContent=t(LOC?'plzNotFound':'plzUnknown',{z});m.className='plzmsg warn';return;}
+  const sub=state.near&&state.near.key===key?state.near.label:(PLZ_DIST[z]||[''])[0];
+  const k=Object.keys(STORES).filter(s=>!STORES[s].none&&(distFor(key,s)??99)<=r).length;
+  const zz=key==='geo'?t('locHere'):z;
+  m.textContent=k?t('plzFound',{sub:sub||zz,z:zz,k,r}):t('plzNone',{sub:sub||zz,z:zz,r});if(!k)m.className='plzmsg warn';
 }
 function renderFilters(){
-  const z=plzVal(),r=+$('rad').value;
+  const key=curKey(),z=key,r=+$('rad').value;
   $('tiles').innerHTML=Object.entries(STORES).map(([k,v])=>{
-    const map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPQ[k]+' '+(z.length===5?z:'Hamburg'))}`;
-    const d=z.length===5?distFor(z,k):null;
-    const dist=d!=null&&d<99?`<div class="dist ${d>r?'far':''}">📍 ${t('kmAway',{d:km(d)})}</div>`:'';
+    const nb=state.near&&state.near.key===key?state.near.d[k]:null;
+    const map=nb?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nb.addr?MAPQ[k]+' '+nb.addr+' Hamburg':nb.lat+','+nb.lon)}`:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPQ[k]+' '+(z&&z.length===5?z:'Hamburg'))}`;
+    const d=(key==='geo'||key.length===5)?distFor(key,k):null;
+    const dist=d!=null&&d<99?`<div class="dist ${d>r?'far':''}">📍 ${t('kmAway',{d:km(d)})}${nb&&nb.addr?` · <span style="font-weight:500">${esc(nb.addr)}</span>`:''}</div>`:'';
     const link=`<a href="${map}" target="_blank" rel="noopener" data-nolink>${t('findNearest')}</a>`;
     if(v.none)return `<div class="tile off"><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span>${dist}<div class="info">${t('noOnline')}</div>${link}</div>`;
     const its=ITEMS.filter(i=>i.s===k),min=Math.min(...its.map(i=>i.p)),on=state.stores.has(k);
@@ -675,7 +793,7 @@ const logo=k=>`<span class="logo-s" style="background:${STORES[k].c}">${STORES[k
 const storesTxt=n=>n+' '+(n===1?t('store1'):t('storeN'));
 const addBtn=ids=>{const inList=ids.every(id=>state.mine.has(id));return `<button class="add ${inList?'in':''}" data-add="${ids.join(',')}">${inList?t('inList'):t('add')}</button>`;};
 const itemSub=it=>`${eur(it.p)} ${t('each')} · ${tag(it)} ${STORES[it.s].u?`<a href="${STORES[it.s].u(it.n)}" target="_blank" rel="noopener">${t('viewOnSite')}</a>`:''}`;
-const distBadge=k=>{const z=plzVal();const d=z.length===5?distFor(z,k):null;return d!=null&&d<99?`<small>📍 ${t('kmAway',{d:km(d)})}</small>`:'';};
+const distBadge=k=>{const z=curKey();const d=(z==='geo'||z.length===5)?distFor(z,k):null;return d!=null&&d<99?`<small>📍 ${t('kmAway',{d:km(d)})}</small>`:'';};
 
 function render(){
   if(state.view==='browse')return renderBrowse();
@@ -795,6 +913,7 @@ document.addEventListener('click',e=>{
     if(k==='budget')$('b').value=f.dataset.v;if(k==='gifts')$('n').value=f.dataset.v;if(k==='same')$('same').value='99';if(k==='nowrap')$('wrap').checked=false;
     if(k==='allstores'){Object.keys(STORES).forEach(s=>{if(!STORES[s].none)state.stores.add(s)});state.cats=new Set(Object.keys(CATS));saveStores();renderFilters();renderPlzMsg();}
     updateBar();generate();return;}
+  if(tg.id==='locBtn'||cl('#locBtn')){useMyLocation();return;}
   if(cl('[data-open]')){$('near').scrollIntoView({behavior:'smooth'});return;}
   if(cl('[data-nolink]'))return;
   if(cl('.tile[data-store]')){const k=cl('.tile[data-store]').dataset.store;state.stores.has(k)?state.stores.delete(k):state.stores.add(k);afterStores();return;}
@@ -828,17 +947,34 @@ document.addEventListener('click',e=>{
 document.addEventListener('change',e=>{
   if(e.target.id==='k2'){$('k').value=e.target.value;render();}
   if(e.target.id==='k'&&state.cands&&state.view==='results')render();
-  if(e.target.id==='rad'){autoSelectByPlz();saveStores();renderFilters();renderPlzMsg();}
+  if(e.target.id==='rad'){const k=curKey();if(k==='geo'||k.length===5)selectWithin(k);saveStores();renderFilters();renderPlzMsg();}
   if(e.target.matches('.item.ck input'))e.target.closest('.item').classList.toggle('done',e.target.checked);
 });
 document.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target.matches('.tile[data-store]')){e.preventDefault();e.target.click();}if(e.key==='Enter'&&(e.target.id==='n'||e.target.id==='b'))generate();});
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){state.q=e.target.value;state.focusQ=true;renderBrowse();state.focusQ=false;}
   if(e.target.id==='n'||e.target.id==='b'){updateBar();if($('inerr').classList.contains('show'))validate();}
-  if(e.target.id==='plz'){const v=e.target.value.replace(/\D/g,'').slice(0,5);if(v!==e.target.value)e.target.value=v;if(v.length===5)autoSelectByPlz();saveStores();renderFilters();renderPlzMsg();}
+  if(e.target.id==='plz'){const v=e.target.value.replace(/\D/g,'').slice(0,5);if(v!==e.target.value)e.target.value=v;if(state.near&&state.near.key==='geo')state.near=null;saveStores();clearTimeout(state.plzT);state.plzT=setTimeout(onPlz,v.length===5?50:300);}
 });
 applyLang();
+if(plzVal().length===5)onPlz();
 
+
+// page-wide snowfall with gentle wind; pauses when the tab is hidden
+(()=>{const c=document.getElementById('bgsnow');if(!c||typeof requestAnimationFrame!=='function'||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;let x;try{x=c.getContext('2d');}catch(e){}if(!x)return;let W,H,F=[],run=true,t=0;
+const size=()=>{W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;};size();addEventListener('resize',size);
+const n=Math.min(110,Math.round(innerWidth/9));for(let i=0;i<n;i++)F.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*2.4,s:.15+Math.random()*.5,p:Math.random()*6.28});
+document.addEventListener('visibilitychange',()=>{run=!document.hidden;if(run)requestAnimationFrame(loop);});
+function loop(){if(!run)return;t+=.006;x.clearRect(0,0,W,H);const wind=Math.sin(t)*.35;
+ for(const f of F){f.y+=f.s*.0016*(1+f.r*.3);f.x+=(Math.sin(t*2+f.p)*.0004+wind*.0006);if(f.y>1.02){f.y=-.02;f.x=Math.random();}if(f.x>1.02)f.x=-.02;if(f.x<-.02)f.x=1.02;
+  x.beginPath();x.arc(f.x*W,f.y*H,f.r*devicePixelRatio,0,6.283);x.fillStyle='rgba(160,190,210,'+(.25+f.r*.12)+')';x.fill();}
+ requestAnimationFrame(loop);}requestAnimationFrame(loop);})();
+// small "pop" on add buttons and count-up on tab prices
+document.addEventListener('click',e=>{const b=e.target.closest('.add');if(b){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');}},true);
+new MutationObserver(()=>{document.querySelectorAll('.tab .p:not([data-anim])').forEach(el=>{el.dataset.anim=1;const txt=el.textContent,m=txt.match(/[\d.,]+/);if(!m||typeof requestAnimationFrame!=='function'||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+ const de=txt.includes(' €'),target=parseFloat(m[0].replace(',','.'));let s=null;const step=ts=>{if(!s)s=ts;const k=Math.min(1,(ts-s)/600),v=(target*(1-Math.pow(1-k,3))).toFixed(2);el.textContent=de?v.replace('.',',')+' €':'€'+v;if(k<1)requestAnimationFrame(step);else el.textContent=txt;};requestAnimationFrame(step);});}).observe(document.getElementById('out'),{childList:true,subtree:true});
+
+(()=>{const s=document.getElementById('snow');if(!s)return;for(let i=0;i<28;i++){const f=document.createElement('i');f.textContent=Math.random()<.3?'❄':'•';f.style.left=Math.random()*100+'%';f.style.fontSize=(6+Math.random()*10)+'px';f.style.animationDuration=(7+Math.random()*9)+'s';f.style.animationDelay=(-Math.random()*16)+'s';s.appendChild(f);}})();
 </script>
 </body>
 </html>

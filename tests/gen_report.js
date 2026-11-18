@@ -10,13 +10,13 @@ const rows=R.results.map(r=>`<tr><td><b>${r.plz}</b><br><small>${r.sub}</small><
 const ok=R.results.filter(r=>r.scen.S1.status==='ok').length;
 const s4imp=R.results.filter(r=>r.scen.S4.status!=='ok').length;
 const cheapS1=R.results.filter(r=>r.scen.S1.status==='ok').map(r=>r.scen.S1.cheapest);
-const html=`<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wichtel Shopper – Regression report</title>
-<style>body{font:14px/1.45 system-ui,Inter,sans-serif;margin:0;background:#eff3f8;color:#161616}.top{background:#05203c;color:#fff;padding:20px 16px}.in{max-width:1100px;margin:0 auto}h1{margin:0 0 6px;font-size:24px}
-.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}.k div{background:#0b2b4f;border-radius:12px;padding:10px 12px}.k b{display:block;font-size:22px}.pass{color:#00d775}
+const html=`<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Santa.ai – Regression report</title>
+<style>body{font:14px/1.45 system-ui,Inter,sans-serif;margin:0;background:#eff3f8;color:#161616}.top{background:#0d3b2e;color:#fff;padding:20px 16px}.in{max-width:1100px;margin:0 auto}h1{margin:0 0 6px;font-size:24px}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}.k div{background:#165440;border-radius:12px;padding:10px 12px}.k b{display:block;font-size:22px}.pass{color:#00d775}
 .w{max-width:1100px;margin:0 auto;padding:16px}.card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}h2{font-size:17px;margin:0 0 8px}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:7px 6px;border-bottom:1px solid #e5e9ef;text-align:left;vertical-align:top}th{background:#f5f8fc;position:sticky;top:0}small{color:#626971}
-.c{display:inline-block;color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:1px 5px;margin:1px}.imp{color:#b0034a;font-weight:600}.scroll{overflow:auto;max-height:70vh}li{margin-bottom:4px}code{background:#eef2f7;padding:1px 4px;border-radius:4px}a{color:#0062e3}</style></head><body>
-<div class="top"><div class="in"><div style="font-weight:800">🎁 Wichtel Shopper™ · Regression report</div><h1>50 Hamburg postcodes × 7 scenarios</h1>
+.c{display:inline-block;color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:1px 5px;margin:1px}.imp{color:#b0034a;font-weight:600}.scroll{overflow:auto;max-height:70vh}li{margin-bottom:4px}code{background:#eef2f7;padding:1px 4px;border-radius:4px}a{color:#c8102e}</style></head><body>
+<div class="top"><div class="in"><div style="font-weight:800">🎁 Santa.ai™ · Regression report</div><h1>50 Hamburg postcodes × 7 scenarios</h1>
 <div>Run ${new Date(R.ranAt).toLocaleString('en-GB',{timeZone:'Europe/Berlin'})} (Berlin) · store radius ${R.radiusKm} km · max ${R.maxIdentical} identical gifts</div>
 <div class="k"><div><b class="pass">${R.failed===0?'PASS':'FAIL'}</b>result</div><div><b>${R.checks.toLocaleString('en')}</b>automated checks</div><div><b>${R.failed}</b>failures</div><div><b>${ok}/50</b>postcodes with a €30 list</div><div><b>${e(Math.min(...cheapS1))}–${e(Math.max(...cheapS1))}</b>cheapest 20 gifts, by area</div><div><b>3</b>bugs found & fixed</div></div></div></div>
 <div class="w">
@@ -33,7 +33,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:7px 6px;b
 <div class="card"><h2>Results by postcode</h2><p><small>Cheapest totals in €. "Impossible" means no valid list exists with the stores within ${R.radiusKm} km. The app flags it and offers fixes, and this was verified in every case. ${s4imp} of 50 areas can't do 20 gifts for €10 within ${R.radiusKm} km.</small></p>
 <div class="scroll"><table><thead><tr><th>Postcode</th><th>Stores ≤ ${R.radiusKm} km</th><th>S1 Best</th><th>S1 Cheapest</th><th>S1 Fewest stops</th><th>S2 €20</th><th>S4 €10</th><th>S5 €1</th><th>S7 30/€40</th><th># combos</th></tr></thead><tbody>${rows}</tbody></table></div></div>
 <div class="card"><h2>Limits</h2><ul><li>Prices are a snapshot from the store websites (checked 18 Nov 2026, 22:10). A static page can't fetch them live.</li><li>Branch locations come from OpenStreetMap and may miss some stores, so real distances can be shorter. Distances are straight-line from the postcode centre.</li><li>dm, Rossmann, Aldi Nord, Action and TEDi use national online prices. Shelf prices can differ by branch.</li></ul>
-<p><a href="./">← Open Wichtel Shopper</a> · raw data: <a href="tests/regression-results.json">regression-results.json</a></p></div>
-<p style="text-align:center;color:#626971;font-size:12px">© 2026 Jayant Singh Amethia. Wichtel Shopper™ is a trademark of Jayant Singh Amethia.</p>
+<p><a href="./">← Open Santa.ai</a> · raw data: <a href="tests/regression-results.json">regression-results.json</a></p></div>
+<p style="text-align:center;color:#626971;font-size:12px">© 2026 Jayant Singh Amethia. Santa.ai™ is a trademark of Jayant Singh Amethia.</p>
 </div></body></html>`;
 fs.writeFileSync(__dirname+'/../report.html',html);console.log('report written',html.length);

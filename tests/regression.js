@@ -14,7 +14,7 @@ const missing=Object.keys(I18N.en).filter(k=>!(k in I18N.de));ok(missing.length=
 const now=new Date('2026-11-18T22:30:00+01:00');
 for(const z of Object.keys(PLZ_DIST)){
   const w=boot(),d=w.document;
-  const pl=d.getElementById('plz');d.getElementById('rad').value=String(RAD);pl.value=z;pl.dispatchEvent(new w.Event('input',{bubbles:true}));
+  const pl=d.getElementById('plz');d.getElementById('rad').value=String(RAD);pl.value=z;pl.dispatchEvent(new w.Event('input',{bubbles:true}));w.eval('onPlz()');
   const sel=w.eval('[...state.stores]');
   const expected=Object.keys(STORES).filter(k=>!STORES[k].none&&PLZ_DIST[z][1][DIST_KEYS.indexOf(k)]<=RAD);
   ok(JSON.stringify([...sel].sort())===JSON.stringify(expected.sort()),'auto-selected stores differ from distance table',{plz:z,scen:'plz'});
