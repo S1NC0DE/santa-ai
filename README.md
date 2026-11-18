@@ -9,6 +9,7 @@ A Secret Santa (Wichteln) gift finder for students in Germany. Enter how many gi
 - Shopping list per store with real product names, sizes and prices, plus links to each store's site
 - Optional 2-item bundles per gift (e.g. chocolate Santa + lip balm) and gift bags
 - **My list**: add any item, gift or whole combination, change quantities, remove items, delete the list (with undo), and copy it to share
+- **Stores near you**: tick the stores you can reach (remembered in your browser), enter your postcode for a "find nearest" map link per store
 - Browse and search all products
 
 ## About the prices
@@ -21,6 +22,6 @@ Prices are a snapshot read from each store's own website (date shown in the app)
 ## Builds
 | Version | Date | Changes |
 |---|---|---|
-| v1.0 | 2026-11-18 | Real products and prices, Skyscanner-style layout, up to 10 combinations, My list with delete/undo |
+| v1.0 | 2026-11-18 | Real products and prices, Skyscanner-style layout, up to 10 combinations, My list with delete/undo, stores-near-you picker |
 
 Single-file app: everything lives in `index.html` (no build step).

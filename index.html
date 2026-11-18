@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wichtel Shopper – Secret Santa gift finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#05203c; --navy2:#0b2b4f; --blue:#0062e3; --blue-d:#024daf; --blue-soft:#e3efff; --bg:#eff3f8; --card:#fff;
+  --ink:#161616; --muted:#626971; --line:#dfe3e8; --green:#0c838a; --green-soft:#e2f4f2; --amber:#c97a00; --amber-soft:#fff3db; --red:#b0034a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:var(--blue)}
+button{font-family:inherit}
+.top{background:var(--navy);color:#fff;padding:14px 16px 26px}
+.inner{max-width:880px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.2px}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--blue);display:grid;place-items:center;font-size:16px}
+.top h1{font-size:26px;line-height:1.15;margin:18px 0 14px;font-weight:800;letter-spacing:-.4px}
+.search{background:var(--navy2);border-radius:14px;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field{background:#fff;color:var(--ink);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;min-width:0}
+.field label{font-size:12px;font-weight:700;color:var(--muted)}
+.field .ctl{display:flex;align-items:center;gap:6px}
+.field input,.field select{border:0;outline:0;font:700 18px Inter;width:100%;min-width:0;padding:2px 0;color:var(--ink);background:transparent}
+.field button.s{border:1px solid var(--line);background:#fff;border-radius:50%;width:30px;height:30px;font-size:17px;color:var(--blue);cursor:pointer;flex:none;line-height:1}
+.field.wide{grid-column:1/-1}
+.field .sum{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:3px 0;cursor:pointer}
+.go{grid-column:1/-1;border:0;border-radius:10px;background:var(--blue);color:#fff;font:700 17px Inter;padding:14px;cursor:pointer}
+.go:hover{background:var(--blue-d)}
+.fresh{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:#c2d3e6;flex-wrap:wrap}
+.fresh .dot{width:8px;height:8px;border-radius:50%;background:#00d775;box-shadow:0 0 0 3px rgba(0,215,117,.25)}
+.fresh button{margin-left:auto;background:transparent;border:1px solid #4d6a8c;color:#fff;border-radius:999px;padding:6px 12px;font:600 13px Inter;cursor:pointer}
+.wrap{max-width:880px;margin:0 auto;padding:16px}
+.panel{background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(37,32,31,.08)}
+.panel h4{margin:0 0 10px;font-size:14px}
+.flt{display:grid;gap:2px}
+.flt label{display:flex;align-items:center;gap:10px;padding:7px 2px;cursor:pointer;font-size:14px}
+.flt label input{width:18px;height:18px;accent-color:var(--blue)}
+.flt label .from{margin-left:auto;color:var(--muted);font-size:13px}
+.flt label.off{opacity:.45;cursor:not-allowed}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:600 13px Inter;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.opts{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:12px;font-size:14px}
+.opts select{font:600 14px Inter;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:#fff}
+.opts label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.opts input[type=checkbox]{width:18px;height:18px;accent-color:var(--blue)}
+details.panel summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+details.panel summary::-webkit-details-marker{display:none}
+details.panel summary:after{content:"▾";color:var(--muted)}
+details[open].panel summary:after{content:"▴"}
+details.panel .body{margin-top:12px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(37,32,31,.08);margin:6px 0 10px}
+.tab{border:0;background:#fff;text-align:left;padding:12px 14px;cursor:pointer;color:inherit;border-bottom:3px solid transparent;border-right:1px solid var(--line)}
+.tab:last-child{border-right:0}
+.tab.on{border-bottom-color:var(--blue);background:#f5f9ff}
+.tab .t{font-weight:700;font-size:14px}
+.tab .p{font-size:20px;font-weight:800;color:var(--navy);margin-top:2px}
+.tab .m{font-size:12px;color:var(--muted)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 2px 10px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.bar select{font:700 14px Inter;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:#fff;color:var(--ink)}
+.res{background:var(--card);border-radius:14px;box-shadow:0 1px 3px rgba(37,32,31,.08);overflow:hidden;margin-bottom:10px;border:2px solid transparent}
+.res.open{border-color:var(--blue)}
+.route{display:flex;align-items:center;gap:14px;padding:14px 16px;flex-wrap:wrap;cursor:pointer}
+.route .stops{flex:1;min-width:200px}
+.badge{display:inline-block;font-size:11px;font-weight:800;border-radius:5px;padding:2px 6px;margin-bottom:6px;background:var(--green-soft);color:var(--green)}
+.badge.c{background:var(--blue-soft);color:var(--blue)}
+.chain{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.logo-s{font-weight:800;font-size:12px;color:#fff;border-radius:6px;padding:4px 7px;letter-spacing:.2px;white-space:nowrap}
+.chain .ln{width:14px;height:2px;background:var(--line)}
+.route .meta{font-size:13px;color:var(--muted);margin-top:6px}
+.route .meta b{color:var(--green)}
+.price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.price .big{font-size:24px;font-weight:800;color:var(--navy);line-height:1}
+.price .sm{font-size:12px;color:var(--muted)}
+.btn{border:0;border-radius:10px;background:var(--blue);color:#fff;font:700 14px Inter;padding:9px 14px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--blue-d)}
+.btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.add{border:1px solid var(--blue);background:#fff;color:var(--blue);border-radius:8px;padding:5px 9px;font:700 12.5px Inter;cursor:pointer;white-space:nowrap}
+.add.in{background:var(--blue);color:#fff}
+.det{border-top:1px solid var(--line)}
+.sec{padding:14px 16px}
+.sec h3{margin:0 0 10px;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.store{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.store .hd{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:#fafbfc;font-weight:700;gap:8px}
+.store .hd .l{display:flex;align-items:center;gap:8px}
+.store .hd small{font-weight:500;color:var(--muted)}
+.item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-top:1px solid var(--line);align-items:center}
+.item.ck{grid-template-columns:auto 1fr auto}
+.item input[type=checkbox]{width:18px;height:18px;accent-color:var(--green)}
+.item .nm{font-weight:600}
+.item .nm span{font-weight:500;color:var(--muted)}
+.item .sub{font-size:12px;color:var(--muted);margin-top:2px}
+.item .sub a{color:var(--muted)}
+.item .rt{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.item .pr{font-weight:700;white-space:nowrap}
+.item.done .nm{text-decoration:line-through;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 6px;border-radius:5px;margin-right:4px}
+.tag.site{background:var(--green-soft);color:var(--green)}
+.tag.offer{background:var(--amber-soft);color:var(--amber)}
+.tag.rep{background:#eef0f3;color:var(--muted)}
+.gift{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:6px}
+.gift .q{color:var(--blue);font-weight:800;margin-right:6px}
+.gift .r{display:flex;align-items:center;gap:8px;flex:none}
+.acts{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 16px}
+.err{background:#fff0f4;color:var(--red);border-radius:12px;padding:12px;font-weight:600}
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:14px}
+.toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+.empty{text-align:center;color:var(--muted);padding:26px 10px;font-size:14px}
+.search2{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:500 15px Inter;margin-bottom:10px}
+/* my list bar + sheet */
+.mybar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:transparent;pointer-events:none}
+.mybar .in{max-width:880px;margin:0 auto;background:var(--navy);color:#fff;border-radius:14px;padding:10px 12px 10px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 20px rgba(5,32,60,.35);pointer-events:auto;cursor:pointer}
+.mybar .ttl{font-weight:800}
+.mybar .st{font-size:13px;color:#c2d3e6}
+.mybar .prog{height:5px;background:#24456b;border-radius:9px;margin-top:6px;overflow:hidden}
+.mybar .prog i{display:block;height:100%;background:#00d775;border-radius:9px}
+.mybar .grow{flex:1;min-width:0}
+.mybar .btn{background:#fff;color:var(--navy)}
+.sheet{position:fixed;inset:0;z-index:40;background:rgba(5,32,60,.45);display:none}
+.sheet.show{display:block}
+.sheet .box{position:absolute;left:0;right:0;bottom:0;max-height:88vh;overflow:auto;background:var(--bg);border-radius:18px 18px 0 0;padding:16px 16px calc(24px + env(safe-area-inset-bottom))}
+.sheet .box .inner2{max-width:880px;margin:0 auto}
+.sheet .head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.sheet .head h2{margin:0;font-size:20px}
+.x{border:0;background:#fff;border-radius:50%;width:36px;height:36px;font-size:18px;cursor:pointer}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer;color:var(--blue);line-height:1}
+.qty b{min-width:18px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:#fff;border-radius:12px;padding:10px 12px}
+.stat .k{font-size:12px;color:var(--muted);font-weight:600}
+.stat .v{font-size:19px;font-weight:800;color:var(--navy)}
+.stat .v.bad{color:var(--red)}
+.stat .v.ok{color:var(--green)}
+.near{background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(37,32,31,.08)}
+.near .hd2{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.near h2{margin:0;font-size:17px}
+.near .sub2{font-size:13px;color:var(--muted);margin:-4px 0 10px}
+.plz{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.plz input{border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:600 15px Inter;width:130px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.tile{border:2px solid var(--line);border-radius:12px;padding:10px;background:#fff;cursor:pointer;text-align:left;position:relative;display:flex;flex-direction:column;gap:6px;color:var(--ink)}
+.tile.on{border-color:var(--blue);background:#f5f9ff}
+.tile .ck{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:#fff;background:#fff}
+.tile.on .ck{background:var(--blue);border-color:var(--blue)}
+.tile .info{font-size:12px;color:var(--muted)}
+.tile a{font-size:12px;font-weight:600}
+.tile.off{opacity:.5;cursor:not-allowed}
+.linkbtn{background:none;border:0;color:var(--blue);font:700 13px Inter;cursor:pointer;padding:4px}
+@media(max-width:560px){.tab .p{font-size:17px}.tab{padding:10px}.price .big{font-size:21px}.top h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="inner">
+  <div class="brand"><span class="logo">🎁</span>Wichtel Shopper</div>
+  <h1>Compare Secret Santa gifts across 9 stores</h1>
+  <div class="search">
+    <div class="field"><label for="n">Gifts</label><div class="ctl"><button class="s" data-step="n,-1" aria-label="fewer">−</button><input id="n" type="number" inputmode="numeric" min="1" max="100" value="20"><button class="s" data-step="n,1" aria-label="more">+</button></div></div>
+    <div class="field"><label for="b">Total budget</label><div class="ctl"><span style="font-weight:700;font-size:18px">€</span><input id="b" type="number" inputmode="decimal" min="1" max="1000" value="30"><button class="s" data-step="b,-5" aria-label="less">−</button><button class="s" data-step="b,5" aria-label="more">+</button></div></div>
+    <div class="field"><label>Stores</label><div class="sum" id="storeSum" data-open="filters"></div></div>
+    <div class="field"><label for="k">Combinations</label><select id="k"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+    <button class="go" id="go">Search gifts</button>
+  </div>
+  <div class="fresh"><span class="dot"></span><span id="fresh"></span><button id="browse">Browse all products</button></div>
+</div></div>
+
+<div class="wrap">
+  <section class="near" id="near">
+    <div class="hd2"><h2>📍 Stores near you</h2><div><button class="linkbtn" data-allstores>Select all</button><button class="linkbtn" data-nostores>Clear all</button></div></div>
+    <div class="sub2">Tick the stores you can actually get to. Results and My list only use the stores you tick, and your choice is remembered in this browser.</div>
+    <div class="plz"><label for="plz" style="font-weight:600;font-size:14px">Your postcode</label><input id="plz" inputmode="numeric" maxlength="5" placeholder="e.g. 20457"><span style="font-size:12px;color:var(--muted)">Adds a "find nearest" map link to each store</span></div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+  <details class="panel" id="filters">
+    <summary>Filters: gift types &amp; options</summary>
+    <div class="body">
+      <h4>Gift types</h4>
+      <div class="chips" id="cats"></div>
+      <div class="opts">
+        <label><input type="checkbox" id="bundles" checked> Bundle 2 small items per gift</label>
+        <label><input type="checkbox" id="wrap"> Add a gift bag each</label>
+        <label>Max identical <select id="same"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option value="99">No limit</option></select></label>
+      </div>
+    </div>
+  </details>
+  <div id="out"><div class="panel empty">Set the number of gifts, your budget and how many combinations to compare, then hit <b>Search gifts</b>.<br>Use <b>+ Add</b> on any item, gift or combination to build <b>My list</b>, or <a href="#" data-browse>browse all products</a>.</div></div>
+  <p class="note"><b>Where prices come from.</b> <span class="tag site">store site</span> = read from the store's own website on <span class="chk"></span> (Rewe prices for Hamburg 20457, Aldi = Aldi Nord). <span class="tag offer">offer</span> = this week's promo on the store site, shown with its dates. <span class="tag rep">report</span> = Lidl doesn't publish its shelf prices online, so its one item comes from the Verbraucherzentrale Hamburg price check (Oct 2026). Woolworth has no online prices at all, so it isn't included. This page can't fetch prices live. Store websites block that kind of access, so the prices are a snapshot from the date above. Shelf prices can differ by branch.</p>
+</div>
+
+<div class="mybar" id="mybar"><div class="in" data-mylist>
+  <div class="grow"><div class="ttl">🧾 My list <span id="mbCount"></span></div><div class="st" id="mbStat"></div><div class="prog"><i id="mbProg" style="width:0"></i></div></div>
+  <button class="btn sm" data-mbdel id="mbDel" title="Delete my list" style="background:transparent;color:#ffb3c9;border:1px solid #6b3a52">🗑</button><button class="btn sm">Open</button>
+</div></div>
+
+<div class="sheet" id="sheet"><div class="box"><div class="inner2" id="sheetBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+
+const CHECKED='18 Nov 2026';
+const STORES={
+  dm:{n:'dm',c:'#1c3d8f',u:q=>'https://www.dm.de/search?query='+encodeURIComponent(q)},
+  rossmann:{n:'Rossmann',c:'#c3002f',u:q=>'https://www.rossmann.de/de/search/?text='+encodeURIComponent(q)},
+  aldi:{n:'Aldi Nord',c:'#00205b',u:q=>'https://www.aldi-nord.de/suchergebnisse.html?query='+encodeURIComponent(q)},
+  rewe:{n:'Rewe',c:'#cc071e',u:q=>'https://www.rewe.de/shop/productList?search='+encodeURIComponent(q)},
+  action:{n:'Action',c:'#1f6fb5',u:q=>'https://www.action.com/de-de/search/?q='+encodeURIComponent(q)},
+  tedi:{n:'TEDi',c:'#b38900',u:()=>'https://www.tedi.com/'},
+  kaufland:{n:'Kaufland',c:'#e10915',u:()=>'https://filiale.kaufland.de/angebote/uebersicht.html'},
+  lidl:{n:'Lidl',c:'#0050aa',u:()=>'https://www.vzhh.de/themen/lebensmittel-ernaehrung/einkaufsfalle-supermarkt/schoko-weihnachtsmaenner-meist-guenstiger-aber-immer-noch-teuer'},
+  woolworth:{n:'Woolworth',c:'#c8102e',none:true}
+};
+const CATS={sweet:'🍫 Sweets',care:'🧴 Self-care',cozy:'☕ Cozy',deco:'🎄 Deco',fun:'✏️ Fun & useful'};
+// q = search term used on the store site; src: site | offer | rep
+const ITEMS=[
+ // dm.de
+ ['dm','Balea Lippenpflege Rosé','4,8 g',0.75,'care'],
+ ['dm','Balea Lippenpflege Over the Clouds','4,8 g',0.65,'care'],
+ ['dm','Balea Lippenpflege Sensitive','9,6 g',0.95,'care'],
+ ['dm','Balea Lippenpflege Lip Butter Peptide','10 ml',1.75,'care'],
+ ['dm','Balea Lippenmaske Hydrogel Frozen Berries','1 St',0.75,'care'],
+ ['dm','Balea Pflegecreme Take a Moment for yourself','30 ml',0.95,'care'],
+ ['dm','Balea Handcreme sweet embrace','100 ml',0.75,'care'],
+ ['dm','Balea Handcreme Buttermilk & Lemon','100 ml',0.75,'care'],
+ ['dm','Balea Handcreme Olive','100 ml',0.75,'care'],
+ ['dm','Balea Handcreme Blush Harmony Reisegröße','30 ml',0.45,'care'],
+ ['dm','Balea Tuchmaske Vanilla Pumpkin','1 St',0.95,'care'],
+ ['dm','Balea Tuchmaske Milky Kokos','1 St',0.95,'care'],
+ ['dm','Balea Augenpads Hydrogel Glitzer','1 Paar',0.75,'care'],
+ ['dm','Balea Augenpads Hydrogel Holo','1 Paar',0.75,'care'],
+ ['dm','Balea Peeling & Maske 2-Step Matcha Vanilla','2× 8 ml',0.45,'care'],
+ ['dm','Balea Glass Skin Collagen Maske','1 St',1.95,'care'],
+ // rossmann.de
+ ['rossmann','ISANA Lippenpflege Sweet like Orange & Cookie','4,8 g',0.89,'care'],
+ ['rossmann','ISANA Lippenpflege Toasted Berry','4,8 g',0.89,'care'],
+ ['rossmann','ISANA Lippenpflege Pearl & Gloss','4,8 g',0.89,'care'],
+ ['rossmann','ISANA Handcreme Cherry Amour','100 ml',0.89,'care'],
+ ['rossmann','ISANA Lippenmaske Crème Brûlée','15 ml',1.99,'care'],
+ ['rossmann','ISANA getönte Lippenpflege Color 2 Care berry','3,3 g',1.99,'care'],
+ ['rossmann','ISANA Duschgel Merry Kiss-Mas','',0.55,'care'],
+ ['rossmann','ISANA Cremedusche Have a Wonderwool Day','',0.55,'care'],
+ ['rossmann','ISANA Cremedusche Coconut Latte','',0.55,'care'],
+ ['rossmann','ISANA Hydrogel Augenpads Pinguin','',0.99,'care'],
+ ['rossmann','ISANA Tuchmaske Berry Brownie','',1.49,'care'],
+ ['rossmann','ISANA Tuchmaske Collagen Booster','',0.99,'care'],
+ ['rossmann','ISANA Tuchmaske Hydro Booster','',0.79,'care'],
+ ['rossmann','IDEENWELT kleines Geschenk – Holzkreisel Weihnachtsbaum','',1.99,'fun'],
+ ['rossmann','IDEENWELT kleines Geschenk – Holzkreisel Santa','',1.99,'fun'],
+ ['rossmann','IDEENWELT kleines Geschenk – Knickfigur Rentier','',2.99,'fun'],
+ // aldi-nord.de
+ ['aldi','WINTERTRAUM Weihnachtsmann','110 g',0.99,'sweet','offer','16.–21.11.'],
+ ['aldi','WINTERTRAUM Weihnachtsmann','70 g',0.69,'sweet','offer','16.–21.11.'],
+ ['aldi','MILKA Weihnachtsmann','45 g',1.29,'sweet','offer','16.–21.11.'],
+ ['aldi','CHOCEUR Alpenmilchschokolade','100 g',0.79,'sweet'],
+ ['aldi','CHOCEUR Mandelbeisser','100 g',1.19,'sweet'],
+ ['aldi','CHOCEUR Nussbeisser Edel-Zartbitter','100 g',1.29,'sweet'],
+ ['aldi','WINTERTRAUM Runde braune Lebkuchen','200 g',1.89,'sweet'],
+ ['aldi','WINTERTRAUM Mini-Stollen','200 g',1.79,'sweet'],
+ ['aldi','WINTERTRAUM Gewürzspekulatius','600 g',1.69,'sweet'],
+ // rewe.de (PLZ 20457)
+ ['rewe','ja! Alpenvollmilch-Schokolade','100 g',0.79,'sweet'],
+ ['rewe','ja! Zartbitter-Schokolade','100 g',0.89,'sweet'],
+ ['rewe','ja! Weiße Schokolade','100 g',0.89,'sweet'],
+ ['rewe','ja! Schokolade Ganze Nuss','100 g',1.19,'sweet'],
+ ['rewe','REWE Beste Wahl Vollmilch Weihnachtsmann','70 g',0.99,'sweet'],
+ ['rewe','ja! Vollmilch Schoko Waffelröllchen','125 g',1.49,'sweet'],
+ ['rewe','ja! Nougat Hörnchen','240 g',1.39,'sweet'],
+ ['rewe','Kinder Schokolade','100 g',1.69,'sweet'],
+ ['rewe','Milka Weihnachtsmann Alpenmilch','45 g',1.89,'sweet'],
+ ['rewe','Oreo Gingerbread','154 g',1.89,'sweet'],
+ ['rewe','REWE Beste Wahl Lebkuchen Herzen mit Aprikosenfruchtfüllung','150 g',1.99,'sweet'],
+ // action.com
+ ["action","Becky's Weihnachtliche Zuckerstangen",'12 Stück',0.89,'sweet'],
+ ['action','Weihnachtsbecher','200 ml',0.99,'cozy'],
+ ['action','Tasse','220 ml',0.99,'cozy'],
+ ['action','Kaffeebecher','180 ml',0.79,'cozy'],
+ ['action','Glühweintasse','200 ml',1.79,'cozy','offer','Wochenangebot'],
+ ['action','Duftkerze in Dose','Ø 6,5 cm',0.86,'cozy'],
+ ['action','Duftkerze','7 × 7 × 6,5 cm',0.99,'cozy'],
+ ['action','Candra Duftkerze im Glas','Ø 9 cm',1.19,'cozy'],
+ ['action','Air Wick Duftkerze Apfel und Zimt','',1.79,'cozy'],
+ ['action','Haussocken','2 Paar',2.49,'cozy'],
+ ['action','Kuschelsocken','2 Paar, Gr. 35–42',2.99,'cozy'],
+ ['action','Weihnachtsanhänger Stern','',0.84,'deco'],
+ ['action','Weihnachtsanhänger','',1.32,'deco'],
+ ['action','Magic Village Weihnachtsbäumchen','4 Stück',1.99,'deco'],
+ ['action','Ringbuch A6','80 Seiten',0.65,'fun'],
+ ['action','Mini-Notizbuch','140 Blatt',0.78,'fun'],
+ ['action','Notizblock A5','80 Blatt',0.95,'fun'],
+ ['action','Notizbuch mit Spiel','80 Blatt',0.99,'fun'],
+ ['action','Stempel-Set','12 Stück',0.99,'fun'],
+ ['action','DIY-Bastelset Weihnachten','4 Stück',0.49,'fun'],
+ // tedi.com
+ ['tedi','Papierornament','ca. 8 × 8 cm',0.55,'deco'],
+ ['tedi','Glas Hänger','ca. 8 × 7 cm',2.00,'deco'],
+ ['tedi','Überraschungsei gefüllt mit Malzubehör','',1.00,'fun'],
+ ['tedi','Seifenblasen','60 ml',0.35,'fun'],
+ ['tedi','Lippenbalsam (Lizenz-Designs)','4 g',2.00,'care'],
+ ['tedi','Körperpflege-Set Handcreme + Lipgloss','2-teilig',3.00,'care'],
+ ['tedi','Nagelpflege-Set','3-teilig',3.00,'care'],
+ // kaufland weekly offers
+ ['kaufland','MILKA Schokolade','85–100 g Tafel',0.88,'sweet','offer','Topartikel 18.11.'],
+ ['kaufland','LINDT Weihnachtsmann','70 g',1.99,'sweet','offer','Topartikel 18.11.'],
+ // lidl (Verbraucherzentrale Hamburg price check)
+ ['lidl','Favorina Schoko-Weihnachtsmann','110 g',0.99,'sweet','rep','VZ Hamburg, Okt 2026']
+].map((a,i)=>({id:i,s:a[0],n:a[1],sz:a[2],p:a[3],c:a[4],src:a[5]||'site',when:a[6]||''}));
+const WRAPS=[
+ {s:'action',n:'XL-Geschenktüte für Weihnachten',sz:'35 × 44 cm',p:0.89,src:'site'},
+ {s:'dm',n:'Profissimo Geschenktasche Hund, Pinguin & Eisbär, mini',sz:'',p:0.95,src:'site'},
+ {s:'tedi',n:'Geschenktüte',sz:'ca. 18 × 10 × 23 cm',p:1.00,src:'site'},
+ {s:'action',n:'Geschenkbox für Weihnachten',sz:'11 × 14 × 12 cm',p:0.95,src:'site'}
+];
+
+
+const $=id=>document.getElementById(id);
+const eur=x=>'€'+(Math.round(x*100)/100).toFixed(2).replace('.',',');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const BYID={};ITEMS.forEach(i=>BYID[i.id]=i);
+WRAPS.forEach((w,i)=>{w.id='w'+i;w.c='wrap';BYID[w.id]=w;});
+const state={stores:new Set(Object.keys(STORES).filter(k=>!STORES[k].none)),cats:new Set(Object.keys(CATS)),
+  cands:null,sort:'best',open:null,seed:1,view:'results',q:'',mine:new Map(),N:20,B:30};
+
+// ---------- my list persistence (per viewer, optional) ----------
+try{const s=JSON.parse(localStorage.getItem('wichtel-mylist')||'[]');s.forEach(([id,q])=>{if(BYID[id])state.mine.set(id,q)});}catch(e){}
+function saveMine(){try{localStorage.setItem('wichtel-mylist',JSON.stringify([...state.mine]));}catch(e){}}
+
+const MAPQ={dm:'dm-drogerie markt',rossmann:'Rossmann',aldi:'Aldi Nord',rewe:'REWE',action:'Action',tedi:'TEDi',kaufland:'Kaufland',lidl:'Lidl',woolworth:'Woolworth'};
+try{const st=JSON.parse(localStorage.getItem('wichtel-stores')||'null');if(Array.isArray(st))state.stores=new Set(st.filter(k=>STORES[k]&&!STORES[k].none));const pz=localStorage.getItem('wichtel-plz');if(pz)$('plz').value=pz;}catch(e){}
+function saveStores(){try{localStorage.setItem('wichtel-stores',JSON.stringify([...state.stores]));localStorage.setItem('wichtel-plz',$('plz').value);}catch(e){}}
+function renderFilters(){
+  const plz=($('plz').value||'').replace(/\D/g,'').slice(0,5);
+  $('tiles').innerHTML=Object.entries(STORES).map(([k,v])=>{
+    const map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPQ[k]+' '+(plz||'Hamburg'))}`;
+    const link=`<a href="${map}" target="_blank" rel="noopener" data-nolink>Find nearest${plz?' to '+plz:''} ↗</a>`;
+    if(v.none)return `<div class="tile off"><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span><div class="info">No online prices, so it's not in the results</div>${link}</div>`;
+    const its=ITEMS.filter(i=>i.s===k),min=Math.min(...its.map(i=>i.p)),on=state.stores.has(k);
+    return `<div class="tile ${on?'on':''}" data-store="${k}" role="checkbox" aria-checked="${on}" tabindex="0"><span class="ck">${on?'✓':''}</span><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span><div class="info">${its.length} items · from ${eur(min)}</div>${link}</div>`;
+  }).join('');
+  $('cats').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="chip ${state.cats.has(k)?'on':''}" data-cat="${k}">${v}</button>`).join('');
+  const sel=[...state.stores].map(k=>STORES[k].n);
+  $('storeSum').textContent=sel.length===8?'All 8 stores':sel.length?sel.join(', '):'None, tap to choose';
+}
+$('fresh').textContent=`${ITEMS.length} real products · prices from store websites, checked ${CHECKED}`;
+document.querySelectorAll('.chk').forEach(e=>e.textContent=CHECKED);
+
+function rng(seed){let s=seed>>>0||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return((s>>>0)%10000)/10000;};}
+function readNum(id,min,max,def){let v=parseFloat(String($(id).value).replace(',','.'));if(!isFinite(v))v=def;return Math.min(max,Math.max(min,v));}
+
+function buildUnits(items,per,allowBundles){
+  const units=items.map(it=>({items:[it],p:it.p,stores:[it.s],key:it.c}));
+  if(allowBundles&&per>=1.4){
+    for(let i=0;i<items.length;i++)for(let j=i+1;j<items.length;j++){
+      const a=items[i],b=items[j];
+      if(a.c===b.c)continue;
+      if(a.c!=='sweet'&&b.c!=='sweet'&&a.s!==b.s)continue;
+      const p=+(a.p+b.p).toFixed(2);
+      if(p>per*1.2)continue;
+      units.push({items:[a,b],p,stores:[...new Set([a.s,b.s])],key:[a.c,b.c].sort().join('+')});
+    }
+  }
+  return units;
+}
+function pick(units,N,B,scoreFn,maxSame){
+  if(!units.length)return null;
+  const minP=Math.min(...units.map(u=>u.p));
+  const groups={};
+  units.forEach(u=>{const x={u,s:scoreFn(u)};(groups[u.key]=groups[u.key]||[]).push(x)});
+  Object.values(groups).forEach(g=>g.sort((a,b)=>b.s-a.s));
+  const keys=Object.keys(groups).sort((a,b)=>groups[b][0].s-groups[a][0].s);
+  const qty=new Map(),use={};let count=0,total=0;
+  const fits=u=>total+u.p+minP*(N-count-1)<=B+1e-9;
+  const itemOk=u=>u.items.every(it=>(use[it.id]||0)<maxSame);
+  const add=u=>{qty.set(u,(qty.get(u)||0)+1);u.items.forEach(it=>use[it.id]=(use[it.id]||0)+1);count++;total+=u.p;};
+  let progress=true;
+  while(count<N&&progress){
+    progress=false;
+    for(const k of keys){
+      if(count>=N)break;
+      const g=groups[k];
+      let c=g.find(x=>!qty.has(x.u)&&itemOk(x.u)&&fits(x.u));
+      if(!c){const r=g.filter(x=>qty.has(x.u)&&itemOk(x.u)&&fits(x.u));r.sort((a,b)=>qty.get(a.u)-qty.get(b.u)||b.s-a.s);c=r[0];}
+      if(c){add(c.u);progress=true;}
+    }
+  }
+  if(count<N){const cheap=[...units].sort((a,b)=>a.p-b.p);let g=0;while(count<N&&g++<500){const u=cheap.find(fits);if(!u)break;add(u);}}
+  if(count<N)return {fail:true,minNeeded:minP*N};
+  const lines=[...qty.entries()].map(([u,q])=>({u,q})).sort((a,b)=>b.q-a.q||a.u.p-b.u.p);
+  return {lines,total,count};
+}
+
+function generate(){
+  const N=Math.round(readNum('n',1,100,20)),B=readNum('b',1,1000,30);
+  $('n').value=N;$('b').value=B;state.N=N;state.B=B;
+  const maxSame=+$('same').value,bundles=$('bundles').checked;
+  const items=ITEMS.filter(i=>state.stores.has(i.s)&&state.cats.has(i.c));
+  const wraps=WRAPS.filter(w=>state.stores.has(w.s)).sort((a,b)=>a.p-b.p);
+  const wrap=$('wrap').checked&&wraps.length?wraps[0]:null;
+  state.view='results';
+  if(!items.length){state.cands=null;$('out').innerHTML=`<div class="err">Pick at least one store and one gift type that overlap.</div>`;return;}
+  const giftB=B-(wrap?N*wrap.p:0);
+  if(giftB<=0){state.cands=null;$('out').innerHTML=`<div class="err">Gift bags alone would use the whole budget. Turn bags off or raise the budget.</div>`;return;}
+  const per=giftB/N,target=per*.9;
+  const units=buildUnits(items,per,bundles);
+  const jitters=[0,1,2,3].map(k=>{const R=rng(state.seed*7919+k*104729+N*31+Math.round(B*100));const j={};items.forEach(i=>j[i.id]=R());return j;});
+  const jj=(u,J)=>u.items.reduce((s,i)=>s+J[i.id],0)/u.items.length;
+  const bestFn=J=>u=>-Math.abs(u.p-target)/Math.max(target,.5)+jj(u,J)*.35+(u.stores.length===1&&u.items.length>1?.1:0);
+  const cheapFn=J=>u=>-u.p+jj(u,J)*.15-(u.items.length>1?.3:0);
+
+  const sel=[...state.stores].filter(s=>items.some(i=>i.s===s));
+  const combos=sel.map(s=>[s]);
+  for(let x=0;x<sel.length;x++)for(let y=x+1;y<sel.length;y++){combos.push([sel[x],sel[y]]);for(let z=y+1;z<sel.length;z++)combos.push([sel[x],sel[y],sel[z]]);}
+  const seen=new Set(),cands=[];
+  const push=r=>{
+    if(!r||r.fail)return;
+    const sig=r.lines.map(l=>l.u.items.map(i=>i.id).join('+')+'x'+l.q).sort().join('|');
+    if(seen.has(sig))return;seen.add(sig);
+    r.sig=sig;r.wrap=wrap;r.N=N;r.B=B;r.grand=r.total+(wrap?N*wrap.p:0);
+    r.lists=storeLists(r);r.nStores=new Set(r.lines.flatMap(l=>l.u.stores)).size;
+    const variety=new Set(r.lines.flatMap(l=>l.u.items.map(i=>i.c))).size;
+    r.score=r.lines.length*1.2+variety*4-r.nStores*5-Math.abs(giftB*.92-r.total)*.6;
+    cands.push(r);
+  };
+  for(const cb of combos){
+    const u=units.filter(x=>x.stores.every(s=>cb.includes(s)));
+    push(pick(u,N,giftB,bestFn(jitters[0]),maxSame));
+    if(cb.length>1)push(pick(u,N,giftB,cheapFn(jitters[0]),maxSame));
+  }
+  jitters.forEach(J=>{push(pick(units,N,giftB,bestFn(J),maxSame));push(pick(units,N,giftB,cheapFn(J),maxSame));});
+  if(!cands.length){
+    const a=pick(units,N,giftB,cheapFn(jitters[0]),99);
+    const need=((a&&a.minNeeded)||0)+(wrap?N*wrap.p:0);
+    state.cands=null;
+    $('out').innerHTML=`<div class="err">No list of ${N} gifts fits in ${eur(B)} with these filters${need?`. The cheapest possible list needs about ${eur(need)}`:''}. Add stores or gift types, raise "max identical", or raise the budget.</div>`;return;
+  }
+  state.cands=cands;state.open=null;
+  render();
+  $('filters').open=false;
+  $('out').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function storeLists(r){
+  const by={};
+  r.lines.forEach(({u,q})=>u.items.forEach(it=>{const s=by[it.s]=by[it.s]||{};s[it.id]=s[it.id]||{it,q:0};s[it.id].q+=q;}));
+  if(r.wrap){const s=by[r.wrap.s]=by[r.wrap.s]||{};s[r.wrap.id]={it:r.wrap,q:r.N};}
+  return Object.entries(by).map(([k,v])=>({k,rows:Object.values(v),sub:Object.values(v).reduce((a,x)=>a+x.it.p*x.q,0)})).sort((a,b)=>b.sub-a.sub);
+}
+const SORTS={
+  best:{t:'Best',m:'Variety, price & stops',f:(a,b)=>b.score-a.score},
+  cheap:{t:'Cheapest',m:'Lowest total',f:(a,b)=>a.grand-b.grand||b.score-a.score},
+  fewest:{t:'Fewest stops',m:'Fewer stores to visit',f:(a,b)=>a.nStores-b.nStores||b.score-a.score}
+};
+const sorted=k=>[...state.cands].sort(SORTS[k].f);
+const tag=it=>it.src==='offer'?`<span class="tag offer">offer ${it.when}</span>`:it.src==='rep'?`<span class="tag rep">report · ${it.when}</span>`:`<span class="tag site">store site · ${CHECKED}</span>`;
+const logo=k=>`<span class="logo-s" style="background:${STORES[k].c}">${STORES[k].n}</span>`;
+const addBtn=(ids,label)=>{const inList=ids.every(id=>state.mine.has(id));return `<button class="add ${inList?'in':''}" data-add="${ids.join(',')}">${inList?'✓ In list':label||'+ Add'}</button>`;};
+const itemSub=it=>`${eur(it.p)} each · ${tag(it)} ${STORES[it.s].u?`<a href="${STORES[it.s].u(it.n)}" target="_blank" rel="noopener">view on site ↗</a>`:''}`;
+
+function render(){
+  if(state.view==='browse')return renderBrowse();
+  if(!state.cands)return;
+  const K=+$('k').value;
+  const list=sorted(state.sort).slice(0,K);
+  const top={best:sorted('best')[0],cheap:sorted('cheap')[0],fewest:sorted('fewest')[0]};
+  $('out').innerHTML=`
+  <div class="tabs">${Object.entries(SORTS).map(([k,s])=>`<button class="tab ${k===state.sort?'on':''}" data-sort="${k}"><div class="t">${s.t}</div><div class="p">${eur(top[k].grand)}</div><div class="m">${top[k].nStores} store${top[k].nStores>1?'s':''} · ${eur(top[k].grand/top[k].N)}/gift</div></button>`).join('')}</div>
+  <div class="bar"><span>Showing <b style="color:var(--ink)">${list.length}</b> of ${state.cands.length} combinations, sorted by ${SORTS[state.sort].t.toLowerCase()}</span>
+    <span>Show <select id="k2">${[1,2,3,4,5,6,7,8,9,10].map(v=>`<option ${v===K?'selected':''}>${v}</option>`).join('')}</select></span></div>
+  ${list.map((r,i)=>card(r,i)).join('')}
+  <div class="acts" style="padding:4px 0 0"><button class="btn ghost" id="shuffle">Find different combinations</button><button class="btn ghost" data-browse>Browse all products</button></div>`;
+}
+function card(r,i){
+  const open=state.open===r.sig,left=r.B-r.grand;
+  const allIds=[...new Set(r.lines.flatMap(l=>l.u.items.map(x=>x.id)))];
+  return `<div class="res ${open?'open':''}">
+    <div class="route" data-open-card="${esc(r.sig)}">
+      <div class="stops">
+        ${i===0?`<span class="badge ${state.sort==='best'?'':'c'}">${SORTS[state.sort].t}</span>`:''}
+        <div class="chain">${r.lists.map((l,j)=>(j?'<span class="ln"></span>':'')+logo(l.k)).join('')}</div>
+        <div class="meta">${r.nStores===1?'<b>Direct</b> · 1 store':`${r.lists.length} stops`} · ${r.lines.length} different gifts · ${left>=0?eur(left)+' under budget':'<span style="color:var(--red)">over by '+eur(-left)+'</span>'}</div>
+      </div>
+      <div class="price"><div class="big">${eur(r.grand)}</div><div class="sm">${eur(r.grand/r.N)} per gift</div><button class="btn sm">${open?'Hide list':'View list'}</button></div>
+    </div>
+    ${open?`<div class="det">
+      <div class="sec">
+        <h3><span>Gifts in this combination</span><button class="add" data-addcombo="${esc(r.sig)}">+ Add whole combo</button></h3>
+        ${r.lines.map(({u,q})=>`<div class="gift"><div><span class="q">${q}×</span>${u.items.map(x=>esc(x.n)).join(' + ')}</div><div class="r"><b>${eur(u.p)}</b>${addBtn(u.items.map(x=>x.id),'+ Add')}</div></div>`).join('')}
+      </div>
+      <div class="sec" style="padding-top:0">
+        <h3><span>Shopping list by store</span></h3>
+        ${r.lists.map(l=>`<div class="store"><div class="hd"><div class="l">${logo(l.k)}<small>${l.rows.reduce((a,x)=>a+x.q,0)} items</small></div><div>${eur(l.sub)}</div></div>
+          ${l.rows.map(x=>`<div class="item"><div><div class="nm">${x.q} × ${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div>${addBtn([x.it.id])}</div></div>`).join('')}</div>`).join('')}
+      </div>
+      <div class="acts"><button class="btn" data-copy="${esc(r.sig)}">Copy this list</button></div>
+    </div>`:''}
+  </div>`;
+}
+function renderBrowse(){
+  const q=state.q.trim().toLowerCase();
+  const items=ITEMS.filter(i=>state.stores.has(i.s)&&state.cats.has(i.c)&&(!q||(i.n+' '+STORES[i.s].n+' '+i.sz).toLowerCase().includes(q))).sort((a,b)=>a.p-b.p);
+  const by={};items.forEach(i=>(by[i.s]=by[i.s]||[]).push(i));
+  $('out').innerHTML=`<div class="panel">
+    <div class="bar" style="margin:0 0 10px"><b style="color:var(--ink);font-size:16px">All products (${items.length})</b>${state.cands?'<button class="btn sm ghost" id="backRes">← Back to combinations</button>':''}</div>
+    <input class="search2" id="q" placeholder="Search e.g. Lippenpflege, Weihnachtsmann, Tasse" value="${esc(state.q)}">
+    <div class="chips" style="margin-bottom:12px">${Object.entries(CATS).map(([k,v])=>`<button class="chip ${state.cats.has(k)?'on':''}" data-cat="${k}">${v}</button>`).join('')}</div>
+    ${Object.entries(by).map(([k,its])=>`<div class="store"><div class="hd"><div class="l">${logo(k)}<small>${its.length} items</small></div><div style="font-weight:500;color:var(--muted);font-size:13px">from ${eur(its[0].p)}</div></div>
+      ${its.map(it=>`<div class="item"><div><div class="nm">${esc(it.n)}${it.sz?` <span>${esc(it.sz)}</span>`:''}</div><div class="sub">${CATS[it.c]} · ${itemSub(it)}</div></div><div class="rt"><div class="pr">${eur(it.p)}</div>${addBtn([it.id])}</div></div>`).join('')}</div>`).join('')||'<div class="empty">Nothing matches. Try another word or turn on more stores in Filters.</div>'}
+  </div>`;
+  const qi=$('q');if(qi&&state.focusQ){qi.focus();qi.setSelectionRange(qi.value.length,qi.value.length);}
+}
+
+// ---------- My list ----------
+function mineRows(){return [...state.mine].map(([id,q])=>({it:BYID[id],q})).filter(x=>x.it);}
+function mineTotals(){const rows=mineRows();return {rows,total:rows.reduce((a,x)=>a+x.it.p*x.q,0),count:rows.filter(x=>x.it.c!=='wrap').reduce((a,x)=>a+x.q,0)};}
+function addIds(ids,n=1){ids.forEach(id=>state.mine.set(id,(state.mine.get(id)||0)+n));saveMine();updateBar();}
+function updateBar(){
+  const {total,count,rows}=mineTotals();
+  const N=Math.round(readNum('n',1,100,20)),B=readNum('b',1,1000,30);
+  $('mbCount').textContent=rows.length?`· ${count} item${count!==1?'s':''}`:'';
+  $('mbStat').textContent=rows.length?`${eur(total)} of ${eur(B)} · ${count} items for ${N} gifts · ${new Set(rows.map(r=>r.it.s)).size} stores`:'Tap + Add on any item to start your own list';
+  $('mbDel').style.display=rows.length?'':'none';
+  $('mbProg').style.width=Math.min(100,count/N*100)+'%';
+  if($('sheet').classList.contains('show'))renderSheet();
+}
+function renderSheet(){
+  const {rows,total,count}=mineTotals();
+  const N=Math.round(readNum('n',1,100,20)),B=readNum('b',1,1000,30);
+  const by={};rows.forEach(r=>(by[r.it.s]=by[r.it.s]||[]).push(r));
+  const left=B-total;
+  $('sheetBody').innerHTML=`
+    <div class="head"><h2>🧾 My list</h2><div style="display:flex;gap:8px;align-items:center">${rows.length?'<button class="btn sm ghost" data-clear style="border-color:var(--red);color:var(--red)">🗑 Delete list</button>':''}<button class="x" data-close aria-label="Close">✕</button></div></div>
+    ${state.confirmClear?`<div class="panel" style="border:2px solid var(--red)"><b>Delete your whole list?</b> This removes all ${rows.length} products. <div class="acts" style="padding:10px 0 0"><button class="btn" style="background:var(--red)" data-clearyes>Yes, delete it</button><button class="btn ghost" data-clearno>Cancel</button></div></div>`:''}
+    <div class="stats">
+      <div class="stat"><div class="k">Total</div><div class="v">${eur(total)}</div></div>
+      <div class="stat"><div class="k">${left>=0?'Left in budget':'Over budget'}</div><div class="v ${left>=0?'ok':'bad'}">${eur(Math.abs(left))}</div></div>
+      <div class="stat"><div class="k">Items (for ${N} gifts)</div><div class="v ${count>=N?'ok':''}">${count}</div></div>
+    </div>
+    ${rows.length?Object.entries(by).map(([k,rs])=>`<div class="store" style="background:#fff"><div class="hd"><div class="l">${logo(k)}<small>${rs.reduce((a,x)=>a+x.q,0)} items</small></div><div>${eur(rs.reduce((a,x)=>a+x.it.p*x.q,0))}</div></div>
+      ${rs.map(x=>`<div class="item ck"><input type="checkbox" aria-label="got it"><div><div class="nm">${esc(x.it.n)}${x.it.sz?` <span>${esc(x.it.sz)}</span>`:''}</div><div class="sub">${itemSub(x.it)}</div></div><div class="rt"><div class="pr">${eur(x.it.p*x.q)}</div><div class="qty"><button data-dec="${x.it.id}" aria-label="less">−</button><b>${x.q}</b><button data-inc="${x.it.id}" aria-label="more">+</button><button data-del="${x.it.id}" aria-label="remove" title="Remove" style="color:var(--red)">✕</button></div></div></div>`).join('')}</div>`).join('')
+    :'<div class="panel empty">Your list is empty. Open any combination and tap <b>+ Add</b> on the items you like, or browse all products.</div>'}
+    <div class="acts" style="padding:6px 0 0">${rows.length?'<button class="btn" data-copymine>Copy my list</button>':''}<button class="btn ghost" data-browse>Browse all products</button></div>
+    <div class="acts" style="padding:8px 0 0"><button class="btn ghost" data-close>Done</button></div>`;
+}
+function openSheet(){$('sheet').classList.add('show');renderSheet();}
+
+// ---------- copy ----------
+function comboText(r){
+  let t=`Secret Santa: ${r.N} gifts, ${eur(r.grand)}\nPrices checked ${CHECKED}\n`;
+  r.lists.forEach(l=>{t+=`\n${STORES[l.k].n} (${eur(l.sub)})\n`;l.rows.forEach(x=>t+=`☐ ${x.q} × ${x.it.n}${x.it.sz?' '+x.it.sz:''} – ${eur(x.it.p*x.q)}\n`);});
+  t+=`\nGifts:\n`;r.lines.forEach(({u,q})=>t+=`${q}× ${u.items.map(i=>i.n).join(' + ')} (${eur(u.p)})\n`);
+  return t;
+}
+function mineText(){
+  const {rows,total,count}=mineTotals();const by={};rows.forEach(r=>(by[r.it.s]=by[r.it.s]||[]).push(r));
+  let t=`My Secret Santa list: ${count} items, ${eur(total)}\nPrices checked ${CHECKED}\n`;
+  Object.entries(by).forEach(([k,rs])=>{t+=`\n${STORES[k].n}\n`;rs.forEach(x=>t+=`☐ ${x.q} × ${x.it.n}${x.it.sz?' '+x.it.sz:''} – ${eur(x.it.p*x.q)}\n`);});
+  return t;
+}
+function toast(m){const e=$('toast');e.textContent=m;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('show'),1800);}
+async function copyText(t){
+  try{await navigator.clipboard.writeText(t);toast('Copied');}
+  catch(e){const ta=document.createElement('textarea');ta.style.position='absolute';ta.style.left='-9999px';ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');toast('Copied');}catch(_){toast('Copy blocked, select the text manually');}ta.remove();}
+}
+function toastUndo(){const e=$('toast');e.innerHTML='List deleted · <button data-undo style="background:none;border:0;color:#7fb8ff;font:700 14px Inter;cursor:pointer;pointer-events:auto">Undo</button>';e.style.pointerEvents='auto';e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>{e.classList.remove('show');e.style.pointerEvents='none';state.undo=null;},6000);}
+const findCand=sig=>state.cands&&state.cands.find(c=>c.sig===sig);
+
+// ---------- events ----------
+document.addEventListener('click',e=>{
+  const t=e.target,cl=s=>t.closest(s);
+  if(cl('[data-open]')){$('near').scrollIntoView({behavior:'smooth'});return;}
+  if(cl('[data-nolink]'))return;
+  if(cl('.tile[data-store]')){const k=cl('.tile[data-store]').dataset.store;state.stores.has(k)?state.stores.delete(k):state.stores.add(k);saveStores();renderFilters();if(state.view==='browse')renderBrowse();else if(state.cands)toast('Stores changed: hit Search gifts to update');return;}
+  if(cl('[data-allstores]')){Object.keys(STORES).forEach(k=>{if(!STORES[k].none)state.stores.add(k)});saveStores();renderFilters();if(state.view==='browse')renderBrowse();return;}
+  if(cl('[data-nostores]')){state.stores.clear();saveStores();renderFilters();if(state.view==='browse')renderBrowse();return;}
+  if(cl('[data-cat]')){const k=cl('[data-cat]').dataset.cat;state.cats.has(k)?state.cats.delete(k):state.cats.add(k);renderFilters();if(state.view==='browse')renderBrowse();return;}
+  if(cl('[data-step]')){const[id,d]=cl('[data-step]').dataset.step.split(',');const el=$(id);el.value=Math.max(1,(parseFloat(el.value)||0)+(+d));updateBar();return;}
+  if(cl('[data-sort]')){state.sort=cl('[data-sort]').dataset.sort;state.open=null;render();return;}
+  if(cl('[data-add]')){e.preventDefault();const ids=cl('[data-add]').dataset.add.split(',').map(x=>x.startsWith('w')?x:+x);
+    if(ids.every(id=>state.mine.has(id))){toast('Already in My list (change amounts there)');return;}
+    addIds(ids);toast('Added to My list');render();return;}
+  if(cl('[data-addcombo]')){const r=findCand(cl('[data-addcombo]').dataset.addcombo);if(r){r.lists.forEach(l=>l.rows.forEach(x=>addIds([x.it.id],x.q)));toast(`Added ${r.N} gifts to My list`);render();}return;}
+  if(cl('[data-copy]')){const r=findCand(cl('[data-copy]').dataset.copy);if(r)copyText(comboText(r));return;}
+  if(cl('[data-open-card]')){const s=cl('[data-open-card]').dataset.openCard;state.open=state.open===s?null:s;render();return;}
+  if(cl('[data-browse]')||t.id==='browse'){e.preventDefault();$('sheet').classList.remove('show');state.view='browse';renderBrowse();$('out').scrollIntoView({behavior:'smooth',block:'start'});return;}
+  if(t.id==='backRes'){state.view='results';render();return;}
+  if(cl('[data-mbdel]')){e.stopPropagation();state.confirmClear=true;openSheet();return;}
+  if(cl('[data-mylist]')){openSheet();return;}
+  if(cl('[data-close]')||t.id==='sheet'){$('sheet').classList.remove('show');state.confirmClear=false;return;}
+  if(cl('[data-inc]')){const raw=cl('[data-inc]').dataset.inc;addIds([isNaN(+raw)?raw:+raw]);render();return;}
+  if(cl('[data-dec]')){const raw=cl('[data-dec]').dataset.dec,id=isNaN(+raw)?raw:+raw;const q=(state.mine.get(id)||0)-1;q>0?state.mine.set(id,q):state.mine.delete(id);saveMine();updateBar();render();return;}
+  if(cl('[data-del]')){const raw=cl('[data-del]').dataset.del,id=isNaN(+raw)?raw:+raw;state.mine.delete(id);saveMine();updateBar();render();toast('Removed from My list');return;}
+  if(cl('[data-undo]')){if(state.undo){state.mine=new Map(state.undo);state.undo=null;saveMine();updateBar();render();toast('List restored');}return;}
+  if(cl('[data-copymine]')){copyText(mineText());return;}
+  if(cl('[data-clear]')){state.confirmClear=true;renderSheet();return;}
+  if(cl('[data-clearyes]')){state.undo=[...state.mine];state.mine.clear();state.confirmClear=false;saveMine();updateBar();render();$('sheet').classList.remove('show');toastUndo();return;}
+  if(cl('[data-clearno]')){state.confirmClear=false;renderSheet();return;}
+  if(t.id==='go'){generate();return;}
+  if(t.id==='shuffle'){state.seed++;generate();return;}
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='k2'){$('k').value=e.target.value;render();}
+  if(e.target.id==='k'&&state.cands&&state.view==='results')render();
+  if(e.target.matches('.item.ck input'))e.target.closest('.item').classList.toggle('done',e.target.checked);
+});
+document.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target.matches('.tile[data-store]')){e.preventDefault();e.target.click();}});
+document.addEventListener('input',e=>{
+  if(e.target.id==='q'){state.q=e.target.value;state.focusQ=true;renderBrowse();state.focusQ=false;}
+  if(e.target.id==='n'||e.target.id==='b')updateBar();
+  if(e.target.id==='plz'){saveStores();renderFilters();}
+});
+renderFilters();updateBar();
+
+</script>
+</body>
+</html>
