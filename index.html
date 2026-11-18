@@ -153,7 +153,7 @@ details.panel .body{margin-top:12px}
 .tile.on{border-color:var(--blue);background:#f5f9ff}
 .tile .ck{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:#fff;background:#fff}
 .tile.on .ck{background:var(--blue);border-color:var(--blue)}
-.tile .info{font-size:12px;color:var(--muted)}
+.tile .tinfo{font-size:12px;color:var(--muted)}
 .tile a{font-size:12px;font-weight:600}
 .tile.off{opacity:.5;cursor:not-allowed}
 .linkbtn{background:none;border:0;color:var(--blue);font:700 13px Inter;cursor:pointer;padding:4px}
@@ -686,9 +686,9 @@ function renderFilters(){
     const d=(key==='geo'||key.length===5)?distFor(key,k):null;
     const dist=d!=null&&d<99?`<div class="dist ${d>r?'far':''}">📍 ${t('kmAway',{d:km(d)})}${nb&&nb.addr?` · <span style="font-weight:500">${esc(nb.addr)}</span>`:''}</div>`:'';
     const link=`<a href="${map}" target="_blank" rel="noopener" data-nolink>${t('findNearest')}</a>`;
-    if(v.none)return `<div class="tile off"><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span>${dist}<div class="info">${t('noOnline')}</div>${link}</div>`;
+    if(v.none)return `<div class="tile off"><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span>${dist}<div class="tinfo">${t('noOnline')}</div>${link}</div>`;
     const its=ITEMS.filter(i=>i.s===k),min=Math.min(...its.map(i=>i.p)),on=state.stores.has(k);
-    return `<div class="tile ${on?'on':''}" data-store="${k}" role="checkbox" aria-checked="${on}" tabindex="0"><span class="ck">${on?'✓':''}</span><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span>${dist}<div class="info">${t('itemsFrom',{n:its.length,p:eur(min)})}</div>${link}</div>`;
+    return `<div class="tile ${on?'on':''}" data-store="${k}" role="checkbox" aria-checked="${on}" tabindex="0"><span class="ck">${on?'✓':''}</span><span class="logo-s" style="background:${v.c};align-self:flex-start">${v.n}</span>${dist}<div class="tinfo">${t('itemsFrom',{n:its.length,p:eur(min)})}</div>${link}</div>`;
   }).join('');
   $('cats').innerHTML=Object.keys(CATS).map(k=>`<button class="chip ${state.cats.has(k)?'on':''}" data-cat="${k}">${catLabel(k)}</button>`).join('');
   const sel=[...state.stores].map(k=>STORES[k].n);
